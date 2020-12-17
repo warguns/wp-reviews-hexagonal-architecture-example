@@ -1,0 +1,142 @@
+#reviews .grid-container {
+    display: grid;
+    grid-template-areas:
+        'image author author author author author author author'
+        'image stars stars stars stars stars stars stars '
+        'image title title title title title title title '
+        'image content content content content content content content'
+        'image content content content content content content content '
+        'image content content content content content content content '
+    ;
+    grid-gap: 30px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    padding: 50px;
+    margin: 5px 25px 25px 25px;
+    -webkit-box-shadow: 4px 15px 23px -10px rgb(152, 152, 152);
+    -moz-box-shadow: 4px 15px 23px -10px rgb(152, 152, 152);
+    box-shadow: 4px 15px 23px -10px rgb(152, 152, 152);
+}
+#reviews .grid-image {
+    grid-area: image;
+}
+#reviews .grid-image img {
+    border-radius: 50%;
+    max-width: 100%;
+}
+
+#reviews .grid-author {
+    grid-area: author;
+    vertical-align: center;
+}
+
+#reviews .grid-author .author {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#reviews .grid-author .time {
+    color: #d0d0d0;
+    font-style: italic;
+    font-size: 16px;
+}
+
+#reviews .grid-content {
+    grid-area: content;
+}
+
+#reviews .grid-stars {
+    grid-area: stars;
+    height: 30px;
+}
+
+#reviews .grid-title {
+    grid-area: title;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#reviews .average {
+    padding: 25px 25px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    margin: 5px 25px 25px 25px;
+    -webkit-box-shadow: 4px 15px 23px -10px rgb(152, 152, 152);
+    -moz-box-shadow: 4px 15px 23px -10px rgb(152, 152, 152);
+    box-shadow: 4px 15px 23px -10px rgb(152, 152, 152);
+}
+
+#reviews input, #reviews textarea {
+    display: block;
+    width: 100%;
+    border: solid 1px #000;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#reviews textarea {
+    height: 250px;
+}
+
+.average h4 {
+    margin-bottom: 30px;
+}
+
+#reviews .average .submit {
+    margin-top: 55px;
+}
+
+
+#reviews .total {
+    margin: 5px 45px;
+}
+
+#reviews input.checkbox {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-top: 4px;
+    margin-left: 2px;
+    display: inline-block;
+}
+
+#reviews .alert {
+    text-align: center;
+    color: white;
+    background: #0e7b17;
+    display: block;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+#reviews h1 {
+    margin-top: 20px;
+    vertical-align: center;
+}
+
+@media (max-width: 1000px) {
+    #reviews .grid-container {
+        display: grid;
+        grid-template-areas:
+        'image '
+        'author'
+        'stars '
+        'title '
+        'content '
+    ;
+        grid-gap: 30px;
+        background-color: #ffffff;
+        border-radius: 25px;
+        padding: 50px;
+        margin: 25px;
+        -webkit-box-shadow: 4px 15px 23px -10px rgb(152, 152, 152);
+        -moz-box-shadow: 4px 15px 23px -10px rgb(152, 152, 152);
+        box-shadow: 4px 15px 23px -10px rgb(152, 152, 152);
+    }
+
+    #reviews label.checkbox {
+        float: left;
+        display: inline;
+    }
+}
+

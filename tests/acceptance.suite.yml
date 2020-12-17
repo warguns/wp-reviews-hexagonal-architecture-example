@@ -1,0 +1,41 @@
+# Codeception Test Suite Configuration
+#
+# Suite for acceptance tests.
+# Perform tests in browser using the WPWebDriver or WPBrowser.
+# Use WPDb to set up your initial database fixture.
+# If you need both WPWebDriver and WPBrowser tests - create a separate suite.
+
+actor: AcceptanceTester
+modules:
+    enabled:
+        - WPDb
+        - WPWebDriver
+        - \Helper\Acceptance
+    config:
+        WPDb:
+            dsn: '%TEST_SITE_DB_DSN%'
+            user: '%TEST_SITE_DB_USER%'
+            password: '%TEST_SITE_DB_PASSWORD%'
+            dump: 'tests/_data/dump.sql'
+            #import the dump before the tests; this means the test site database will be repopulated before the tests.
+            populate: true
+            # re-import the dump between tests; this means the test site database will be repopulated between the tests.
+            cleanup: true
+            waitlock: 10
+            url: '%TEST_SITE_WP_URL%'
+            urlReplacement: true #replace the hardcoded dump URL with the one above
+            tablePrefix: '%TEST_SITE_TABLE_PREFIX%'
+        WPWebDriver:
+            url: '%TEST_SITE_WP_URL%'
+            browser: chrome
+            host: 'chrome'
+            port: 4444
+            window_size: 1024x768
+            capabilities:
+                chromeOptions:
+                    args: [ "--disable-gpu", "window-size=1920x1080" ]
+            restart: true
+            wait: 2
+            adminUsername: '%TEST_SITE_ADMIN_USERNAME%'
+            adminPassword:  '%TEST_SITE_ADMIN_PASSWORD%'
+            adminUrl: '%TEST_SITE_WP_ADMIN_PATH%'
