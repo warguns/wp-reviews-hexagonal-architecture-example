@@ -9,7 +9,7 @@ facilitates testing, debugging and modification in a more visible way, like a wo
 
 ## It lacks of:
 
-* A Dependency Injector (dependencies are applied manually, nowadays most frameworks has it's own dependency aurowire)
+* A Dependency Injector (dependencies are applied manually, nowadays most frameworks has it's own dependency autowire)
 * An Event dispatcher (there's a class simulating it in a synced way)
 * Database Migration manager to manage plugin database updates
 
