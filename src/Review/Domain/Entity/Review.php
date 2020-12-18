@@ -44,7 +44,7 @@ final class Review
     /** @var \DateTime */
     private $updatedAt;
 
-    public function __construct(UuidInterface $uuid, ProductId $postId, Status $status, string $author, string $content, string $title, Email $email, Stars $stars, \DateTime $createdAt, \DateTime $updatedAt)
+    private function __construct(UuidInterface $uuid, ProductId $postId, Status $status, string $author, string $content, string $title, Email $email, Stars $stars, \DateTime $createdAt, \DateTime $updatedAt)
     {
         $this->uuid = $uuid;
         $this->postId = $postId;

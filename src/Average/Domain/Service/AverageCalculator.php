@@ -9,7 +9,7 @@ use BetterReview\Average\Domain\Entity\Average;
 
 final class AverageCalculator
 {
-    public function calculate(?Average $average)
+    public function calculate(?Average $average): ReviewStats
     {
         if (null === $average) {
             return new ReviewStats();

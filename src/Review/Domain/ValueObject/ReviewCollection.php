@@ -11,7 +11,7 @@ final class ReviewCollection implements \Iterator
     /** @var array */
     private $collection;
 
-    public function __construct(array $collection = [])
+    private function __construct(array $collection = [])
     {
         $this->collection = $collection;
     }

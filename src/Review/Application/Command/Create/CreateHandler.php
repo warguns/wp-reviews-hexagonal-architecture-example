@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace BetterReview\Review\Application\Command\Create;
 
-
 use BetterReview\Review\Domain\Entity\Review;
 use BetterReview\Review\Domain\Event\ReviewAdded;
 use BetterReview\Review\Domain\Repository\ReviewRepository;

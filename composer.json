@@ -31,6 +31,7 @@
         "codeception/module-db": "^1.0",
         "codeception/module-filesystem": "^1.0",
         "codeception/module-cli": "^1.0",
-        "codeception/util-universalframework": "^1.0"
+        "codeception/util-universalframework": "^1.0",
+        "codeception/mockery-module": "^0.4.0"
     }
 }

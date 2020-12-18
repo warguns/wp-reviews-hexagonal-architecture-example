@@ -14,7 +14,7 @@ final class Stars
     /** @var float */
     private $stars;
 
-    public function __construct(float $stars)
+    private function __construct(float $stars)
     {
         $this->stars = $stars;
     }
