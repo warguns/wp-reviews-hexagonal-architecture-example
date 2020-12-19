@@ -20,10 +20,10 @@ class ReviewAddedTest extends Unit
         $status = Status::PENDING;
         $event = new ReviewAdded($correlationUuid, $parentUuid, $postId, $status, $stars);
 
-        self::assertEquals($correlationUuid, $event->getCorrelationUuid());
-        self::assertEquals($parentUuid, $event->getParentUuid());
-        self::assertEquals($postId, $event->getPostId());
-        self::assertEquals($stars, $event->getStars());
-        self::assertEquals($status, $event->getStatus());
+        self::assertEquals($correlationUuid, $event->get_correlation_uuid());
+        self::assertEquals($parentUuid, $event->get_parent_uuid());
+        self::assertEquals($postId, $event->get_product_id());
+        self::assertEquals($stars, $event->get_stars());
+        self::assertEquals($status, $event->get_status());
     }
 }

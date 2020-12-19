@@ -1,51 +1,95 @@
 <?php
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Review\Domain\Event;
 
 use BetterReview\Shared\Domain\Event\Event;
 use Ramsey\Uuid\UuidInterface;
 
-final class ReviewDeleted implements Event
-{
-    /** @var UuidInterface */
-    private $correlationUuid;
+/**
+ * Class ReviewDeleted
+ *
+ * @package BetterReview\Review\Domain\Event
+ */
+final class ReviewDeleted implements Event {
 
-    /** @var UuidInterface */
-    private $parentUuid;
+	/**
+	 * Correlation Uuid.
+	 *
+	 * @var UuidInterface
+	 */
+	private $correlation_uuid;
 
-    /** @var int */
-    private $postId;
+	/**
+	 * Parent Uuid.
+	 *
+	 * @var UuidInterface
+	 */
+	private $parent_uuid;
 
-    /** @var float */
-    private $stars;
+	/**
+	 * Product id.
+	 *
+	 * @var int
+	 */
+	private $product_id;
 
-    public function __construct(UuidInterface $correlationUuid, UuidInterface $parentUuid, int $postId, float $stars)
-    {
-        $this->correlationUuid = $correlationUuid;
-        $this->parentUuid = $parentUuid;
-        $this->postId = $postId;
-        $this->stars = $stars;
-    }
+	/**
+	 * Stars
+	 *
+	 * @var float
+	 */
+	private $stars;
 
-    public function getParentUuid(): string
-    {
-        return $this->parentUuid->toString();
-    }
+	/**
+	 * ReviewDeleted constructor.
+	 *
+	 * @param UuidInterface $correlation_uuid correlation uuid.
+	 * @param UuidInterface $parent_uuid parent uuid.
+	 * @param int           $product_id product id.
+	 * @param float         $stars stars.
+	 */
+	public function __construct( UuidInterface $correlation_uuid, UuidInterface $parent_uuid, int $product_id, float $stars ) {
+		$this->correlation_uuid = $correlation_uuid;
+		$this->parent_uuid      = $parent_uuid;
+		$this->product_id       = $product_id;
+		$this->stars            = $stars;
+	}
 
-    public function getCorrelationUuid(): string
-    {
-        return $this->correlationUuid->toString();
-    }
+	/**
+	 * Gets parent id
+	 *
+	 * @return string
+	 */
+	public function get_parent_uuid(): string {
+		return $this->parent_uuid->toString();
+	}
 
-    public function getPostId(): int
-    {
-        return $this->postId;
-    }
+	/**
+	 * Get Correlation id
+	 *
+	 * @return string
+	 */
+	public function get_correlation_uuid(): string {
+		return $this->correlation_uuid->toString();
+	}
 
-    public function getStars(): float
-    {
-        return $this->stars;
-    }
+	/**
+	 * Gets product id.
+	 *
+	 * @return int
+	 */
+	public function get_product_id(): int {
+		return $this->product_id;
+	}
+
+	/**
+	 * Get Stars.
+	 *
+	 * @return float
+	 */
+	public function get_stars(): float {
+		return $this->stars;
+	}
 }

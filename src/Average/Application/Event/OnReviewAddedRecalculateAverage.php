@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Average\Application\Event;
 
@@ -9,34 +9,55 @@ use BetterReview\Average\Domain\Repository\AverageRepository;
 use BetterReview\Review\Domain\Event\ReviewAdded;
 use BetterReview\Shared\Domain\ValueObject\ProductId;
 
-final class OnReviewAddedRecalculateAverage
-{
-    /** @var AverageRepository */
-    private $averageRepository;
+/**
+ * Class OnReviewAddedRecalculateAverage
+ *
+ * @package BetterReview\Average\Application\Event
+ */
+final class OnReviewAddedRecalculateAverage {
+	/**
+	 * Repo.
+	 *
+	 * @var AverageRepository
+	 */
+	private $average_repository;
 
-    public function __construct(AverageRepository $averageRepository)
-    {
-        $this->averageRepository = $averageRepository;
-    }
+	/**
+	 * OnReviewAddedRecalculateAverage constructor.
+	 *
+	 * @param AverageRepository $average_repository repo.
+	 */
+	public function __construct( AverageRepository $average_repository ) {
+		$this->average_repository = $average_repository;
+	}
 
-    public function __invoke(ReviewAdded $event): void
-    {
-        $average = $this->averageRepository->find(ProductId::fromInt($event->getPostId()));
+	/**
+	 * Invocation.
+	 *
+	 * @param ReviewAdded $event event.
+	 */
+	public function __invoke( ReviewAdded $event ): void {
+		$average = $this->average_repository->find( ProductId::from_int( $event->get_product_id() ) );
 
-        if (null === $average) {
-            $this->averageRepository->insert(new Average(
-                ProductId::fromInt($event->getPostId()),
-                1,
-                $event->getStars()
-            ));
-            return;
-        }
+		if ( null === $average ) {
+			$this->average_repository->insert(
+				new Average(
+					ProductId::from_int( $event->get_product_id() ),
+					1,
+					$event->get_stars()
+				)
+			);
 
-        $this->averageRepository->update(new Average(
-            ProductId::fromInt($event->getPostId()),
-            $average->getReviewCount() + 1,
-            $average->getTotalReview() + $event->getStars()
-        ));
+			return;
+		}
 
-    }
+		$this->average_repository->update(
+			new Average(
+				ProductId::from_int( $event->get_product_id() ),
+				$average->get_review_count() + 1,
+				$average->get_total_review() + $event->get_stars()
+			)
+		);
+
+	}
 }

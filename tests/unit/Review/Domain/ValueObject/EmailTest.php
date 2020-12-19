@@ -12,9 +12,9 @@ class EmailTest extends \Codeception\Test\Unit
 
     public function testFromString()
     {
-        $email = Email::fromString(self::TEST_TEST_COM);
+        $email = Email::from_string(self::TEST_TEST_COM);
 
-        $this->assertEquals(self::TEST_TEST_COM, $email->getEmail());
+        $this->assertEquals(self::TEST_TEST_COM, $email->get_email());
     }
 
 }

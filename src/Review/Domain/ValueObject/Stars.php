@@ -1,38 +1,58 @@
 <?php
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Review\Domain\ValueObject;
 
 use BetterReview\Review\Domain\Exception\IncorrectStars;
 
-final class Stars
-{
-    private const MIN_STARS = 0;
-    private const MAX_STARS = 5;
+/**
+ * Class Stars
+ *
+ * @package BetterReview\Review\Domain\ValueObject
+ */
+final class Stars {
+	private const MIN_STARS = 0;
+	private const MAX_STARS = 5;
 
-    /** @var float */
-    private $stars;
+	/**
+	 * Stars.
+	 *
+	 * @var float stars.
+	 */
+	private $stars;
 
-    private function __construct(float $stars)
-    {
-        $this->stars = $stars;
-    }
+	/**
+	 * Stars constructor.
+	 *
+	 * @param float $stars stars.
+	 */
+	private function __construct( float $stars ) {
+		$this->stars = $stars;
+	}
 
-    public static function fromResult(float $stars): self
-    {
-        if ($stars > self::MAX_STARS || $stars < self::MIN_STARS) {
-            throw new IncorrectStars();
-        }
+	/**
+	 * Creates From result.
+	 *
+	 * @param float $stars stars.
+	 *
+	 * @return static
+	 * @throws IncorrectStars Incorrect stars.
+	 */
+	public static function from_result( float $stars ): self {
+		if ( $stars > self::MAX_STARS || $stars < self::MIN_STARS ) {
+			throw new IncorrectStars();
+		}
 
-        return new static($stars);
-    }
+		return new static( $stars );
+	}
 
-    /**
-     * @return float
-     */
-    public function getStars(): float
-    {
-        return $this->stars;
-    }
+	/**
+	 * Gets stars.
+	 *
+	 * @return float
+	 */
+	public function get_stars(): float {
+		return $this->stars;
+	}
 }

@@ -1,59 +1,104 @@
 <?php
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Average\Domain\Entity;
 
 use BetterReview\Shared\Domain\ValueObject\ProductId;
 
-final class Average
-{
-    /** @var ProductId */
-    private $postId;
+/**
+ * Class Average
+ *
+ * @package BetterReview\Average\Domain\Entity
+ */
+final class Average {
 
-    /** @var int */
-    private $reviewCount;
+	/**
+	 * Product Id.
+	 *
+	 * @var ProductId
+	 */
+	private $product_id;
 
-    /** @var float */
-    private $totalReview;
+	/**
+	 * Review count.
+	 *
+	 * @var int
+	 */
+	private $review_count;
 
-    public function __construct(ProductId $postId, int $reviewCount, float $totalReview)
-    {
-        $this->postId = $postId;
-        $this->reviewCount = $reviewCount;
-        $this->totalReview = $totalReview;
-    }
+	/**
+	 * Total Review.
+	 *
+	 * @var float
+	 */
+	private $total_review;
 
-    public static function fromResult(array $result): self
-    {
-        return new static(
-            ProductId::fromInt((int) $result['post_id']),
-            (int) $result['review_count'],
-            (float) $result['total_review']
-        );
-    }
+	/**
+	 * Average constructor.
+	 *
+	 * @param ProductId $product_id product id.
+	 * @param int       $review_count review count.
+	 * @param float     $total_review total review.
+	 */
+	public function __construct( ProductId $product_id, int $review_count, float $total_review ) {
+		$this->product_id   = $product_id;
+		$this->review_count = $review_count;
+		$this->total_review = $total_review;
+	}
 
-    public function getPostId(): ProductId
-    {
-        return $this->postId;
-    }
+	/**
+	 * Creates From result
+	 *
+	 * @param array $result result.
+	 *
+	 * @return static
+	 */
+	public static function from_result( array $result ): self {
+		return new static(
+			ProductId::from_int( (int) $result['post_id'] ),
+			(int) $result['review_count'],
+			(float) $result['total_review']
+		);
+	}
 
-    public function getReviewCount(): int
-    {
-        return $this->reviewCount;
-    }
+	/**
+	 * Converts to array
+	 *
+	 * @return array
+	 */
+	public function to_array(): array {
+		return array(
+			'post_id'      => $this->get_product_id()->get_id(),
+			'review_count' => $this->get_review_count(),
+			'total_review' => $this->get_total_review(),
+		);
+	}
 
-    public function getTotalReview(): float
-    {
-        return $this->totalReview;
-    }
+	/**
+	 * Getter
+	 *
+	 * @return ProductId
+	 */
+	public function get_product_id(): ProductId {
+		return $this->product_id;
+	}
 
-    public function toArray(): array
-    {
-        return [
-            'post_id' => $this->getPostId()->getId(),
-            'review_count' => $this->getReviewCount(),
-            'total_review' => $this->getTotalReview(),
-        ];
-    }
+	/**
+	 * Get Review Count
+	 *
+	 * @return int
+	 */
+	public function get_review_count(): int {
+		return $this->review_count;
+	}
+
+	/**
+	 * Get Total Review
+	 *
+	 * @return float
+	 */
+	public function get_total_review(): float {
+		return $this->total_review;
+	}
 }

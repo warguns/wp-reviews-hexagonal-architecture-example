@@ -1,24 +1,38 @@
 <?php
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Review\Application\Query\Get;
 
-final class GetQuery
-{
-    /** @var string */
-    private $uuid;
+/**
+ * Class GetQuery
+ *
+ * @package BetterReview\Review\Application\Query\Get
+ */
+final class GetQuery {
 
-    public function __construct(string $uuid)
-    {
-        $this->uuid = $uuid;
-    }
+	/**
+	 * Uuid param
+	 *
+	 * @var string $uuid uuid.
+	 */
+	private $uuid;
 
-    /**
-     * @return string
-     */
-    public function getUuid(): string
-    {
-        return $this->uuid;
-    }
+	/**
+	 * GetQuery constructor.
+	 *
+	 * @param string $uuid uuid.
+	 */
+	public function __construct( string $uuid ) {
+		$this->uuid = $uuid;
+	}
+
+	/**
+	 * Gets the uuid
+	 *
+	 * @return string
+	 */
+	public function get_uuid(): string {
+		return $this->uuid;
+	}
 }

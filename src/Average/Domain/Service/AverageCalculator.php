@@ -1,20 +1,31 @@
 <?php
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Average\Domain\Service;
 
 use BetterReview\Average\Domain\DTO\ReviewStats;
 use BetterReview\Average\Domain\Entity\Average;
 
-final class AverageCalculator
-{
-    public function calculate(?Average $average): ReviewStats
-    {
-        if (null === $average) {
-            return new ReviewStats();
-        }
+/**
+ * Class AverageCalculator
+ *
+ * @package BetterReview\Average\Domain\Service
+ */
+final class AverageCalculator {
 
-        return new ReviewStats($average->getReviewCount(), ($average->getReviewCount() > 0) ? $average->getTotalReview() / $average->getReviewCount() : 0);
-    }
+	/**
+	 * Calculates the average.
+	 *
+	 * @param Average|null $average average.
+	 *
+	 * @return ReviewStats
+	 */
+	public function calculate( ?Average $average ): ReviewStats {
+		if ( null === $average ) {
+			return new ReviewStats();
+		}
+
+		return new ReviewStats( $average->get_review_count(), ( $average->get_review_count() > 0 ) ? $average->get_total_review() / $average->get_review_count() : 0 );
+	}
 }

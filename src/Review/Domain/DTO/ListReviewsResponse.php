@@ -1,38 +1,57 @@
 <?php
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Review\Domain\DTO;
 
 use BetterReview\Review\Domain\ValueObject\ReviewCollection;
 
-final class ListReviewsResponse
-{
-    /** @var ReviewCollection */
-    private $reviewCollection;
+/**
+ * Class ListReviewsResponse
+ *
+ * @package BetterReview\Review\Domain\DTO
+ */
+final class ListReviewsResponse {
+	/**
+	 * Repo.
+	 *
+	 * @var ReviewCollection repo.
+	 */
+	private $review_collection;
 
-    /** @var int */
-    private $totals;
+	/**
+	 * Totals.
+	 *
+	 * @var int totals.
+	 */
+	private $totals;
 
-    public function __construct(ReviewCollection $reviewCollection, int $totals)
-    {
-        $this->reviewCollection = $reviewCollection;
-        $this->totals = $totals;
-    }
+	/**
+	 * ListReviewsResponse constructor.
+	 *
+	 * @param ReviewCollection $review_collection reviewCollection.
+	 * @param int              $totals totals.
+	 */
+	public function __construct( ReviewCollection $review_collection, int $totals ) {
+		$this->review_collection = $review_collection;
+		$this->totals            = $totals;
+	}
 
-    /**
-     * @return ReviewCollection
-     */
-    public function getReviewCollection(): ReviewCollection
-    {
-        return $this->reviewCollection;
-    }
+	/**
+	 * Getter.
+	 *
+	 * @return ReviewCollection
+	 */
+	public function get_review_collection(): ReviewCollection {
+		return $this->review_collection;
+	}
 
-    /**
-     * @return int
-     */
-    public function getTotals(): int
-    {
-        return $this->totals;
-    }
+	/**
+	 * Getter.
+	 *
+	 * @return int
+	 */
+	public function get_totals(): int {
+		return $this->totals;
+	}
 }

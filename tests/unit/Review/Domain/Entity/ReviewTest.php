@@ -25,17 +25,17 @@ class ReviewTest extends Unit
 
         $review = Review::build(
             Uuid::uuid4(),
-            ProductId::fromInt($postId),
+            ProductId::from_int($postId),
             Status::new(),
             $author,
             $content,
             $title,
-            Email::fromString($email),
-            Stars::fromResult($stars)
+            Email::from_string($email),
+            Stars::from_result($stars)
         );
 
         self::assertEquals([
-            'uuid' => $review->getUuid()->toString(),
+            'uuid' => $review->get_uuid()->toString(),
             'post_id' => $postId,
             'status' => 'pending',
             'author' => $author,
@@ -43,9 +43,9 @@ class ReviewTest extends Unit
             'content' => $content,
             'email' => $email,
             'stars' => $stars,
-            'created_at' => $review->getCreatedAt()->format(DATE_ATOM),
-            'updated_at' => $review->getUpdatedAt()->format(DATE_ATOM)
-        ], $review->toArray());
+            'created_at' => $review->get_created_at()->format(DATE_ATOM),
+            'updated_at' => $review->get_updated_at()->format(DATE_ATOM)
+        ], $review->to_array());
     }
 
     public function testItCanBeCreatedFromResult()
@@ -58,7 +58,7 @@ class ReviewTest extends Unit
         $title = 'Title';
         $email = 'test@test.com';
 
-        $review = Review::fromResult([
+        $review = Review::from_result([
             'uuid' => $uuid,
             'post_id' => $postId,
             'status' => 'pending',
@@ -82,6 +82,6 @@ class ReviewTest extends Unit
             'stars' => $stars,
             'created_at' => (new \DateTime())->format(DATE_ATOM),
             'updated_at' => (new \DateTime())->format(DATE_ATOM)
-        ], $review->toArray());
+        ], $review->to_array());
     }
 }

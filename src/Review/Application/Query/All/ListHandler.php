@@ -1,33 +1,51 @@
 <?php
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Review\Application\Query\All;
 
 use BetterReview\Review\Domain\DTO\ListReviewsResponse;
 use BetterReview\Review\Domain\Repository\ReviewRepository;
 
-final class ListHandler
-{
-    /** @var ReviewRepository */
-    private $reviewRepository;
+/**
+ * Class ListHandler
+ *
+ * @package BetterReview\Review\Application\Query\All
+ */
+final class ListHandler {
 
-    public function __construct(ReviewRepository $reviewRepository)
-    {
-        $this->reviewRepository = $reviewRepository;
-    }
+	/**
+	 * Repo
+	 *
+	 * @var ReviewRepository $review_repository Repo.
+	 */
+	private $review_repository;
 
-    public function run(ListQuery $query): ListReviewsResponse
-    {
-        return new ListReviewsResponse(
-            $this->reviewRepository->all(
-                $query->getLimit(),
-                $query->getOffset(),
-                $query->getOrderBy(),
-                $query->getSearch()
-            ),
-            $this->reviewRepository->countAll($query->getSearch())
-        );
-    }
+	/**
+	 * ListHandler constructor.
+	 *
+	 * @param ReviewRepository $review_repository Repo.
+	 */
+	public function __construct( ReviewRepository $review_repository ) {
+		$this->review_repository = $review_repository;
+	}
 
+	/**
+	 * Execution.
+	 *
+	 * @param ListQuery $query query dto.
+	 *
+	 * @return ListReviewsResponse
+	 */
+	public function run( ListQuery $query ): ListReviewsResponse {
+		return new ListReviewsResponse(
+			$this->review_repository->all(
+				$query->get_limit(),
+				$query->get_offset(),
+				$query->get_order_by(),
+				$query->get_search()
+			),
+			$this->review_repository->count_all( $query->get_search() )
+		);
+	}
 }

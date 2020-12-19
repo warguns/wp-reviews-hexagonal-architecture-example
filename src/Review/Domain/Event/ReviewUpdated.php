@@ -1,69 +1,130 @@
 <?php
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Review\Domain\Event;
 
 use BetterReview\Shared\Domain\Event\Event;
 use Ramsey\Uuid\UuidInterface;
 
-final class ReviewUpdated implements Event
-{
-    /** @var UuidInterface */
-    private $correlationUuid;
+/**
+ * Class ReviewUpdated
+ *
+ * @package BetterReview\Review\Domain\Event
+ */
+final class ReviewUpdated implements Event {
 
-    /** @var UuidInterface */
-    private $parentUuid;
+	/**
+	 * Correlation uuid.
+	 *
+	 * @var UuidInterface
+	 */
+	private $correlation_uuid;
 
-    /** @var int */
-    private $postId;
+	/**
+	 * Parent uuid.
+	 *
+	 * @var UuidInterface
+	 */
+	private $parent_uuid;
 
-    /** @var string */
-    private $status;
+	/**
+	 * Product id.
+	 *
+	 * @var int
+	 */
+	private $product_id;
 
-    /** @var float */
-    private $oldStars;
+	/**
+	 * Status
+	 *
+	 * @var string
+	 */
+	private $status;
 
-    /** @var float */
-    private $stars;
+	/**
+	 * Old Stars.
+	 *
+	 * @var float
+	 */
+	private $old_stars;
 
-    public function __construct(UuidInterface $correlationUuid, UuidInterface $parentUuid, int $postId, string $status, float $oldStars, float $stars)
-    {
-        $this->correlationUuid = $correlationUuid;
-        $this->parentUuid = $parentUuid;
-        $this->postId = $postId;
-        $this->status = $status;
-        $this->oldStars = $oldStars;
-        $this->stars = $stars;
-    }
+	/**
+	 * Stars.
+	 *
+	 * @var float
+	 */
+	private $stars;
 
-    public function getParentUuid(): string
-    {
-        return $this->parentUuid->toString();
-    }
+	/**
+	 * ReviewUpdated constructor.
+	 *
+	 * @param UuidInterface $correlation_uuid correlation.
+	 * @param UuidInterface $parent_uuid parent.
+	 * @param int           $product_id product id.
+	 * @param string        $status status.
+	 * @param float         $old_stars old stars.
+	 * @param float         $stars new stars.
+	 */
+	public function __construct( UuidInterface $correlation_uuid, UuidInterface $parent_uuid, int $product_id, string $status, float $old_stars, float $stars ) {
+		$this->correlation_uuid = $correlation_uuid;
+		$this->parent_uuid      = $parent_uuid;
+		$this->product_id       = $product_id;
+		$this->status           = $status;
+		$this->old_stars        = $old_stars;
+		$this->stars            = $stars;
+	}
 
-    public function getCorrelationUuid(): string
-    {
-        return $this->correlationUuid->toString();
-    }
+	/**
+	 * Gets parent id
+	 *
+	 * @return string
+	 */
+	public function get_parent_uuid(): string {
+		return $this->parent_uuid->toString();
+	}
 
-    public function getPostId(): int
-    {
-        return $this->postId;
-    }
+	/**
+	 * Get Correlation id
+	 *
+	 * @return string
+	 */
+	public function get_correlation_uuid(): string {
+		return $this->correlation_uuid->toString();
+	}
 
-    public function getOldStars(): float
-    {
-        return $this->oldStars;
-    }
+	/**
+	 * Gets product id.
+	 *
+	 * @return int
+	 */
+	public function get_product_id(): int {
+		return $this->product_id;
+	}
 
-    public function getStars(): float
-    {
-        return $this->stars;
-    }
+	/**
+	 * Get new Stars.
+	 *
+	 * @return float
+	 */
+	public function get_stars(): float {
+		return $this->stars;
+	}
+	/**
+	 * Get old Stars.
+	 *
+	 * @return float
+	 */
+	public function get_old_stars(): float {
+		return $this->old_stars;
+	}
 
-    public function getStatus(): string
-    {
-        return $this->status;
-    }
+	/**
+	 * Gets Status.
+	 *
+	 * @return string
+	 */
+	public function get_status(): string {
+		return $this->status;
+	}
 }

@@ -1,64 +1,105 @@
 <?php
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Review\Application\Query\All;
 
-final class ListQuery
-{
-    /** @var null|string */
-    private $search;
+/**
+ * Class ListQuery
+ *
+ * @package BetterReview\Review\Application\Query\All
+ */
+final class ListQuery {
 
-    /** @var int */
-    private $limit;
+	/**
+	 * Search string
+	 *
+	 * @var null|string Search sring.
+	 */
+	private $search;
 
-    /** @var int */
-    private $offset;
+	/**
+	 * Limit
+	 *
+	 * @var int Limit.
+	 */
+	private $limit;
 
-    /** @var null|string */
-    private $orderby;
+	/**
+	 * Offset.
+	 *
+	 * @var int Offset.
+	 */
+	private $offset;
 
-    /** @var null|string */
-    private $order;
+	/**
+	 * OrderBy.
+	 *
+	 * @var null|string OrderBy.
+	 */
+	private $orderby;
 
-    public function __construct(?string $search, int $limit, int $offset, ?string $orderby, ?string $order)
-    {
-        $this->search = $search;
-        $this->limit = $limit;
-        $this->offset = $offset;
-        $this->orderby = $orderby;
-        $this->order = $order;
-    }
+	/**
+	 * Order.
+	 *
+	 * @var null|string Order.
+	 */
+	private $order;
 
-    /**
-     * @return string
-     */
-    public function getSearch(): ?string
-    {
-        return $this->search;
-    }
+	/**
+	 * ListQuery constructor.
+	 *
+	 * @param string|null $search Search string.
+	 * @param int         $limit Limit.
+	 * @param int         $offset Offset.
+	 * @param string|null $orderby Order By.
+	 * @param string|null $order Order.
+	 */
+	public function __construct( ?string $search, int $limit, int $offset, ?string $orderby, ?string $order ) {
+		$this->search  = $search;
+		$this->limit   = $limit;
+		$this->offset  = $offset;
+		$this->orderby = $orderby;
+		$this->order   = $order;
+	}
 
-    /**
-     * @return int
-     */
-    public function getLimit(): int
-    {
-        return $this->limit;
-    }
+	/**
+	 * Gets the search string.
+	 *
+	 * @return string
+	 */
+	public function get_search(): ?string {
+		return $this->search;
+	}
 
-    /**
-     * @return int
-     */
-    public function getOffset(): int
-    {
-        return $this->offset;
-    }
+	/**
+	 * Gets the limit.
+	 *
+	 * @return int
+	 */
+	public function get_limit(): int {
+		return $this->limit;
+	}
 
-    public function getOrderBy(): array
-    {
-        if (null === $this->orderby) {
-            return [];
-        }
-        return [$this->orderby => $this->order];
-    }
+	/**
+	 * Gets the offset.
+	 *
+	 * @return int
+	 */
+	public function get_offset(): int {
+		return $this->offset;
+	}
+
+	/**
+	 * Gets the order by
+	 *
+	 * @return array|null[]|string[]
+	 */
+	public function get_order_by(): array {
+		if ( null === $this->orderby ) {
+			return array();
+		}
+
+		return array( $this->orderby => $this->order );
+	}
 }

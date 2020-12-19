@@ -1,80 +1,144 @@
 <?php
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Review\Domain\ValueObject;
 
 use BetterReview\Review\Domain\Entity\Review;
+use BetterReview\Review\Domain\Exception\IncorrectStars;
+use BetterReview\Review\Domain\Exception\StatusNotFound;
+use Iterator;
 
-final class ReviewCollection implements \Iterator
-{
-    /** @var array */
-    private $collection;
+/**
+ * Class ReviewCollection
+ *
+ * @package BetterReview\Review\Domain\ValueObject
+ */
+final class ReviewCollection implements Iterator {
+	/**
+	 * Collection.
+	 *
+	 * @var array
+	 */
+	private $collection;
 
-    private function __construct(array $collection = [])
-    {
-        $this->collection = $collection;
-    }
+	/**
+	 * ReviewCollection constructor.
+	 *
+	 * @param array $collection collection.
+	 */
+	private function __construct( array $collection = array() ) {
+		$this->collection = $collection;
+	}
 
-    public static function fromResults(array $results): self
-    {
-        $reviewArray = [];
-        foreach ($results as $result) {
-            $reviewArray[] = Review::fromResult($result);
-        }
+	/**
+	 * Create Collection from results.
+	 *
+	 * @param array $results results.
+	 *
+	 * @return static
+	 *
+	 * @throws IncorrectStars Incorrect stars.
+	 * @throws StatusNotFound Status not found.
+	 */
+	public static function from_results( array $results ): self {
+		$review_array = array();
+		foreach ( $results as $result ) {
+			$review_array[] = Review::from_result( $result );
+		}
 
-        return new ReviewCollection($reviewArray);
-    }
+		return new ReviewCollection( $review_array );
+	}
 
-    public function current()
-    {
-        return current($this->collection);
-    }
+	/**
+	 * Current
+	 *
+	 * @return mixed
+	 */
+	public function current() {
+		return current( $this->collection );
+	}
 
-    public function next()
-    {
-        return next($this->collection);
-    }
+	/**
+	 * Next
+	 *
+	 * @return mixed|void
+	 */
+	public function next() {
+		return next( $this->collection );
+	}
 
-    public function key()
-    {
-        return key($this->collection);
-    }
+	/**
+	 * Key
+	 *
+	 * @return bool|float|int|string|null
+	 */
+	public function key() {
+		return key( $this->collection );
+	}
 
-    public function valid()
-    {
-        return current($this->collection);
-    }
+	/**
+	 * Valid
+	 *
+	 * @return bool|mixed
+	 */
+	public function valid() {
+		return current( $this->collection );
+	}
 
-    public function rewind()
-    {
-        return reset($this->collection);
-    }
+	/**
+	 * Rewind
+	 *
+	 * @return mixed|void
+	 */
+	public function rewind() {
+		return reset( $this->collection );
+	}
 
-    public function toArray(): array
-    {
-        $collection = [];
-        /** @var Review $review */
-        foreach($this->collection as $review) {
-            $collection[] = $review->toArray();
-        }
+	/**
+	 * Converts to array
+	 *
+	 * @return array
+	 */
+	public function to_array(): array {
+		$collection = array();
+		/**
+		 * Review
+		 *
+		 * @var Review $review review.
+		 */
+		foreach ( $this->collection as $review ) {
+			$collection[] = $review->to_array();
+		}
 
-        return $collection;
-    }
+		return $collection;
+	}
 
-    public function count(): int
-    {
-        return count($this->collection);
-    }
+	/**
+	 * Count
+	 *
+	 * @return int count.
+	 */
+	public function count(): int {
+		return count( $this->collection );
+	}
 
-    public function getPostIds(): array
-    {
-        $ids = [];
-        /** @var Review $review */
-        foreach ($this->collection as $review) {
-            $ids[] = $review->getPostId()->getId();
-        }
+	/**
+	 * Get Posts Ids.
+	 *
+	 * @return array
+	 */
+	public function get_product_ids(): array {
+		$ids = array();
+		/**
+		 * Review
+		 *
+		 * @var Review $review review.
+		 */
+		foreach ( $this->collection as $review ) {
+			$ids[] = $review->get_product_id()->get_id();
+		}
 
-        return $ids;
-    }
+		return $ids;
+	}
 }

@@ -17,7 +17,7 @@ class AverageTest extends Unit
     public function testItCanBeCreated()
     {
         $average = new Average(
-            ProductId::fromInt(self::PRODUCT_ID),
+            ProductId::from_int(self::PRODUCT_ID),
             self::REVIEWCOUNT,
             self::TOTALREVIEW
         );
@@ -25,6 +25,6 @@ class AverageTest extends Unit
             'post_id' => self::PRODUCT_ID,
             'review_count' => self::REVIEWCOUNT,
             'total_review' => self::TOTALREVIEW,
-        ], $average->toArray());
+        ], $average->to_array());
     }
 }

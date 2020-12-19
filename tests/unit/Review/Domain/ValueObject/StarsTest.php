@@ -11,19 +11,19 @@ class StarsTest extends \Codeception\Test\Unit
 {
     public function testItCanBeCreated()
     {
-        $stars = Stars::fromResult(4.4);
-        self::assertEquals(4.4, $stars->getStars());
+        $stars = Stars::from_result(4.4);
+        self::assertEquals(4.4, $stars->get_stars());
     }
 
     public function testItCannotBeLessThanZero()
     {
         $this->expectException(IncorrectStars::class);
-        $stars = Stars::fromResult(-1);
+        $stars = Stars::from_result(-1);
     }
 
     public function testItCannotBeMoreThanFive()
     {
         $this->expectException(IncorrectStars::class);
-        $stars = Stars::fromResult(6);
+        $stars = Stars::from_result(6);
     }
 }

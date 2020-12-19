@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="PhpCodeSniffer">
+    <phpcs_settings>
+      <PhpCSConfiguration beautifier_path="vendor/bin/phpcbf" standards="MySource;PEAR;PSR1;PSR12;PSR2;Squiz;WordPress;WordPress-Core;WordPress-Docs;WordPress-Extra;Zend" tool_path="vendor/bin/phpcs" timeout="20000" />
+    </phpcs_settings>
+  </component>
   <component name="PhpIncludePathManager">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/dg/mysql-dump" />
@@ -97,9 +102,25 @@
       <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
       <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
       <path value="$PROJECT_DIR$/vendor/codeception/mockery-module" />
+      <path value="$PROJECT_DIR$/../fast_rest" />
+      <path value="$PROJECT_DIR$/vendor/squizlabs/php_codesniffer" />
+      <path value="$PROJECT_DIR$/vendor/wp-coding-standards/wpcs" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="8.0">
+  <component name="PhpInterpreters">
+    <interpreters>
+      <interpreter id="2c2e31af-ac81-47e6-a9f2-863d7e0c4a63" name="wordpress" home="docker-compose://DATA" debugger_id="php.debugger.XDebug">
+        <remote_data INTERPRETER_PATH="/usr/local/bin/php" HELPERS_PATH="/opt/.phpstorm_helpers" INITIALIZED="false" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" DOCKER_ACCOUNT_NAME="Docker" DOCKER_COMPOSE_SERVICE_NAME="wordpress" DOCKER_REMOTE_PROJECT_PATH="/opt/project">
+          <type_data command="EXEC" />
+          <dockerComposeConfigurationPaths>
+            <item value="$PROJECT_DIR$/docker-compose.yml" />
+          </dockerComposeConfigurationPaths>
+          <envs />
+        </remote_data>
+      </interpreter>
+    </interpreters>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.2">
     <option name="suggestChangeDefaultLanguageLevel" value="false" />
   </component>
   <component name="PhpUnit">
