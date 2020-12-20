@@ -78,6 +78,7 @@ final class WpReviewRepository implements ReviewRepository {
 	 */
 	public function insert( Review $review ): bool {
 		global $wpdb;
+
 		return (bool) $wpdb->insert( $wpdb->prefix . 'better_review', $review->to_array() );
 	}
 
@@ -90,6 +91,7 @@ final class WpReviewRepository implements ReviewRepository {
 	 */
 	public function update( Review $review ): bool {
 		global $wpdb;
+
 		return (bool) $wpdb->update( $wpdb->prefix . 'better_review', $review->to_array(), array( 'uuid' => $review->get_uuid()->toString() ) );
 	}
 
@@ -102,6 +104,7 @@ final class WpReviewRepository implements ReviewRepository {
 	 */
 	public function delete( UuidInterface $review_uuid ): bool {
 		global $wpdb;
+
 		return (bool) $wpdb->delete( $wpdb->prefix . 'better_review', array( 'uuid' => $review_uuid->toString() ) );
 	}
 
@@ -109,8 +112,8 @@ final class WpReviewRepository implements ReviewRepository {
 	 * Finds By post.
 	 *
 	 * @param ProductId $product_id Product.
-	 * @param int       $limit Limit.
-	 * @param int       $offset Offset.
+	 * @param int $limit Limit.
+	 * @param int $offset Offset.
 	 *
 	 * @return ReviewCollection
 	 */
@@ -152,9 +155,9 @@ final class WpReviewRepository implements ReviewRepository {
 	/**
 	 * Get All reviews
 	 *
-	 * @param int         $limit limit.
-	 * @param int         $offset offset.
-	 * @param array       $orderby orderby.
+	 * @param int $limit limit.
+	 * @param int $offset offset.
+	 * @param array $orderby orderby.
 	 * @param string|null $search search.
 	 *
 	 * @return ReviewCollection
@@ -168,7 +171,7 @@ final class WpReviewRepository implements ReviewRepository {
 		}
 
 		if ( ! empty( $orderby ) ) {
-			$sql   .= 'ORDER BY ';
+			$sql    .= 'ORDER BY ';
 			$orders = array();
 			foreach ( $orderby as $field => $sort ) {
 				$orders[] = esc_sql( $field ) . ' ' . esc_sql( $sort );
@@ -202,7 +205,7 @@ final class WpReviewRepository implements ReviewRepository {
 		}
 		$count = $wpdb->get_results(
 			$wpdb->prepare(
-			"SELECT COUNT(*) as counter FROM {$wpdb->prefix}better_review WHERE title LIKE %s OR content LIKE %s OR status LIKE %s OR author LIKE %s",
+				"SELECT COUNT(*) as counter FROM {$wpdb->prefix}better_review WHERE title LIKE %s OR content LIKE %s OR status LIKE %s OR author LIKE %s",
 				(string) esc_sql( $wpdb->esc_like( $search ) ),
 				(string) esc_sql( $wpdb->esc_like( $search ) ),
 				(string) esc_sql( $wpdb->esc_like( $search ) ),
