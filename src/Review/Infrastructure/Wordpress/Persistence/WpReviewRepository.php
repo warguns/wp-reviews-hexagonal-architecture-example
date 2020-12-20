@@ -112,8 +112,8 @@ final class WpReviewRepository implements ReviewRepository {
 	 * Finds By post.
 	 *
 	 * @param ProductId $product_id Product.
-	 * @param int $limit Limit.
-	 * @param int $offset Offset.
+	 * @param int       $limit Limit.
+	 * @param int       $offset Offset.
 	 *
 	 * @return ReviewCollection
 	 */
@@ -155,38 +155,52 @@ final class WpReviewRepository implements ReviewRepository {
 	/**
 	 * Get All reviews
 	 *
-	 * @param int $limit limit.
-	 * @param int $offset offset.
-	 * @param array $orderby orderby.
+	 * @param int         $limit limit.
+	 * @param int         $offset offset.
+	 * @param array       $orderby orderby.
 	 * @param string|null $search search.
 	 *
 	 * @return ReviewCollection
 	 */
 	public function all( int $limit = self::LIMIT, int $offset = self::OFFSET, array $orderby = array(), string $search = null ): ReviewCollection {
 		global $wpdb;
-		$sql = 'SELECT * FROM ' . $this->prefix . 'better_review r INNER JOIN ' . $this->prefix . 'posts p on r.post_id = p.id ';
+		$select = 'SELECT * FROM ' . $this->prefix . 'better_review';
 
 		if ( null !== $search ) {
-			$sql .= 'WHERE title LIKE "%' . esc_sql( $search ) . '%" OR content LIKE "%' . esc_sql( $search ) . '%" OR status LIKE "%' . esc_sql( $search ) . '%" OR author LIKE "%' . esc_sql( $search ) . '%" ';
+			$where = $wpdb->prepare(
+				'WHERE title LIKE %s OR content LIKE %s OR status LIKE %s OR author LIKE %s',
+				(string) esc_sql( $wpdb->esc_like( $search ) ),
+				(string) esc_sql( $wpdb->esc_like( $search ) ),
+				(string) esc_sql( $wpdb->esc_like( $search ) ),
+				(string) esc_sql( $wpdb->esc_like( $search ) )
+			);
 		}
 
 		if ( ! empty( $orderby ) ) {
-			$sql    .= 'ORDER BY ';
-			$orders = array();
+			$ordering = 'ORDER BY ';
+			$orders   = array();
 			foreach ( $orderby as $field => $sort ) {
 				$orders[] = esc_sql( $field ) . ' ' . esc_sql( $sort );
 			}
-			$sql .= implode( ',', $orders );
+			$ordering .= implode( ',', $orders );
 		}
 
 		if ( $limit > 0 ) {
-			$sql .= ' LIMIT ' . esc_sql( $limit );
+			$limit_offset = ' LIMIT ' . esc_sql( $limit );
 			if ( $offset > 0 ) {
-				$sql .= ' OFFSET ' . esc_sql( $offset );
+				$limit_offset .= ' OFFSET ' . esc_sql( $offset );
 			}
 		}
 
-		return ReviewCollection::from_results( $wpdb->get_results( $sql, ARRAY_A ) );
+		// Samitized on prior lines.
+		$results = $wpdb->get_results(
+			$wpdb->prepare(
+				"$select $where $ordering $limit_offset" // @codingStandardsIgnoreLine
+			),
+			ARRAY_A
+		);
+
+		return ReviewCollection::from_results( $results );
 	}
 
 	/**
@@ -198,11 +212,6 @@ final class WpReviewRepository implements ReviewRepository {
 	 */
 	public function count_all( string $search = null ): int {
 		global $wpdb;
-		$sql = 'SELECT COUNT(*) as counter FROM ' . $this->prefix . 'better_review ';
-
-		if ( null !== $search ) {
-			$sql .= '" ';
-		}
 		$count = $wpdb->get_results(
 			$wpdb->prepare(
 				"SELECT COUNT(*) as counter FROM {$wpdb->prefix}better_review WHERE title LIKE %s OR content LIKE %s OR status LIKE %s OR author LIKE %s",

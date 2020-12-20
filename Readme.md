@@ -43,6 +43,12 @@ In order to prepare the plugin to publish, we remove the testing folder and depe
 Run: ```make plugin``` to generate a build folder with the reduced build inside.
 
 
+### Coding Standards
+
+The project is using the Wordpress Coding Standards, but ignoring the file naming exceptions and cache warnings.
+
+Run: ```make cs``` to run the CodeSniffer and check your files 
+
 ### About the plugin:
 
 The plugin permits you to append reviews on the posts using a shortcode, and manage it's publication on the admin area

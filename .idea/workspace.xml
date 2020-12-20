@@ -7,11 +7,9 @@
   <component name="ChangeListManager">
     <list default="true" id="547c3639-e3b4-40f3-9066-4107bf5fce20" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Average/Infrastructure/Wordpress/Persistence/WpAverageRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Average/Infrastructure/Wordpress/Persistence/WpAverageRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Review/Infrastructure/Wordpress/Persistence/WpReviewRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Infrastructure/Wordpress/Persistence/WpReviewRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Admin/SaveReviewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Admin/SaveReviewController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Front/GetReviewsBlockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Front/GetReviewsBlockController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Front/templates/GetReviewsBlock.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Front/templates/GetReviewsBlock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Admin/ListReviewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Admin/ListReviewsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.png" afterDir="false" />
     </list>
@@ -209,7 +207,7 @@
       <workItem from="1608282660836" duration="18624000" />
       <workItem from="1608372097698" duration="19842000" />
       <workItem from="1608403180893" duration="6285000" />
-      <workItem from="1608453322720" duration="13339000" />
+      <workItem from="1608453322720" duration="16251000" />
     </task>
     <task id="LOCAL-00001" summary="add unit tests">
       <created>1608289122073</created>
@@ -232,7 +230,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608461917870</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="apply wordpress coding style">
+      <created>1608470676043</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1608470676043</updated>
+    </task>
+    <task id="LOCAL-00005" summary="apply wordpress coding style">
+      <created>1608470758054</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1608470758054</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

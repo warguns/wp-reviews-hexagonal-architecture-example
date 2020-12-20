@@ -155,7 +155,8 @@ class ListReviewsController {
 	 */
 	private function get_bulk_delete_params(): ?array {
 		if ( isset( $_REQUEST['listreviews'], $_REQUEST['action'], $_REQUEST['bulk-delete'] ) && check_admin_referer( 'listreviews', 'listreviews' ) && wp_verify_nonce( sanitize_key( $_REQUEST['listreviews'] ), 'listreviews' ) ) {
-			$params['action']      = sanitize_text_field( wp_unslash( $_REQUEST['action'] ) );
+			$params['action'] = sanitize_text_field( wp_unslash( $_REQUEST['action'] ) );
+			// Sanitized during deletion.
 			$params['bulk-delete'] = wp_unslash( $_REQUEST['bulk-delete'] ); // @codingStandardsIgnoreLine
 
 			return $params;
