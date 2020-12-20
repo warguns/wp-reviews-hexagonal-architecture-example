@@ -9,8 +9,8 @@ facilitates testing, debugging and modification in a more visible way, like a wo
 
 ## It lacks of:
 
-* A Dependency Injector (dependencies are applied manually, nowadays most frameworks has it's own dependency autowire)
-* An Event dispatcher (there's a class simulating it in a synced way)
+* A Dependency Injector (dependencies are applied manually by a class implementing the PHP FIG PSR-11 Container interface, nowadays most frameworks has it's own dependency autowire) 
+* An Event dispatcher (there's a class simulating it in a synced way implementing PHP FIG PSR-14)
 * Database Migration manager to manage plugin database updates
 
 ## But has features like:

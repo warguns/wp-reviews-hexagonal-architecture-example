@@ -18,7 +18,7 @@ use BetterReview\UI\Wordpress\Front\GetReviewsBlockController;
 /**
  * Kernel Inspired directly from JWT auth's plugin: https://github.com/Tmeister/wp-api-jwt-auth
  */
-class Kernel {
+final class Kernel {
 	/**
 	 * Review Loader.
 	 *

@@ -35,7 +35,8 @@ class EditReviewController {
 	 * EditReviewController constructor.
 	 */
 	public function __construct() {
-		$this->get_handler = Container::resolve( GetHandler::class );
+		$container         = new Container();
+		$this->get_handler = $container->get( GetHandler::class );
 	}
 
 	/**

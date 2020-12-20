@@ -41,7 +41,7 @@ final class OnReviewAddedRecalculateAverage {
 	 *
 	 * @param ReviewAdded $event event.
 	 */
-	public function __invoke( ReviewAdded $event ): void {
+	public function __invoke( ReviewAdded $event ) {
 		$average = $this->average_repository->find( ProductId::from_int( $event->get_product_id() ) );
 
 		if ( null === $average ) {
@@ -53,7 +53,7 @@ final class OnReviewAddedRecalculateAverage {
 				)
 			);
 
-			return;
+			return $event;
 		}
 
 		$this->average_repository->update(
@@ -64,5 +64,6 @@ final class OnReviewAddedRecalculateAverage {
 			)
 		);
 
+		return $event;
 	}
 }

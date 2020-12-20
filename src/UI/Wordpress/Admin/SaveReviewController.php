@@ -42,8 +42,9 @@ class SaveReviewController {
 	 * SaveReviewController constructor.
 	 */
 	public function __construct() {
-		$this->create_handler = Container::resolve( CreateHandler::class );
-		$this->update_handler = Container::resolve( UpdateHandler::class );
+		$container            = new Container();
+		$this->create_handler = $container->get( CreateHandler::class );
+		$this->update_handler = $container->get( UpdateHandler::class );
 	}
 
 	/**

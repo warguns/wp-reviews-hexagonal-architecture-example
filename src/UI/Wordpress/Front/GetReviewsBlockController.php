@@ -53,9 +53,10 @@ class GetReviewsBlockController {
 	 * GetReviewsBlockController constructor.
 	 */
 	public function __construct() {
-		$this->get_by_post_handler = Container::resolve( GetByPostHandler::class );
-		$this->get_average_handler = Container::resolve( GetAverageHandler::class );
-		$this->create_handler      = Container::resolve( CreateHandler::class );
+		$container                 = new Container();
+		$this->get_by_post_handler = $container->get( GetByPostHandler::class );
+		$this->get_average_handler = $container->get( GetAverageHandler::class );
+		$this->create_handler      = $container->get( CreateHandler::class );
 	}
 
 	/**

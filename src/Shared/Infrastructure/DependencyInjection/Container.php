@@ -25,23 +25,28 @@ use BetterReview\Review\Domain\Event\ReviewAdded;
 use BetterReview\Review\Domain\Event\ReviewDeleted;
 use BetterReview\Review\Domain\Event\ReviewUpdated;
 use BetterReview\Review\Infrastructure\Wordpress\Persistence\WpReviewRepository;
+use BetterReview\Shared\Infrastructure\DependencyInjection\Exception\DependencyNotFound;
 use BetterReview\Shared\Infrastructure\EventDispatcher\EventDispatcher;
+use Psr\Container\ContainerInterface;
 
 /**
  * Class Container
  *
  * @package BetterReview\Shared\Infrastructure\DependencyInjection
  */
-final class Container {
+final class Container implements ContainerInterface {
 
 	/**
-	 * Dependency Resolver.
+	 * The Container Variable
 	 *
-	 * @param string $class_name class.
-	 *
-	 * @return mixed
+	 * @var array the container.
 	 */
-	public static function resolve( string $class_name ) {
+	private $container;
+
+	/**
+	 * Container constructor.
+	 */
+	public function __construct() {
 		global $wpdb;
 		$review_repository  = new WpReviewRepository( $wpdb->prefix );
 		$average_repository = new WpAverageRepository( $wpdb->prefix );
@@ -68,7 +73,7 @@ final class Container {
 		$on_review_updated_recalculate_average = new OnReviewUpdatedRecalculateAverage( $average_repository );
 		$on_review_deleted_recalculate_average = new OnReviewDeletedRecalculateAverage( $average_repository );
 
-		$container = array(
+		$this->container = array(
 			CreateHandler::class                     => $create_handler,
 			UpdateHandler::class                     => $update_handler,
 			DeleteHandler::class                     => $delete_handler,
@@ -80,7 +85,33 @@ final class Container {
 			OnReviewDeletedRecalculateAverage::class => $on_review_deleted_recalculate_average,
 			GetAverageHandler::class                 => $get_average_handler,
 		);
+	}
 
-		return $container[ $class_name ];
+	/**
+	 * Dependency Getter
+	 *
+	 * @param string $id dependency class name.
+	 *
+	 * @return mixed
+	 * @throws DependencyNotFound When The Dependency is not found.
+	 */
+	public function get( $id ) {
+
+		if ( ! $this->has( $id ) ) {
+			throw new DependencyNotFound( $id );
+		}
+
+		return $this->container[ $id ];
+	}
+
+	/**
+	 * Container Getter
+	 *
+	 * @param string $id id.
+	 *
+	 * @return bool
+	 */
+	public function has( $id ): bool {
+		return array_key_exists( $id, $this->container );
 	}
 }

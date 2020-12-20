@@ -9,9 +9,9 @@ declare( strict_types=1 );
 
 namespace BetterReview\Shared\Infrastructure\EventDispatcher;
 
-use BetterReview\Shared\Domain\Event\Event;
 use BetterReview\Shared\Domain\Service\EventDispatcher as SharedEventDispatcher;
 use BetterReview\Shared\Infrastructure\DependencyInjection\Container;
+use BetterReview\Shared\Infrastructure\DependencyInjection\Exception\DependencyNotFound;
 use BetterReview\Shared\Infrastructure\EventDispatcher\Exception\EventNotFound;
 
 /**
@@ -20,10 +20,11 @@ use BetterReview\Shared\Infrastructure\EventDispatcher\Exception\EventNotFound;
  * @package BetterReview\Shared\Infrastructure\EventDispatcher
  */
 final class EventDispatcher implements SharedEventDispatcher {
+
 	/**
 	 * Dispatchers.
 	 *
-	 * @var array
+	 * @var array dispatchers.
 	 */
 	private $dispatchers;
 
@@ -37,20 +38,25 @@ final class EventDispatcher implements SharedEventDispatcher {
 	}
 
 	/**
-	 * Event.
+	 * Dispatcher.
 	 *
-	 * @param Event $event event.
+	 * @param object $event event to dispatch.
 	 *
-	 * @throws EventNotFound EventNotFound.
+	 * @return object
+	 * @throws EventNotFound When event is not found.
+	 * @throws DependencyNotFound When a container dependency is not found.
 	 */
-	public function dispatch( Event $event ): void {
+	public function dispatch( $event ) {
 		if ( ! isset( $this->dispatchers[ get_class( $event ) ] ) ) {
 			throw new EventNotFound( get_class( $event ) );
 		}
 
+		$container = new Container();
 		foreach ( $this->dispatchers[ get_class( $event ) ] as $dispatcher ) {
-			$dispatcher = Container::resolve( $dispatcher );
-			$dispatcher( $event );
+			$dispatcher = $container->get( $dispatcher );
+			$event      = $dispatcher( $event );
 		}
+
+		return $event;
 	}
 }

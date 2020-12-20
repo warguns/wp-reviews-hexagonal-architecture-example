@@ -38,11 +38,13 @@ final class OnReviewUpdatedRecalculateAverage {
 	}
 
 	/**
-	 * Invoke.
+	 * Invocation.
 	 *
 	 * @param ReviewUpdated $event event.
+	 *
+	 * @return ReviewUpdated
 	 */
-	public function __invoke( ReviewUpdated $event ): void {
+	public function __invoke( ReviewUpdated $event ) {
 		$average = $this->average_repository->find( ProductId::from_int( $event->get_product_id() ) );
 
 		$this->average_repository->update(
@@ -52,5 +54,7 @@ final class OnReviewUpdatedRecalculateAverage {
 				$average->get_total_review() + $event->get_stars() - $event->get_old_stars()
 			)
 		);
+
+		return $event;
 	}
 }

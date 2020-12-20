@@ -9,19 +9,19 @@ declare( strict_types=1 );
 
 namespace BetterReview\Shared\Domain\Service;
 
-use BetterReview\Shared\Domain\Event\Event;
+use Psr\EventDispatcher\EventDispatcherInterface;
 
 /**
  * Interface EventDispatcher
  *
  * @package BetterReview\Shared\Domain\Service
  */
-interface EventDispatcher {
+interface EventDispatcher extends EventDispatcherInterface {
 
 	/**
 	 * Dispatcher.
 	 *
-	 * @param Event $event event.
+	 * @param object $event event.
 	 */
-	public function dispatch( Event $event ): void;
+	public function dispatch( object $event );
 }

@@ -48,8 +48,9 @@ class ListReviewsController {
 	 * ListReviewsController constructor.
 	 */
 	public function __construct() {
-		$this->list_handler   = Container::resolve( ListHandler::class );
-		$this->delete_handler = Container::resolve( DeleteHandler::class );
+		$container            = new Container();
+		$this->list_handler   = $container->get( ListHandler::class );
+		$this->delete_handler = $container->get( DeleteHandler::class );
 	}
 
 	/**
