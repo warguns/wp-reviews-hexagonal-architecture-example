@@ -48,7 +48,7 @@ final class WpAverageRepository implements AverageRepository {
 
 		$result = $wpdb->get_row(
 			$wpdb->prepare(
-				"SELECT * FROM {$wpdb->prefix}better_review WHERE post_id = %s",
+				"SELECT * FROM {$wpdb->prefix}better_review_average WHERE post_id = %s",
 				$product_id->get_id()
 			),
 			ARRAY_A
@@ -57,7 +57,6 @@ final class WpAverageRepository implements AverageRepository {
 		if ( null === $result ) {
 			return null;
 		}
-
 		return Average::from_result( $result );
 	}
 

@@ -17,6 +17,7 @@ use BetterReview\Review\Application\Command\Create\CreateHandler;
 use BetterReview\Review\Application\Query\GetByPost\GetByPostHandler;
 use BetterReview\Review\Application\Query\GetByPost\GetByPostQuery;
 use BetterReview\Review\Domain\Exception\IncorrectStars;
+use BetterReview\Review\Domain\Repository\ReviewRepository;
 use BetterReview\Review\Domain\ValueObject\ReviewCollection;
 use BetterReview\Shared\Infrastructure\DependencyInjection\Container;
 use WP_Post;
@@ -69,7 +70,7 @@ class GetReviewsBlockController {
 	 * Load Scripts
 	 */
 	public function load_scripts(): void {
-		wp_enqueue_script( 'luxon', plugins_url( '/assets/luxon.js', __FILE__ ), array(), '20201213', true );
+		wp_enqueue_script( 'luxon', '//cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js', array(), '20201213', true );
 		wp_enqueue_style( 'better-review-stars', plugins_url( '/assets/stars.css', __FILE__ ), array(), '20201213', 'all' );
 		wp_enqueue_style( 'better-review-style', plugins_url( '/assets/style.css', __FILE__ ), array(), '20201213', 'all' );
 	}
@@ -87,53 +88,48 @@ class GetReviewsBlockController {
 		$params = shortcode_atts(
 			array(
 				'post_id' => 0,
-				'limit'   => 0,
+				'limit'   => ReviewRepository::LIMIT,
 				'offset'  => 0,
 			),
 			$attr
 		);
 
-		if ( isset( $_POST['submit-opinion'] ) && $_POST['submit-opinion'] ) {
-			$this->verify_nonce();
+		if ( isset( $_POST['addreview'] ) && ! wp_verify_nonce( sanitize_key( $_POST['addreview'] ), 'addreview' ) ) {
+			die( 'Go get a life script kiddies' );
+		}
 
+		$submitted = false;
+		if ( isset( $_POST['submit-opinion'], $_POST['author'], $_POST['title'], $_POST['content'], $_POST['email'], $_POST['rating'] ) ) {
 			$this->create_handler->run(
 				new CreateCommand(
-					(int) esc_attr( $params['post_id'] ),
+					(int) sanitize_text_field( wp_unslash( $params['post_id'] ) ),
 					sanitize_text_field( wp_unslash( $_POST['author'] ) ),
-					sanitize_text_field( $_POST['title'] ),
-					esc_textarea( $_POST['content'] ),
-					sanitize_email( $_POST['email'] ),
-					(float) sanitize_text_field( $_POST['rating'] )
+					sanitize_text_field( wp_unslash( $_POST['title'] ) ),
+					sanitize_text_field( wp_unslash( $_POST['content'] ) ),
+					sanitize_email( wp_unslash( $_POST['email'] ) ),
+					(float) sanitize_text_field( wp_unslash( $_POST['rating'] ) )
 				)
 			);
+			$submitted = true;
 		}
 
 		$review_stats = $this->get_average_handler->run(
 			new GetAverageQuery(
-				(int) esc_attr( $params['post_id'] )
+				(int) sanitize_text_field( wp_unslash( $params['post_id'] ) )
 			)
 		);
 
 		$review_collection = $this->get_by_post_handler->run(
 			new GetByPostQuery(
-				(int) esc_attr( $params['post_id'] ),
-				(int) esc_attr( $params['limit'] ),
-				(int) esc_attr( $params['offset'] )
+				(int) sanitize_text_field( wp_unslash( $params['post_id'] ) ),
+				(int) sanitize_text_field( wp_unslash( $params['limit'] ) ),
+				(int) sanitize_text_field( wp_unslash( $params['offset'] ) )
 			)
 		);
 
-		$post = WP_Post::get_instance( (int) esc_attr( $params['post_id'] ) );
+		$post = WP_Post::get_instance( (int) sanitize_text_field( wp_unslash( $params['post_id'] ) ) );
 
-		return $this->render( $review_collection, $review_stats, $post );
-	}
-
-	/**
-	 * Verify Once
-	 */
-	private function verify_nonce(): void {
-		if ( ! wp_verify_nonce( wp_unslash( $_POST['addreview'] ), 'addreview' ) ) {
-			die( 'Go get a life script kiddies' );
-		}
+		return $this->render( $review_collection, $review_stats, $post, $submitted );
 	}
 
 	/**
@@ -142,10 +138,11 @@ class GetReviewsBlockController {
 	 * @param ReviewCollection $review_collection review Collection.
 	 * @param ReviewStats      $review_stats review stats.
 	 * @param WP_Post          $post post.
+	 * @param bool             $submitted check if is the form submitted.
 	 *
 	 * @return false|string
 	 */
-	private function render( ReviewCollection $review_collection, ReviewStats $review_stats, WP_Post $post ) {
+	private function render( ReviewCollection $review_collection, ReviewStats $review_stats, WP_Post $post, bool $submitted ) {
 		ob_start();
 		include 'templates/GetReviewsBlock.php';
 

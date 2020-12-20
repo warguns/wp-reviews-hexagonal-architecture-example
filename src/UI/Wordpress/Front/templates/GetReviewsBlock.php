@@ -26,6 +26,7 @@ use BetterReview\Shared\Infrastructure\Gravatar\GravatarService;
  * Post
  *
  * @var WP_Post $post post.
+ * @var bool    $submitted check if is the form submitted.
  */
 ?>
 <div id="reviews" class="alignwide">
@@ -33,10 +34,10 @@ use BetterReview\Shared\Infrastructure\Gravatar\GravatarService;
 		<?php esc_html_e( 'Average:', 'better-reviews' ); ?>
 		<?php echo esc_html( number_format( $review_stats->get_average(), 2 ) ); ?><?php esc_html_e( 'of', 'better-reviews' ); ?><?php echo esc_html( $review_stats->get_review_count() ); ?><?php esc_html_e( 'Reviews', 'better-reviews' ); ?>
 	</div>
-	<form class="alignwide average" action="?p=<?php echo esc_html( $_REQUEST['p'] ); ?>" method="post" class="review-form">
+	<form class="alignwide average" action="?p=<?php echo esc_html( $post->ID ); ?>" method="post" class="review-form">
 		<h4><?php esc_html_e( 'Review product', 'better-reviews' ); ?></h4>
 		<span><?php esc_html_e( 'Share your opinion with other clients', 'better-reviews' ); ?></span>
-		<?php if ( isset( $_REQUEST['submit-opinion'] ) ) { ?>
+		<?php if ( $submitted ) { ?>
 			<p class="alert">
 				<?php esc_html_e( 'Thank you for your review! Your review is on approval process, once is approved your review will be published!', 'better-reviews' ); ?>
 			</p>
@@ -65,21 +66,17 @@ use BetterReview\Shared\Infrastructure\Gravatar\GravatarService;
 
 			<p class="form-group">
 				<label for="content"><?php esc_html_e( 'Content', 'better-reviews' ); ?></label>
-				<textarea id="content" name="content" required="required"
-						  placeholder="<?php esc_html_e( 'What did liked you and what not? Express your opinion.', 'better-reviews' ); ?>"><?php echo ( isset( $review ) ) ? esc_html( $review->getContent() ) : ''; ?></textarea>
+				<textarea id="content" name="content" required="required"placeholder="<?php esc_html_e( 'What did liked you and what not? Express your opinion.', 'better-reviews' ); ?>"><?php echo ( isset( $review ) ) ? esc_html( $review->getContent() ) : ''; ?></textarea>
 			</p>
 
 			<p class="form-group">
-				<input type="checkbox" class="checkbox" id="validate" name="validate" required="required"
-					   value="1"/><label for="validate"
-										 class="checkbox"><?php esc_html_e( 'I have read the Terms & Conditions and the Privacy Policy', 'better-reviews' ); ?></label>
+				<input type="checkbox" class="checkbox" id="validate" name="validate" required="required" value="1"/><label for="validate" class="checkbox"><?php esc_html_e( 'I have read the Terms & Conditions and the Privacy Policy', 'better-reviews' ); ?></label>
 			</p>
 			<p class="form-submit">
-				<input name="submit-opinion" type="submit" id="submit" class="submit"
-					   value="<?php esc_html_e( 'Publish my opinion', 'better-reviews' ); ?>">
+				<input name="submit-opinion" type="submit" id="submit" class="submit" value="<?php esc_html_e( 'Publish my opinion', 'better-reviews' ); ?>">
 				<?php wp_nonce_field( 'addreview', 'addreview' ); ?>
 				<input type="hidden" name="uuid" value="<?php echo ( isset( $review ) ) ? esc_html( $review->getUuid() ) : ''; ?>">
-				<input type="hidden" name="post_id" value="<?php echo ( isset( $_REQUEST['p'] ) ) ? $_REQUEST['p'] : null; ?>">
+				<input type="hidden" name="post_id" value="<?php echo esc_html( $post->ID ); ?>">
 			</p>
 		<?php } ?>
 	</form>
@@ -151,7 +148,5 @@ use BetterReview\Shared\Infrastructure\Gravatar\GravatarService;
 			?>
 			]
 		}
-
-
 	</script>
 </div>

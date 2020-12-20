@@ -164,7 +164,7 @@ final class WpReviewRepository implements ReviewRepository {
 		$sql = 'SELECT * FROM ' . $this->prefix . 'better_review r INNER JOIN ' . $this->prefix . 'posts p on r.post_id = p.id ';
 
 		if ( null !== $search ) {
-			$sql .= 'WHERE title LIKE "%' . esc_sql( $search ) . '%" OR content LIKE "%' . esc_sql( $search ) . '%" OR status LIKE "%' . esc_sql( $search ) . '%" ';
+			$sql .= 'WHERE title LIKE "%' . esc_sql( $search ) . '%" OR content LIKE "%' . esc_sql( $search ) . '%" OR status LIKE "%' . esc_sql( $search ) . '%" OR author LIKE "%' . esc_sql( $search ) . '%" ';
 		}
 
 		if ( ! empty( $orderby ) ) {
@@ -198,11 +198,19 @@ final class WpReviewRepository implements ReviewRepository {
 		$sql = 'SELECT COUNT(*) as counter FROM ' . $this->prefix . 'better_review ';
 
 		if ( null !== $search ) {
-			$sql .= 'WHERE title LIKE "%' . esc_sql( $search ) . '%" OR content LIKE "%' . esc_sql( $search ) . '%" OR status LIKE "%' . esc_sql( $search ) . '%" ';
+			$sql .= '" ';
 		}
+		$count = $wpdb->get_results(
+			$wpdb->prepare(
+			"SELECT COUNT(*) as counter FROM {$wpdb->prefix}better_review WHERE title LIKE %s OR content LIKE %s OR status LIKE %s OR author LIKE %s",
+				(string) esc_sql( $wpdb->esc_like( $search ) ),
+				(string) esc_sql( $wpdb->esc_like( $search ) ),
+				(string) esc_sql( $wpdb->esc_like( $search ) ),
+				(string) esc_sql( $wpdb->esc_like( $search ) )
+			),
+			ARRAY_A
+		);
 
-		$count = $wpdb->get_row( $sql, ARRAY_A );
-
-		return (int) $count['counter'];
+		return (int) $count[0]['counter'];
 	}
 }
