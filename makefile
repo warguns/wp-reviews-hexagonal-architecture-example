@@ -46,7 +46,7 @@ acceptance: ## run acceptance tests
 
 .PHONY: cs
 cs: ## run wordpress code sniffer on src
-		$(compose) exec -T wordpress sh -lc "cd wp-content/plugins/better-wp-reviews && ./vendor/bin/phpcs --standard=WordPress src"
+		$(compose) exec -T wordpress sh -lc "cd wp-content/plugins/better-wp-reviews && ./vendor/bin/phpcs --config-set installed_paths /var/www/html/wp-content/plugins/better-wp-reviews/vendor/wp-coding-standards/wpcs && ./vendor/bin/phpcs --standard=WordPress ./src"
 
 .PHONY: plugin
 plugin: ## makes production build inside build folder
