@@ -1,23 +1,42 @@
 <?php
+/**
+ * DeleteCommand
+ *
+ * @package Review
+ */
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Review\Application\Command\Delete;
 
-use Ramsey\Uuid\UuidInterface;
+/**
+ * Class DeleteCommand
+ *
+ * @package BetterReview\Review\Application\Command\Delete
+ */
+final class DeleteCommand {
+	/**
+	 * Gets the uuid.
+	 *
+	 * @var string
+	 */
+	private $uuid;
 
-final class DeleteCommand
-{
-    /** @var string */
-    private $uuid;
+	/**
+	 * DeleteCommand constructor.
+	 *
+	 * @param string $uuid uuid.
+	 */
+	public function __construct( string $uuid ) {
+		$this->uuid = $uuid;
+	}
 
-    public function __construct(string $uuid)
-    {
-        $this->uuid = $uuid;
-    }
-
-    public function getUuid(): string
-    {
-        return $this->uuid;
-    }
+	/**
+	 * Gets the uuid.
+	 *
+	 * @return string
+	 */
+	public function get_uuid(): string {
+		return $this->uuid;
+	}
 }

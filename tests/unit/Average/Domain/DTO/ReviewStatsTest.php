@@ -17,7 +17,7 @@ class ReviewStatsTest extends Unit
     {
         $reviewStats = new ReviewStats(self::REVIEWCOUNT, self::AVERAGE);
 
-        self::assertEquals(self::REVIEWCOUNT, $reviewStats->getReviewCount());
-        self::assertEquals(self::AVERAGE, $reviewStats->getAverage());
+        self::assertEquals(self::REVIEWCOUNT, $reviewStats->get_review_count());
+        self::assertEquals(self::AVERAGE, $reviewStats->get_average());
     }
 }

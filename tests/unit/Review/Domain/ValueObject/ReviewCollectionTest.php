@@ -14,18 +14,18 @@ class ReviewCollectionTest extends Unit
 {
     public function testItShouldBeCountable()
     {
-        $collection = ReviewCollection::fromResults([]);
+        $collection = ReviewCollection::from_results([]);
         self::assertEquals(0, $collection->count());
     }
     
     public function testItShouldBeIterable()
     {
         $results = $this->getExampleResults();
-        $collection = ReviewCollection::fromResults($results);
+        $collection = ReviewCollection::from_results($results);
         $i = 0;
         /** @var Review $review */
         foreach ($collection as $review) {
-            self::assertEquals($results[$i]['uuid'], $review->getUuid()->toString());
+            self::assertEquals($results[$i]['uuid'], $review->get_uuid()->toString());
             $i++;
         }
     }
@@ -33,9 +33,9 @@ class ReviewCollectionTest extends Unit
     public function testItShouldShowOnlyPostIds()
     {
         $results = $this->getExampleResults();
-        $collection = ReviewCollection::fromResults($results);
+        $collection = ReviewCollection::from_results($results);
 
-        self::assertEquals([1, 2], $collection->getPostIds());
+        self::assertEquals([1, 2], $collection->get_product_ids());
     }
 
     private function getExampleResults(): array

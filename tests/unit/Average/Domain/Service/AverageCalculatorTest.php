@@ -16,13 +16,13 @@ class AverageCalculatorTest extends Unit
         $averageCalculator = new AverageCalculator();
         $average = $averageCalculator->calculate(null);
         self::assertEquals(new ReviewStats(), $average);
-        self::assertEquals(0, $average->getReviewCount());
+        self::assertEquals(0, $average->get_review_count());
     }
 
     public function testItShouldCalculateAverage()
     {
         $average = new AverageCalculator();
-        self::assertEquals(new ReviewStats(2, 5), $average->calculate(Average::fromResult([
+        self::assertEquals(new ReviewStats(2, 5), $average->calculate(Average::from_result([
             'post_id' => 1,
             'review_count' => 2,
             'total_review' => 10,

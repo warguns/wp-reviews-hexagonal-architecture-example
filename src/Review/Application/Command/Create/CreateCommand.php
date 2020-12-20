@@ -1,82 +1,134 @@
 <?php
+/**
+ * CreateCommand
+ *
+ * @package Review
+ */
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Review\Application\Command\Create;
 
-final class CreateCommand
-{
-    /** @var int */
-    private $postId;
+/**
+ * Class CreateCommand
+ *
+ * @package BetterReview\Review\Application\Command\Create
+ */
+final class CreateCommand {
 
-    /** @var string */
-    private $author;
+	/**
+	 * Post id.
+	 *
+	 * @var int post id.
+	 */
+	private $post_id;
 
-    /** @var string */
-    private $title;
+	/**
+	 * Author
+	 *
+	 * @var string author.
+	 */
+	private $author;
 
-    /** @var string */
-    private $content;
+	/**
+	 * Title.
+	 *
+	 * @var string title.
+	 */
+	private $title;
 
-    /** @var string */
-    private $email;
+	/**
+	 * Content.
+	 *
+	 * @var string content.
+	 */
+	private $content;
 
-    /** @var float */
-    private $stars;
+	/**
+	 * Email.
+	 *
+	 * @var string email.
+	 */
+	private $email;
 
-    public function __construct(int $postId, string $author, string $title, string $content, string $email, float $stars)
-    {
-        $this->postId = $postId;
-        $this->author = $author;
-        $this->title = $title;
-        $this->content = $content;
-        $this->email = $email;
-        $this->stars = $stars;
-    }
+	/**
+	 * Stars.
+	 *
+	 * @var float stars.
+	 */
+	private $stars;
+
+	/**
+	 * CreateCommand constructor.
+	 *
+	 * @param int    $post_id post id.
+	 * @param string $author author.
+	 * @param string $title title.
+	 * @param string $content content.
+	 * @param string $email email.
+	 * @param float  $stars stars.
+	 */
+	public function __construct( int $post_id, string $author, string $title, string $content, string $email, float $stars ) {
+		$this->post_id = $post_id;
+		$this->author  = $author;
+		$this->title   = $title;
+		$this->content = $content;
+		$this->email   = $email;
+		$this->stars   = $stars;
+	}
 
 
-    /**
-     * @return int
-     */
-    public function getPostId(): int
-    {
-        return $this->postId;
-    }
+	/**
+	 * Get post id.
+	 *
+	 * @return int
+	 */
+	public function get_post_id(): int {
+		return $this->post_id;
+	}
 
-    /**
-     * @return string
-     */
-    public function getAuthor(): string
-    {
-        return $this->author;
-    }
+	/**
+	 * Get author.
+	 *
+	 * @return string
+	 */
+	public function get_author(): string {
+		return $this->author;
+	}
 
-    /**
-     * @return string
-     */
-    public function getTitle(): string
-    {
-        return $this->title;
-    }
+	/**
+	 * Title.
+	 *
+	 * @return string
+	 */
+	public function get_title(): string {
+		return $this->title;
+	}
 
-    /**
-     * @return string
-     */
-    public function getContent(): string
-    {
-        return $this->content;
-    }
+	/**
+	 * Content.
+	 *
+	 * @return string
+	 */
+	public function get_content(): string {
+		return $this->content;
+	}
 
-    public function getEmail(): string
-    {
-        return $this->email;
-    }
+	/**
+	 * Email.
+	 *
+	 * @return string
+	 */
+	public function get_email(): string {
+		return $this->email;
+	}
 
-    /**
-     * @return float
-     */
-    public function getStars(): float
-    {
-        return $this->stars;
-    }
+	/**
+	 * Stars.
+	 *
+	 * @return float
+	 */
+	public function get_stars(): float {
+		return $this->stars;
+	}
 }

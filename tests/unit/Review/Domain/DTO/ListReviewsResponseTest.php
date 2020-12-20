@@ -19,11 +19,11 @@ class ListReviewsResponseTest extends \Codeception\Test\Unit
 
     public function testItShouldBeConstructed()
     {
-        $reviewCollection = ReviewCollection::fromResults([]);
+        $reviewCollection = ReviewCollection::from_results([]);
         $reviewResponse = new ListReviewsResponse($reviewCollection, self::TOTALS);
 
-        self::assertEquals($reviewCollection, $reviewResponse->getReviewCollection());
-        self::assertEquals(self::TOTALS, $reviewResponse->getTotals());
+        self::assertEquals($reviewCollection, $reviewResponse->get_review_collection());
+        self::assertEquals(self::TOTALS, $reviewResponse->get_totals());
     }
 
 }

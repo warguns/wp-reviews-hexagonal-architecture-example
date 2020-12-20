@@ -1,41 +1,82 @@
 <?php
+/**
+ * GetByPostQuery
+ *
+ * @package Review
+ */
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Review\Application\Query\GetByPost;
 
 use BetterReview\Review\Domain\Repository\ReviewRepository;
 
-final class GetByPostQuery
-{
-    /** @var int */
-    private $id;
+/**
+ * Class GetByPostQuery
+ *
+ * GeT.
+ *
+ * @package BetterReview\Review\Application\Query\GetByPost
+ */
+final class GetByPostQuery {
+	/**
+	 * Id.
+	 *
+	 * @var int id.
+	 */
+	private $id;
 
-    /** @var ?int */
-    private $limit;
+	/**
+	 * Limit,
+	 *
+	 * @var ?int limit.
+	 */
+	private $limit;
 
-    /** @var ?int */
-    private $offset;
+	/**
+	 * Offset.
+	 *
+	 * @var ?int offset.
+	 */
+	private $offset;
 
-    public function __construct(int $id, int $limit = ReviewRepository::LIMIT, int $offset = ReviewRepository::OFFSET)
-    {
-        $this->id = $id;
-        $this->limit = $limit;
-        $this->offset = $offset;
-    }
+	/**
+	 * GetByPostQuery constructor.
+	 *
+	 * @param int $id     id.
+	 * @param int $limit  limit.
+	 * @param int $offset offset.
+	 */
+	public function __construct( int $id, int $limit = ReviewRepository::LIMIT, int $offset = ReviewRepository::OFFSET ) {
+		$this->id     = $id;
+		$this->limit  = $limit;
+		$this->offset = $offset;
+	}
 
-    public function getId(): int
-    {
-        return $this->id;
-    }
+	/**
+	 * Gets the id.
+	 *
+	 * @return int
+	 */
+	public function get_id(): int {
+		return $this->id;
+	}
 
-    public function getLimit(): int
-    {
-        return $this->limit;
-    }
+	/**
+	 * Gets the limit.
+	 *
+	 * @return int
+	 */
+	public function get_limit(): int {
+		return $this->limit;
+	}
 
-    public function getOffset(): int
-    {
-        return $this->offset;
-    }
+	/**
+	 * Gets the offset.
+	 *
+	 * @return int
+	 */
+	public function get_offset(): int {
+		return $this->offset;
+	}
 }

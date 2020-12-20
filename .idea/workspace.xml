@@ -1,33 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="GROUP_BY_SEVERITY" value="true" />
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="547c3639-e3b4-40f3-9066-4107bf5fce20" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/unit/Average/Domain/DTO/ReviewStatsTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/Average/Domain/Entity/AverageTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/Average/Domain/Service/AverageCalculatorTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/DTO/ListReviewsResponseTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/Entity/ReviewTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/Event/ReviewAddedTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/Event/ReviewDeletedTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/Event/ReviewUpdatedTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/Exception/IncorrectStarsTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/Exception/ReviewNotFoundTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/Exception/StatusNotFoundTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/ValueObject/ReviewCollectionTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/ValueObject/StarsTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/ValueObject/StatusTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/wp-reviews-hexagonal-architecture-example.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/wp-reviews-hexagonal-architecture-example.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Average/Domain/Service/AverageCalculator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Average/Domain/Service/AverageCalculator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Application/Command/Create/CreateHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Application/Command/Create/CreateHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Domain/Entity/Review.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Domain/Entity/Review.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Domain/ValueObject/ReviewCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Domain/ValueObject/ReviewCollection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Domain/ValueObject/Stars.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Domain/ValueObject/Stars.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/_support/_generated/UnitTesterActions.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_support/_generated/UnitTesterActions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit.suite.yml" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit.suite.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Review/Infrastructure/Wordpress/Persistence/WpReviewRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Infrastructure/Wordpress/Persistence/WpReviewRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Admin/ListReviewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Admin/ListReviewsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.png" afterDir="false" />
     </list>
     <list id="be2420c8-fab6-48ce-bd45-d514e2c83117" name="create hexagonal plugin" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,14 +19,35 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  <component name="DrupalConfiguration">
+    <drupalPath />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+    <option name="SCHEME" value="Project" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="JoomlaConfiguration">
+    <joomlaConfigPath />
+    <joomlaPath />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="wordpress">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/dg/mysql-dump" />
       <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
@@ -139,7 +144,13 @@
       <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
       <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
       <path value="$PROJECT_DIR$/vendor/codeception/mockery-module" />
+      <path value="$PROJECT_DIR$/../fast_rest" />
+      <path value="$PROJECT_DIR$/vendor/squizlabs/php_codesniffer" />
+      <path value="$PROJECT_DIR$/vendor/wp-coding-standards/wpcs" />
     </include_path>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="1lnUoJYeGjAfD5IDM2iLUZjhEc5" />
   <component name="ProjectViewState">
@@ -147,13 +158,17 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm" value="Docker Compose" />
+    <property name="credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm" value="Docker Compose" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/unit/Review/Domain/Event" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -189,8 +204,47 @@
       <option name="presentableId" value="Default" />
       <updated>1608232522300</updated>
       <workItem from="1608232523487" duration="3747000" />
-      <workItem from="1608282660836" duration="5787000" />
+      <workItem from="1608282660836" duration="18624000" />
+      <workItem from="1608372097698" duration="19842000" />
+      <workItem from="1608403180893" duration="6285000" />
+      <workItem from="1608453322720" duration="16251000" />
     </task>
+    <task id="LOCAL-00001" summary="add unit tests">
+      <created>1608289122073</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608289122073</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add coding style">
+      <created>1608392139422</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608392139422</updated>
+    </task>
+    <task id="LOCAL-00003" summary="apply wordpress coding style">
+      <created>1608461917870</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608461917870</updated>
+    </task>
+    <task id="LOCAL-00004" summary="apply wordpress coding style">
+      <created>1608470676043</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1608470676043</updated>
+    </task>
+    <task id="LOCAL-00005" summary="apply wordpress coding style">
+      <created>1608470758054</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1608470758054</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +261,15 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add unit tests" />
+    <MESSAGE value="add coding style" />
+    <MESSAGE value="apply wordpress coding style" />
+    <option name="LAST_COMMIT_MESSAGE" value="apply wordpress coding style" />
+  </component>
+  <component name="WordPressConfiguration" enabled="true">
+    <wordpressPath>$PROJECT_DIR$/../fast_rest</wordpressPath>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

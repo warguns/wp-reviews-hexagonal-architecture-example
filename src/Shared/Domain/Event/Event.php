@@ -1,11 +1,31 @@
 <?php
+/**
+ * Event
+ *
+ * @package Shared
+ */
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Shared\Domain\Event;
 
-interface Event
-{
-    public function getParentUuid(): string;
-    public function getCorrelationUuid(): string;
+/**
+ * Interface Event
+ *
+ * @package BetterReview\Shared\Domain\Event
+ */
+interface Event {
+	/**
+	 * Getter.
+	 *
+	 * @return string
+	 */
+	public function get_parent_uuid(): string;
+
+	/**
+	 * Getter.
+	 *
+	 * @return string
+	 */
+	public function get_correlation_uuid(): string;
 }

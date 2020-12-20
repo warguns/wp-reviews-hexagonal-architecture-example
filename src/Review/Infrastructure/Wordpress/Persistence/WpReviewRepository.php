@@ -1,122 +1,228 @@
 <?php
+/**
+ * WpReviewRepository
+ *
+ * @package Review
+ */
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Review\Infrastructure\Wordpress\Persistence;
 
 use BetterReview\Review\Domain\Entity\Review;
+use BetterReview\Review\Domain\Exception\IncorrectStars;
 use BetterReview\Review\Domain\Exception\ReviewNotFound;
+use BetterReview\Review\Domain\Exception\StatusNotFound;
 use BetterReview\Review\Domain\Repository\ReviewRepository;
 use BetterReview\Review\Domain\ValueObject\ReviewCollection;
 use BetterReview\Shared\Domain\ValueObject\ProductId;
 use Ramsey\Uuid\UuidInterface;
 
-final class WpReviewRepository implements ReviewRepository
-{
-    /** @var \wpdb */
-    private $wpdb;
+/**
+ * Class WpReviewRepository
+ *
+ * @package BetterReview\Review\Infrastructure\Wordpress\Persistence
+ */
+final class WpReviewRepository implements ReviewRepository {
 
-    /** @var string */
-    private $prefix;
+	/**
+	 * Prefix.
+	 *
+	 * @var string
+	 */
+	private $prefix;
 
-    public function __construct(\wpdb $wpdb, string $prefix)
-    {
-        $this->wpdb = $wpdb;
-        $this->prefix = $prefix;
-    }
+	/**
+	 * WpReviewRepository constructor.
+	 *
+	 * @param string $prefix prefix.
+	 */
+	public function __construct( string $prefix ) {
+		$this->prefix = $prefix;
+	}
 
-    /**
-     * @throws ReviewNotFound
-     */
-    public function get(UuidInterface $reviewUuid): Review
-    {
-        $result = $this->wpdb->get_row('SELECT * FROM ' . $this->prefix . 'better_review WHERE uuid = "' . $reviewUuid->toString()  . '"', ARRAY_A);
+	/**
+	 * Get.
+	 *
+	 * @param UuidInterface $review_uuid review uuid.
+	 *
+	 * @return Review
+	 * @throws ReviewNotFound Not Found.
+	 */
+	public function get( UuidInterface $review_uuid ): Review {
+		global $wpdb;
 
-        if (null === $result) {
-            throw new ReviewNotFound($reviewUuid);
-        }
+		$result = $wpdb->get_row(
+			$wpdb->prepare(
+				"SELECT * FROM {$wpdb->prefix}better_review WHERE uuid = %s",
+				array(
+					$review_uuid->toString(),
+				)
+			),
+			ARRAY_A
+		);
 
-        return Review::fromResult($result);
-    }
+		if ( null === $result ) {
+			throw new ReviewNotFound( $review_uuid );
+		}
 
-    public function insert(Review $review): bool
-    {
-       return (bool) $this->wpdb->insert($this->prefix . 'better_review', $review->toArray());
-    }
+		return Review::from_result( $result );
+	}
 
-    public function update(Review $review): bool
-    {
-       return (bool) $this->wpdb->update($this->prefix .'better_review', $review->toArray(), ['uuid' => $review->getUuid()->toString()]);
-    }
+	/**
+	 * Insert
+	 *
+	 * @param Review $review review.
+	 *
+	 * @return bool
+	 */
+	public function insert( Review $review ): bool {
+		global $wpdb;
 
-    public function delete(UuidInterface $reviewUuid): bool
-    {
-        return (bool) $this->wpdb->delete($this->prefix .'better_review', ['uuid' => $reviewUuid->toString()]);
-    }
+		return (bool) $wpdb->insert( $wpdb->prefix . 'better_review', $review->to_array() );
+	}
 
-    public function findByPost(ProductId $postId, int $limit = self::LIMIT, int $offset = self::OFFSET): ReviewCollection
-    {
-        $sql = 'SELECT * FROM ' . $this->prefix . 'better_review WHERE status = "published" and post_id = ' . $postId->getId() ;
+	/**
+	 * Update
+	 *
+	 * @param Review $review review.
+	 *
+	 * @return bool
+	 */
+	public function update( Review $review ): bool {
+		global $wpdb;
 
-        if ($limit > 0) {
-            $sql .= " LIMIT " . esc_sql($limit);
-            if ($offset > 0) {
-                $sql .= " OFFSET " . esc_sql($offset);
-            }
-        }
+		return (bool) $wpdb->update( $wpdb->prefix . 'better_review', $review->to_array(), array( 'uuid' => $review->get_uuid()->toString() ) );
+	}
 
-        $sql .= ' ORDER BY created_at DESC';
+	/**
+	 * Delete
+	 *
+	 * @param UuidInterface $review_uuid delete.
+	 *
+	 * @return bool
+	 */
+	public function delete( UuidInterface $review_uuid ): bool {
+		global $wpdb;
 
-        $results = $this->wpdb->get_results($sql, ARRAY_A);
+		return (bool) $wpdb->delete( $wpdb->prefix . 'better_review', array( 'uuid' => $review_uuid->toString() ) );
+	}
 
-        return ReviewCollection::fromResults($results);
-    }
+	/**
+	 * Finds By post.
+	 *
+	 * @param ProductId $product_id Product.
+	 * @param int       $limit Limit.
+	 * @param int       $offset Offset.
+	 *
+	 * @return ReviewCollection
+	 */
+	public function find_by_post( ProductId $product_id, int $limit = self::LIMIT, int $offset = self::OFFSET ): ReviewCollection {
+		global $wpdb;
+		$results = $wpdb->get_results(
+			$wpdb->prepare(
+				"SELECT * FROM {$wpdb->prefix}better_review WHERE status = 'published' and post_id = %s ORDER BY created_at DESC LIMIT %d OFFSET %d",
+				$product_id->get_id(),
+				$limit,
+				$offset
+			),
+			ARRAY_A
+		);
 
-    public function countByPost(ProductId $postId): int
-    {
-        $count = $this->wpdb->get_results('SELECT COUNT(*) as counter  FROM ' . $this->prefix . 'better_review WHERE post_id = ' . $postId->getId() . ' ORDER BY created_at DESC', ARRAY_A);
+		return ReviewCollection::from_results( $results );
+	}
 
-        return $count['counter'];
-    }
+	/**
+	 * Count by post
+	 *
+	 * @param ProductId $product_id Post.
+	 *
+	 * @return int
+	 */
+	public function count_by_post( ProductId $product_id ): int {
+		global $wpdb;
+		$count = $wpdb->get_results(
+			$wpdb->prepare(
+				"SELECT COUNT(*) as counter FROM {$wpdb->prefix}better_review WHERE post_id = %s ORDER BY created_at DESC",
+				$product_id
+			),
+			ARRAY_A
+		);
 
-    public function all(int $limit = self::LIMIT, int $offset = self::OFFSET, array $orderby = [], string $search = null): ReviewCollection
-    {
-        $sql = 'SELECT * FROM ' . $this->prefix . 'better_review r INNER JOIN ' . $this->prefix . 'posts p on r.post_id = p.id ';
+		return $count['counter'];
+	}
 
-        if (null !== $search) {
-            $sql .= 'WHERE title LIKE "%' . esc_sql($search) . '%" OR content LIKE "%' . esc_sql($search) . '%" OR status LIKE "%'. esc_sql($search) .'%" ';
-        }
+	/**
+	 * Get All reviews
+	 *
+	 * @param int         $limit limit.
+	 * @param int         $offset offset.
+	 * @param array       $orderby orderby.
+	 * @param string|null $search search.
+	 *
+	 * @return ReviewCollection
+	 */
+	public function all( int $limit = self::LIMIT, int $offset = self::OFFSET, array $orderby = array(), string $search = null ): ReviewCollection {
+		global $wpdb;
+		$select = 'SELECT * FROM ' . $this->prefix . 'better_review';
 
-        if (!empty($orderby)) {
-            $sql .= 'ORDER BY ';
-            $orders = [];
-            foreach ($orderby as $field => $sort) {
-                $orders[] = esc_sql($field) . ' ' . esc_sql($sort);
-            }
-            $sql .= implode(',', $orders);
-        }
+		if ( null !== $search ) {
+			$where = $wpdb->prepare(
+				'WHERE title LIKE %s OR content LIKE %s OR status LIKE %s OR author LIKE %s',
+				(string) esc_sql( $wpdb->esc_like( $search ) ),
+				(string) esc_sql( $wpdb->esc_like( $search ) ),
+				(string) esc_sql( $wpdb->esc_like( $search ) ),
+				(string) esc_sql( $wpdb->esc_like( $search ) )
+			);
+		}
 
-        if ($limit > 0) {
-            $sql .= " LIMIT " . esc_sql($limit);
-            if ($offset > 0) {
-                $sql .= " OFFSET " . esc_sql($offset);
-            }
-        }
+		if ( ! empty( $orderby ) ) {
+			$ordering = 'ORDER BY ';
+			$orders   = array();
+			foreach ( $orderby as $field => $sort ) {
+				$orders[] = esc_sql( $field ) . ' ' . esc_sql( $sort );
+			}
+			$ordering .= implode( ',', $orders );
+		}
 
-        return ReviewCollection::fromResults($this->wpdb->get_results($sql, ARRAY_A));
-    }
+		if ( $limit > 0 ) {
+			$limit_offset = ' LIMIT ' . esc_sql( $limit );
+			if ( $offset > 0 ) {
+				$limit_offset .= ' OFFSET ' . esc_sql( $offset );
+			}
+		}
 
-    public function countAll(string $search = null): int
-    {
+		// Samitized on prior lines.
+		$results = $wpdb->get_results(
+			$wpdb->prepare(
+				"$select $where $ordering $limit_offset" // @codingStandardsIgnoreLine
+			),
+			ARRAY_A
+		);
 
-        $sql = 'SELECT COUNT(*) as counter FROM ' . $this->prefix . "better_review ";
+		return ReviewCollection::from_results( $results );
+	}
 
-        if (null !== $search) {
-            $sql .= 'WHERE title LIKE "%' . esc_sql($search) . '%" OR content LIKE "%' . esc_sql($search) . '%" OR status LIKE "%'. esc_sql($search) .'%" ';
-        }
+	/**
+	 * Count all.
+	 *
+	 * @param string|null $search search.
+	 *
+	 * @return int
+	 */
+	public function count_all( string $search = null ): int {
+		global $wpdb;
+		$count = $wpdb->get_results(
+			$wpdb->prepare(
+				"SELECT COUNT(*) as counter FROM {$wpdb->prefix}better_review WHERE title LIKE %s OR content LIKE %s OR status LIKE %s OR author LIKE %s",
+				(string) esc_sql( $wpdb->esc_like( $search ) ),
+				(string) esc_sql( $wpdb->esc_like( $search ) ),
+				(string) esc_sql( $wpdb->esc_like( $search ) ),
+				(string) esc_sql( $wpdb->esc_like( $search ) )
+			),
+			ARRAY_A
+		);
 
-        $count = $this->wpdb->get_row($sql, ARRAY_A);
-
-        return (int) $count['counter'];
-    }
+		return (int) $count[0]['counter'];
+	}
 }

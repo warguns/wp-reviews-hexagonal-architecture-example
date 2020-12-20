@@ -1,30 +1,60 @@
 <?php
+/**
+ * ReviewStats
+ *
+ * @package Average
+ */
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Average\Domain\DTO;
 
-final class ReviewStats
-{
-    /** @var int */
-    private $reviewCount;
+/**
+ * Class ReviewStats
+ *
+ * @package BetterReview\Average\Domain\DTO
+ */
+final class ReviewStats {
+	/**
+	 * Review Count.
+	 *
+	 * @var int
+	 */
+	private $review_count;
 
-    /** @var float */
-    private $average;
+	/**
+	 * Average
+	 *
+	 * @var float
+	 */
+	private $average;
 
-    public function __construct(int $reviewCount = 0, float $average = 0)
-    {
-        $this->reviewCount = $reviewCount;
-        $this->average = $average;
-    }
+	/**
+	 * ReviewStats constructor.
+	 *
+	 * @param int       $review_count review count.
+	 * @param float|int $average average.
+	 */
+	public function __construct( int $review_count = 0, float $average = 0 ) {
+		$this->review_count = $review_count;
+		$this->average      = $average;
+	}
 
-    public function getReviewCount(): int
-    {
-        return $this->reviewCount;
-    }
+	/**
+	 * Get Review count.
+	 *
+	 * @return int
+	 */
+	public function get_review_count(): int {
+		return $this->review_count;
+	}
 
-    public function getAverage(): float
-    {
-        return $this->average;
-    }
+	/**
+	 * Get Average.
+	 *
+	 * @return float
+	 */
+	public function get_average(): float {
+		return $this->average;
+	}
 }

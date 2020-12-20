@@ -1,15 +1,26 @@
 <?php
+/**
+ * IncorrectStars
+ *
+ * @package Review
+ */
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Review\Domain\Exception;
 
-use Throwable;
+use Exception;
 
-final class IncorrectStars extends \Exception
-{
-    public function __construct($message = "", $code = 0, Throwable $previous = null)
-    {
-        parent::__construct('Incorrect Review Punctuation', $code, $previous);
-    }
+/**
+ * Class IncorrectStars
+ *
+ * @package BetterReview\Review\Domain\Exception
+ */
+final class IncorrectStars extends Exception {
+	/**
+	 * IncorrectStars constructor.
+	 */
+	public function __construct() {
+		parent::__construct( 'Incorrect Review Punctuation' );
+	}
 }

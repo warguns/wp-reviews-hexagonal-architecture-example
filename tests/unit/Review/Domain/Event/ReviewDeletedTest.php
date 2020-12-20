@@ -20,9 +20,9 @@ class ReviewDeletedTest extends Unit
         $status = Status::PENDING;
         $event = new ReviewDeleted($correlationUuid, $parentUuid, $postId, $stars);
 
-        self::assertEquals($correlationUuid, $event->getCorrelationUuid());
-        self::assertEquals($parentUuid, $event->getParentUuid());
-        self::assertEquals($postId, $event->getPostId());
-        self::assertEquals($stars, $event->getStars());
+        self::assertEquals($correlationUuid, $event->get_correlation_uuid());
+        self::assertEquals($parentUuid, $event->get_parent_uuid());
+        self::assertEquals($postId, $event->get_product_id());
+        self::assertEquals($stars, $event->get_stars());
     }
 }

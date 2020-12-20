@@ -1,84 +1,169 @@
 <?php
+/**
+ * UpdateCommand
+ *
+ * @package Review
+ */
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Review\Application\Command\Update;
 
-final class UpdateCommand
-{
-    /** @var string */
-    private $uuid;
+/**
+ * Class UpdateCommand
+ *
+ * @package BetterReview\Review\Application\Command\Update
+ */
+final class UpdateCommand {
 
-    /** @var int */
-    private $postId;
+	/**
+	 * Uuid.
+	 *
+	 * @var string uuid.
+	 */
+	private $uuid;
 
-    /** @var string */
-    private $status;
+	/**
+	 * Post Id.
+	 *
+	 * @var int post id.
+	 */
+	private $post_id;
 
-    /** @var string */
-    private $author;
+	/**
+	 * Status.
+	 *
+	 * @var string status.
+	 */
+	private $status;
 
-    /** @var string */
-    private $title;
+	/**
+	 * Author.
+	 *
+	 * @var string author.
+	 */
+	private $author;
 
-    /** @var string */
-    private $content;
+	/**
+	 * Title.
+	 *
+	 * @var string title.
+	 */
+	private $title;
 
-    /** @var string */
-    private $email;
+	/**
+	 * Content.
+	 *
+	 * @var string content.
+	 */
+	private $content;
 
-    /** @var float */
-    private $stars;
+	/**
+	 * Email.
+	 *
+	 * @var string email.
+	 */
+	private $email;
 
-    public function __construct(string $uuid, int $postId, string $status, string $author, string $title, string $content, string $email, float $stars)
-    {
-        $this->uuid = $uuid;
-        $this->postId = $postId;
-        $this->status = $status;
-        $this->author = $author;
-        $this->title = $title;
-        $this->content = $content;
-        $this->email = $email;
-        $this->stars = $stars;
-    }
+	/**
+	 * Stars.
+	 *
+	 * @var float stars.
+	 */
+	private $stars;
 
-    public function getUuid(): string
-    {
-        return $this->uuid;
-    }
+	/**
+	 * UpdateCommand constructor.
+	 *
+	 * @param string $uuid uuid.
+	 * @param int    $post_id post id.
+	 * @param string $status status.
+	 * @param string $author author.
+	 * @param string $title title.
+	 * @param string $content content.
+	 * @param string $email email.
+	 * @param float  $stars stars.
+	 */
+	public function __construct( string $uuid, int $post_id, string $status, string $author, string $title, string $content, string $email, float $stars ) {
+		$this->uuid    = $uuid;
+		$this->post_id = $post_id;
+		$this->status  = $status;
+		$this->author  = $author;
+		$this->title   = $title;
+		$this->content = $content;
+		$this->email   = $email;
+		$this->stars   = $stars;
+	}
 
-    public function getPostId(): int
-    {
-        return $this->postId;
-    }
+	/**
+	 * Uuid.
+	 *
+	 * @return string
+	 */
+	public function get_uuid(): string {
+		return $this->uuid;
+	}
 
-    public function getStatus(): string
-    {
-        return $this->status;
-    }
+	/**
+	 * Gets the post id.
+	 *
+	 * @return int
+	 */
+	public function get_post_id(): int {
+		return $this->post_id;
+	}
 
-    public function getAuthor(): string
-    {
-        return $this->author;
-    }
+	/**
+	 * Gets the status.
+	 *
+	 * @return string
+	 */
+	public function get_status(): string {
+		return $this->status;
+	}
 
-    public function getTitle(): string
-    {
-        return $this->title;
-    }
+	/**
+	 * Gets the author.
+	 *
+	 * @return string
+	 */
+	public function get_author(): string {
+		return $this->author;
+	}
 
-    public function getContent(): string
-    {
-        return $this->content;
-    }
+	/**
+	 * Gets the title.
+	 *
+	 * @return string
+	 */
+	public function get_title(): string {
+		return $this->title;
+	}
 
-    public function getEmail(): string
-    {
-        return $this->email;
-    }
+	/**
+	 * Gets the content.
+	 *
+	 * @return string
+	 */
+	public function get_content(): string {
+		return $this->content;
+	}
 
-    public function getStars(): float
-    {
-        return $this->stars;
-    }
+	/**
+	 * Gets the email.
+	 *
+	 * @return string
+	 */
+	public function get_email(): string {
+		return $this->email;
+	}
+
+	/**
+	 * Gets the stars.
+	 *
+	 * @return float
+	 */
+	public function get_stars(): float {
+		return $this->stars;
+	}
 }

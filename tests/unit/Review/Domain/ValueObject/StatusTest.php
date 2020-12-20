@@ -12,47 +12,47 @@ class StatusTest extends Unit
 {
     public function testItShouldBeCreated()
     {
-        $status = Status::fromStatus(Status::PUBLISHED);
+        $status = Status::from_status(Status::PUBLISHED);
         self::assertInstanceOf(Status::class, $status);
     }
 
     public function testItShouldManageTheValidStatuses()
     {
         $this->expectException(StatusNotFound::class);
-        $status = Status::fromStatus('fakeStatus');
+        $status = Status::from_status('fakeStatus');
     }
 
     public function testItShouldCreateAPendingStatus()
     {
         $status = Status::new();
 
-        self::assertEquals(Status::PENDING, $status->getStatus());
+        self::assertEquals(Status::PENDING, $status->get_status());
     }
 
     public function testItShouldBeAbleToCheckIfPendingOrRejected()
     {
         $status = Status::new();
-        self::assertTrue($status->isPendingOrRejected());
+        self::assertTrue($status->is_pending_or_rejected());
 
-        $status = Status::fromStatus(Status::REJECTED);
-        self::assertTrue($status->isPendingOrRejected());
+        $status = Status::from_status(Status::REJECTED);
+        self::assertTrue($status->is_pending_or_rejected());
 
-        $status = Status::fromStatus(Status::PUBLISHED);
-        self::assertFalse($status->isPendingOrRejected());
+        $status = Status::from_status(Status::PUBLISHED);
+        self::assertFalse($status->is_pending_or_rejected());
     }
 
     public function testItShouldCheckPublished()
     {
-        $status = Status::fromStatus(Status::PUBLISHED);
-        self::assertTrue($status->isPublished());
+        $status = Status::from_status(Status::PUBLISHED);
+        self::assertTrue($status->is_published());
 
         $status = Status::new();
-        self::assertFalse($status->isPublished());
+        self::assertFalse($status->is_published());
     }
 
     public function testItShouldCompareStatus()
     {
-        $status = Status::fromStatus(Status::PUBLISHED);
+        $status = Status::from_status(Status::PUBLISHED);
         $statusPending = Status::new();
 
         self::assertFalse($status->equals($statusPending));

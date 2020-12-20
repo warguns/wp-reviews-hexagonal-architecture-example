@@ -1,62 +1,108 @@
 <?php
+/**
+ * Status
+ *
+ * @package Review
+ */
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Review\Domain\ValueObject;
 
 use BetterReview\Review\Domain\Exception\StatusNotFound;
 
-final class Status
-{
-    public const PENDING = 'pending';
-    public const PUBLISHED = 'published';
-    public const REJECTED = 'rejected';
+/**
+ * Class Status
+ *
+ * @package BetterReview\Review\Domain\ValueObject
+ */
+final class Status {
+	public const PENDING   = 'pending';
+	public const PUBLISHED = 'published';
+	public const REJECTED  = 'rejected';
 
-    public const STATUS = [
-        self::PENDING,
-        self::PUBLISHED,
-        self::REJECTED,
-    ];
+	public const STATUS = array(
+		self::PENDING,
+		self::PUBLISHED,
+		self::REJECTED,
+	);
 
-    /** @var string */
-    private $status;
+	/**
+	 * Status
+	 *
+	 * @var string status.
+	 */
+	private $status;
 
-    private function __construct(string $status)
-    {
-        $this->status = $status;
-    }
+	/**
+	 * Status constructor.
+	 *
+	 * @param string $status status.
+	 */
+	private function __construct( string $status ) {
+		$this->status = $status;
+	}
 
-    public static function fromStatus(string $status): Status
-    {
-        if (!in_array($status, self::STATUS)) {
-            throw new StatusNotFound($status);
-        }
+	/**
+	 * Creates From status.
+	 *
+	 * @param string $status status.
+	 *
+	 * @return Status
+	 * @throws StatusNotFound Status not found.
+	 */
+	public static function from_status( string $status ): Status {
+		if ( ! in_array( $status, self::STATUS, true ) ) {
+			throw new StatusNotFound( $status );
+		}
 
-        return new static($status);
-    }
+		return new static( $status );
+	}
 
-    public static function new(): Status
-    {
-        return new static(self::PENDING);
-    }
+	/**
+	 * Creates from new
+	 *
+	 * @return Status
+	 */
+	public static function new(): Status {
+		return new static( self::PENDING );
+	}
 
-    public function getStatus(): string
-    {
-        return $this->status;
-    }
+	/**
+	 * Checks if its pending or rejected.
+	 *
+	 * @return bool
+	 */
+	public function is_pending_or_rejected(): bool {
+		return self::PENDING === $this->status || self::REJECTED === $this->status;
+	}
 
-    public function isPendingOrRejected(): bool
-    {
-        return $this->status === self::PENDING || $this->status === self::REJECTED;
-    }
+	/**
+	 * Checks if its published.
+	 *
+	 * @return bool
+	 */
+	public function is_published(): bool {
+		return self::PUBLISHED === $this->status;
+	}
 
-    public function isPublished(): bool
-    {
-        return $this->status === self::PUBLISHED;
-    }
+	/**
+	 * Compares status.
+	 *
+	 * @param Status $status status.
+	 *
+	 * @return bool
+	 */
+	public function equals( Status $status ): bool {
+		return $this->status === $status->get_status();
+	}
 
-    public function equals(Status $status): bool
-    {
-        return $this->status === $status->getStatus();
-    }
+	/**
+	 * Gets status.
+	 *
+	 * @return string
+	 */
+	public function get_status(): string {
+		return $this->status;
+	}
 }

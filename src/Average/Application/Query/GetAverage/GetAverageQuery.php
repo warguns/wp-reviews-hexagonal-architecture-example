@@ -1,21 +1,42 @@
 <?php
+/**
+ * GetAverageQuery
+ *
+ * @package Average
+ */
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Average\Application\Query\GetAverage;
 
-final class GetAverageQuery
-{
-    /** @var int */
-    private $postId;
+/**
+ * Class GetAverageQuery
+ *
+ * @package BetterReview\Average\Application\Query\GetAverage
+ */
+final class GetAverageQuery {
+	/**
+	 * Product id.
+	 *
+	 * @var int
+	 */
+	private $product_id;
 
-    public function __construct(int $postId)
-    {
-        $this->postId = $postId;
-    }
+	/**
+	 * GetAverageQuery constructor.
+	 *
+	 * @param int $product_id product_id.
+	 */
+	public function __construct( int $product_id ) {
+		$this->product_id = $product_id;
+	}
 
-    public function getPostId(): int
-    {
-        return $this->postId;
-    }
+	/**
+	 * Gets the product id.
+	 *
+	 * @return int
+	 */
+	public function get_product_id(): int {
+		return $this->product_id;
+	}
 }

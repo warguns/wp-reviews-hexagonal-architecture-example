@@ -1,6 +1,11 @@
 <?php
+/**
+ * WpAverageRepository
+ *
+ * @package Average
+ */
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Average\Infrastructure\Wordpress\Persistence;
 
@@ -8,38 +13,74 @@ use BetterReview\Average\Domain\Entity\Average;
 use BetterReview\Average\Domain\Repository\AverageRepository;
 use BetterReview\Shared\Domain\ValueObject\ProductId;
 
-final class WpAverageRepository implements AverageRepository
-{
-    /** @var \wpdb */
-    private $wpdb;
+/**
+ * Class WpAverageRepository
+ *
+ * @package BetterReview\Average\Infrastructure\Wordpress\Persistence
+ */
+final class WpAverageRepository implements AverageRepository {
 
-    /** @var string */
-    private $prefix;
+	/**
+	 * Prefix
+	 *
+	 * @var string
+	 */
+	private $prefix;
 
-    public function __construct(\wpdb $wpdb, string $prefix)
-    {
-        $this->wpdb = $wpdb;
-        $this->prefix = $prefix;
-    }
+	/**
+	 * WpAverageRepository constructor.
+	 *
+	 * @param string $prefix prefix.
+	 */
+	public function __construct( string $prefix ) {
+		$this->prefix = $prefix;
+	}
 
-    public function find(ProductId $postId): ?Average
-    {
-        $result = $this->wpdb->get_row('SELECT * FROM ' . $this->prefix . 'better_review_average WHERE post_id = "' . $postId->getId()  . '"', ARRAY_A);
+	/**
+	 * Find Product id.
+	 *
+	 * @param ProductId $product_id product id.
+	 *
+	 * @return Average|null
+	 */
+	public function find( ProductId $product_id ): ?Average {
+		global $wpdb;
 
-        if (null === $result) {
-            return null;
-        }
+		$result = $wpdb->get_row(
+			$wpdb->prepare(
+				"SELECT * FROM {$wpdb->prefix}better_review_average WHERE post_id = %s",
+				$product_id->get_id()
+			),
+			ARRAY_A
+		);
 
-        return Average::fromResult($result);
-    }
+		if ( null === $result ) {
+			return null;
+		}
+		return Average::from_result( $result );
+	}
 
-    public function insert(Average $average): bool
-    {
-        return (bool) $this->wpdb->insert($this->prefix . 'better_review_average', $average->toArray());
-    }
+	/**
+	 * Insert Average.
+	 *
+	 * @param Average $average average.
+	 *
+	 * @return bool
+	 */
+	public function insert( Average $average ): bool {
+		global $wpdb;
+		return (bool) $wpdb->insert( $this->prefix . 'better_review_average', $average->to_array() );
+	}
 
-    public function update(Average $average): bool
-    {
-        return (bool) $this->wpdb->update($this->prefix .'better_review_average', $average->toArray(), ['post_id' => $average->getPostId()->getId()]);
-    }
+	/**
+	 * Update Average.
+	 *
+	 * @param Average $average average.
+	 *
+	 * @return bool
+	 */
+	public function update( Average $average ): bool {
+		global $wpdb;
+		return (bool) $wpdb->update( $this->prefix . 'better_review_average', $average->to_array(), array( 'post_id' => $average->get_product_id()->get_id() ) );
+	}
 }

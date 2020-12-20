@@ -1,184 +1,292 @@
 <?php
+/**
+ * Review
+ *
+ * @package Review
+ */
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Review\Domain\Entity;
 
+use BetterReview\Review\Domain\Exception\IncorrectStars;
+use BetterReview\Review\Domain\Exception\StatusNotFound;
 use BetterReview\Review\Domain\ValueObject\Email;
+use BetterReview\Review\Domain\ValueObject\Stars;
 use BetterReview\Review\Domain\ValueObject\Status;
 use BetterReview\Shared\Domain\ValueObject\ProductId;
-use BetterReview\Review\Domain\ValueObject\Stars;
+use DateTime;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
-final class Review
-{
+/**
+ * Class Review
+ *
+ * @package BetterReview\Review\Domain\Entity
+ */
+final class Review {
 
-    /** @var UuidInterface */
-    private $uuid;
+	/**
+	 * Uuid.
+	 *
+	 * @var UuidInterface uuid
+	 */
+	private $uuid;
 
-    /** @var ProductId */
-    private $postId;
+	/**
+	 * Product id.
+	 *
+	 * @var ProductId product id.
+	 */
+	private $product_id;
 
-    /** @var Status */
-    private $status;
+	/**
+	 * Status.
+	 *
+	 * @var Status status.
+	 */
+	private $status;
 
-    /** @var string */
-    private $author;
+	/**
+	 * Author.
+	 *
+	 * @var string author.
+	 */
+	private $author;
 
-    /** @var string */
-    private $content;
+	/**
+	 * Content.
+	 *
+	 * @var string content
+	 */
+	private $content;
 
-    /** @var string */
-    private $title;
+	/**
+	 * Title.
+	 *
+	 * @var string title.
+	 */
+	private $title;
 
-    /** @var Email */
-    private $email;
+	/**
+	 * Email.
+	 *
+	 * @var Email email.
+	 */
+	private $email;
 
-    /** @var Stars */
-    private $stars;
+	/**
+	 * Stars
+	 *
+	 * @var Stars stars.
+	 */
+	private $stars;
 
-    /** @var \DateTime */
-    private $createdAt;
+	/**
+	 * Created At
+	 *
+	 * @var DateTime datetime.
+	 */
+	private $created_at;
 
-    /** @var \DateTime */
-    private $updatedAt;
+	/**
+	 * Updated At
+	 *
+	 * @var DateTime updated_at.
+	 */
+	private $updated_at;
 
-    private function __construct(UuidInterface $uuid, ProductId $postId, Status $status, string $author, string $content, string $title, Email $email, Stars $stars, \DateTime $createdAt, \DateTime $updatedAt)
-    {
-        $this->uuid = $uuid;
-        $this->postId = $postId;
-        $this->status = $status;
-        $this->author = $author;
-        $this->content = $content;
-        $this->title = $title;
-        $this->email = $email;
-        $this->stars = $stars;
-        $this->createdAt = $createdAt;
-        $this->updatedAt = $updatedAt;
-    }
+	/**
+	 * Review constructor.
+	 *
+	 * @param UuidInterface $uuid uuid.
+	 * @param ProductId     $product_id product id.
+	 * @param Status        $status status.
+	 * @param string        $author author.
+	 * @param string        $content content.
+	 * @param string        $title title.
+	 * @param Email         $email email.
+	 * @param Stars         $stars stars.
+	 * @param DateTime      $created_at created at.
+	 * @param DateTime      $updated_at upadted at.
+	 */
+	private function __construct( UuidInterface $uuid, ProductId $product_id, Status $status, string $author, string $content, string $title, Email $email, Stars $stars, DateTime $created_at, DateTime $updated_at ) {
+		$this->uuid       = $uuid;
+		$this->product_id = $product_id;
+		$this->status     = $status;
+		$this->author     = $author;
+		$this->content    = $content;
+		$this->title      = $title;
+		$this->email      = $email;
+		$this->stars      = $stars;
+		$this->created_at = $created_at;
+		$this->updated_at = $updated_at;
+	}
 
 
-    public static function build(UuidInterface $uuid, ProductId $postId, Status $status, string $author, string $content, string $title, Email $email, Stars $stars, string $updatedAt = 'now', string $createdAt = 'now'): self
-    {
-        return new self(
-            $uuid,
-            $postId,
-            $status,
-            $author,
-            $content,
-            $title,
-            $email,
-            $stars,
-            new \DateTime($updatedAt),
-            new \DateTime($createdAt)
-        );
-    }
+	/**
+	 * Builder.
+	 *
+	 * @param UuidInterface $uuid uuid.
+	 * @param ProductId     $product_id product id.
+	 * @param Status        $status status.
+	 * @param string        $author author.
+	 * @param string        $content content.
+	 * @param string        $title title.
+	 * @param Email         $email email.
+	 * @param Stars         $stars stars.
+	 * @param string        $updated_at udpated.
+	 * @param string        $created_at created.
+	 *
+	 * @return static
+	 * @throws \Exception When there's an error.
+	 */
+	public static function build( UuidInterface $uuid, ProductId $product_id, Status $status, string $author, string $content, string $title, Email $email, Stars $stars, string $updated_at = 'now', string $created_at = 'now' ): self {
+		return new self(
+			$uuid,
+			$product_id,
+			$status,
+			$author,
+			$content,
+			$title,
+			$email,
+			$stars,
+			new DateTime( $updated_at ),
+			new DateTime( $created_at )
+		);
+	}
 
-    public static function fromResult(array $result)
-    {
-        return new self(
-            Uuid::fromString($result['uuid']),
-            ProductId::fromInt((int) $result['post_id']),
-            Status::fromStatus($result['status']),
-            $result['author'],
-            $result['content'],
-            $result['title'],
-            Email::fromString($result['email']),
-            Stars::fromResult((float) $result['stars']),
-            \DateTime::createFromFormat(DATE_ATOM, $result['updated_at']),
-            \DateTime::createFromFormat(DATE_ATOM, $result['created_at'])
-        );
-    }
+	/**
+	 * From Database Result.
+	 *
+	 * @param array $result result.
+	 *
+	 * @return Review
+	 * @throws IncorrectStars When incorrect stars.
+	 * @throws StatusNotFound Status not found.
+	 */
+	public static function from_result( array $result ): Review {
+		return new self(
+			Uuid::fromString( $result['uuid'] ),
+			ProductId::from_int( (int) $result['post_id'] ),
+			Status::from_status( $result['status'] ),
+			$result['author'],
+			$result['content'],
+			$result['title'],
+			Email::from_string( $result['email'] ),
+			Stars::from_result( (float) $result['stars'] ),
+			DateTime::createFromFormat( DATE_ATOM, $result['updated_at'] ),
+			DateTime::createFromFormat( DATE_ATOM, $result['created_at'] )
+		);
+	}
 
-    /**
-     * @return UuidInterface
-     */
-    public function getUuid(): UuidInterface
-    {
-        return $this->uuid;
-    }
+	/**
+	 * Uuid.
+	 *
+	 * @return UuidInterface uuid.
+	 */
+	public function get_uuid(): UuidInterface {
+		return $this->uuid;
+	}
 
-    /**
-     * @return ProductId
-     */
-    public function getPostId(): ProductId
-    {
-        return $this->postId;
-    }
+	/**
+	 * Product id.
+	 *
+	 * @return ProductId product id.
+	 */
+	public function get_product_id(): ProductId {
+		return $this->product_id;
+	}
 
-    public function getStatus(): Status
-    {
-        return $this->status;
-    }
+	/**
+	 * Status.
+	 *
+	 * @return Status
+	 */
+	public function get_status(): Status {
+		return $this->status;
+	}
 
-    /**
-     * @return string
-     */
-    public function getAuthor(): string
-    {
-        return $this->author;
-    }
+	/**
+	 * Stars.
+	 *
+	 * @return Stars
+	 */
+	public function get_stars(): Stars {
+		return $this->stars;
+	}
 
-    /**
-     * @return string
-     */
-    public function getContent(): string
-    {
-        return $this->content;
-    }
+	/**
+	 * Converts to Array.
+	 *
+	 * @return array
+	 */
+	public function to_array(): array {
+		return array(
+			'uuid'       => $this->uuid->toString(),
+			'post_id'    => $this->product_id->get_id(),
+			'status'     => $this->status->get_status(),
+			'author'     => $this->get_author(),
+			'title'      => $this->get_title(),
+			'content'    => $this->get_content(),
+			'email'      => $this->get_email()->get_email(),
+			'stars'      => $this->stars->get_stars(),
+			'created_at' => $this->get_created_at()->format( DATE_ATOM ),
+			'updated_at' => $this->get_updated_at()->format( DATE_ATOM ),
+		);
+	}
 
-    /**
-     * @return string
-     */
-    public function getTitle(): string
-    {
-        return $this->title;
-    }
+	/**
+	 * Autor
+	 *
+	 * @return string
+	 */
+	public function get_author(): string {
+		return $this->author;
+	}
 
-    public function getEmail(): Email
-    {
-        return $this->email;
-    }
+	/**
+	 * Title.
+	 *
+	 * @return string
+	 */
+	public function get_title(): string {
+		return $this->title;
+	}
 
-    /**
-     * @return \DateTime
-     */
-    public function getCreatedAt(): \DateTime
-    {
-        return $this->createdAt;
-    }
+	/**
+	 * Content.
+	 *
+	 * @return string
+	 */
+	public function get_content(): string {
+		return $this->content;
+	}
 
-    /**
-     * @return \DateTime
-     */
-    public function getUpdatedAt(): \DateTime
-    {
-        return $this->updatedAt;
-    }
+	/**
+	 * Email.
+	 *
+	 * @return Email
+	 */
+	public function get_email(): Email {
+		return $this->email;
+	}
 
-    /**
-     * @return Stars
-     */
-    public function getStars(): Stars
-    {
-        return $this->stars;
-    }
+	/**
+	 * Created At.
+	 *
+	 * @return DateTime
+	 */
+	public function get_created_at(): DateTime {
+		return $this->created_at;
+	}
 
-    public function toArray(): array
-    {
-        return [
-            'uuid' => $this->uuid->toString(),
-            'post_id' => $this->postId->getId(),
-            'status'=> $this->status->getStatus(),
-            'author' => $this->getAuthor(),
-            'title' => $this->getTitle(),
-            'content' => $this->getContent(),
-            'email' => $this->getEmail()->getEmail(),
-            'stars' => $this->stars->getStars(),
-            'created_at' => $this->getCreatedAt()->format(DATE_ATOM),
-            'updated_at' => $this->getUpdatedAt()->format(DATE_ATOM)
-        ];
-    }
-
+	/**
+	 * Updated at.
+	 *
+	 * @return DateTime
+	 */
+	public function get_updated_at(): DateTime {
+		return $this->updated_at;
+	}
 }

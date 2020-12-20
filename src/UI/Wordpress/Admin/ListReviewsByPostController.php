@@ -1,24 +1,41 @@
 <?php
+/**
+ * ListReviewsByPostController
+ *
+ * @package UI
+ */
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\UI\Wordpress\Admin;
 
-class ListReviewsByPostController
-{
-    public function run()
-    {
-        \add_menu_page('Reviews by Post', 'Reviews by Post', 'manage_options', 'reviews-by-post', [$this, 'load'], 'dashicons-chart-pie',999);
-    }
+use function add_menu_page;
 
-    public function load()
-    {
+/**
+ * Class ListReviewsByPostController
+ *
+ * @package BetterReview\UI\Wordpress\Admin
+ */
+class ListReviewsByPostController {
 
-        $this->render();
-    }
+	/**
+	 * Run
+	 */
+	public function run() {
+		add_menu_page( 'Reviews by Post', 'Reviews by Post', 'manage_options', 'reviews-by-post', array( $this, 'load' ), 'dashicons-chart-pie', 999 );
+	}
 
-    private function render():void
-    {
-        include('templates/ListReviewsByPost.php');
-    }
+	/**
+	 * Load
+	 */
+	public function load() {
+		$this->render();
+	}
+
+	/**
+	 * Render
+	 */
+	private function render(): void {
+		include 'templates/ListReviewsByPost.php';
+	}
 }

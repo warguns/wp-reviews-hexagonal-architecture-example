@@ -1,6 +1,11 @@
 <?php
+/**
+ * GetAverageHandler
+ *
+ * @package Average
+ */
 
-declare(strict_types=1);
+declare( strict_types=1 );
 
 namespace BetterReview\Average\Application\Query\GetAverage;
 
@@ -9,24 +14,47 @@ use BetterReview\Average\Domain\Repository\AverageRepository;
 use BetterReview\Average\Domain\Service\AverageCalculator;
 use BetterReview\Shared\Domain\ValueObject\ProductId;
 
-final class GetAverageHandler
-{
-    /** @var AverageRepository */
-    private $reviewRepository;
+/**
+ * Class GetAverageHandler
+ *
+ * @package BetterReview\Average\Application\Query\GetAverage
+ */
+final class GetAverageHandler {
+	/**
+	 * Repo.
+	 *
+	 * @var AverageRepository rpo.
+	 */
+	private $average_repository;
 
-    /** @var AverageCalculator */
-    private $calculator;
+	/**
+	 * Calculator.
+	 *
+	 * @var AverageCalculator calculator.
+	 */
+	private $calculator;
 
-    public function __construct(AverageRepository $reviewRepository, AverageCalculator $calculator)
-    {
-        $this->reviewRepository = $reviewRepository;
-        $this->calculator = $calculator;
-    }
+	/**
+	 * GetAverageHandler constructor.
+	 *
+	 * @param AverageRepository $average_repository repo.
+	 * @param AverageCalculator $calculator calculator.
+	 */
+	public function __construct( AverageRepository $average_repository, AverageCalculator $calculator ) {
+		$this->average_repository = $average_repository;
+		$this->calculator         = $calculator;
+	}
 
-    public function run(GetAverageQuery $query): ReviewStats
-    {
-        $average = $this->reviewRepository->find(ProductId::fromInt($query->getPostId()));
+	/**
+	 * Run.
+	 *
+	 * @param GetAverageQuery $query query.
+	 *
+	 * @return ReviewStats
+	 */
+	public function run( GetAverageQuery $query ): ReviewStats {
+		$average = $this->average_repository->find( ProductId::from_int( $query->get_product_id() ) );
 
-        return $this->calculator->calculate($average);
-    }
+		return $this->calculator->calculate( $average );
+	}
 }

@@ -44,6 +44,10 @@ acceptance: ## run acceptance tests
 		$(compose) exec -T wordpress sh -lc "docker-php-ext-install pdo_mysql"
 		$(compose) exec -T wordpress sh -lc "cd wp-content/plugins/better-wp-reviews && ./vendor/bin/codecept run acceptance"
 
+.PHONY: cs
+cs: ## run wordpress code sniffer on src
+		$(compose) exec -T wordpress sh -lc "cd wp-content/plugins/better-wp-reviews && ./vendor/bin/phpcs --standard=WordPress src"
+
 .PHONY: plugin
 plugin: ## makes production build inside build folder
 		rm -fr build
