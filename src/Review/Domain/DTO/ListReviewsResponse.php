@@ -1,4 +1,9 @@
 <?php
+/**
+ * ListReviewsResponse
+ *
+ * @package Review
+ */
 
 declare( strict_types=1 );
 

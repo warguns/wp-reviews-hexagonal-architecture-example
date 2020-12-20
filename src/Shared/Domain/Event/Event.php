@@ -1,4 +1,9 @@
 <?php
+/**
+ * Event
+ *
+ * @package Shared
+ */
 
 declare( strict_types=1 );
 

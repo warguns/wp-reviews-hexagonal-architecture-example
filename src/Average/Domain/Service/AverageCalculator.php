@@ -1,4 +1,9 @@
 <?php
+/**
+ * AverageCalculator
+ *
+ * @package Average
+ */
 
 declare( strict_types=1 );
 

@@ -1,4 +1,9 @@
 <?php
+/**
+ * WpAverageRepository
+ *
+ * @package Average
+ */
 
 declare( strict_types=1 );
 
@@ -40,7 +45,14 @@ final class WpAverageRepository implements AverageRepository {
 	 */
 	public function find( ProductId $product_id ): ?Average {
 		global $wpdb;
-		$result = $wpdb->get_row( 'SELECT * FROM ' . $this->prefix . 'better_review_average WHERE post_id = "' . $product_id->get_id() . '"', ARRAY_A );
+
+		$result = $wpdb->get_row(
+			$wpdb->prepare(
+				"SELECT * FROM {$wpdb->prefix}better_review WHERE post_id = %s",
+				$product_id->get_id()
+			),
+			ARRAY_A
+		);
 
 		if ( null === $result ) {
 			return null;

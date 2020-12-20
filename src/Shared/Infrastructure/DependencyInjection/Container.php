@@ -1,4 +1,9 @@
 <?php
+/**
+ * Container
+ *
+ * @package Shared
+ */
 
 declare( strict_types=1 );
 

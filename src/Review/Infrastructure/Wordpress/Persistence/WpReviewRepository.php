@@ -1,4 +1,9 @@
 <?php
+/**
+ * WpReviewRepository
+ *
+ * @package Review
+ */
 
 declare( strict_types=1 );
 
@@ -43,17 +48,13 @@ final class WpReviewRepository implements ReviewRepository {
 	 *
 	 * @return Review
 	 * @throws ReviewNotFound Not Found.
-	 * @throws IncorrectStars IncorrectStars.
-	 * @throws StatusNotFound StatusNotFound.
 	 */
 	public function get( UuidInterface $review_uuid ): Review {
 		global $wpdb;
-		$table  = $this->prefix . 'better_review';
+
 		$result = $wpdb->get_row(
 			$wpdb->prepare(
-				"
-					SELECT * FROM {$table} WHERE uuid = %s
-				",
+				"SELECT * FROM {$wpdb->prefix}better_review WHERE uuid = %s",
 				array(
 					$review_uuid->toString(),
 				)
@@ -77,7 +78,7 @@ final class WpReviewRepository implements ReviewRepository {
 	 */
 	public function insert( Review $review ): bool {
 		global $wpdb;
-		return (bool) $wpdb->insert( $this->prefix . 'better_review', $review->to_array() );
+		return (bool) $wpdb->insert( $wpdb->prefix . 'better_review', $review->to_array() );
 	}
 
 	/**
@@ -89,7 +90,7 @@ final class WpReviewRepository implements ReviewRepository {
 	 */
 	public function update( Review $review ): bool {
 		global $wpdb;
-		return (bool) $wpdb->update( $this->prefix . 'better_review', $review->to_array(), array( 'uuid' => $review->get_uuid()->toString() ) );
+		return (bool) $wpdb->update( $wpdb->prefix . 'better_review', $review->to_array(), array( 'uuid' => $review->get_uuid()->toString() ) );
 	}
 
 	/**
@@ -101,7 +102,7 @@ final class WpReviewRepository implements ReviewRepository {
 	 */
 	public function delete( UuidInterface $review_uuid ): bool {
 		global $wpdb;
-		return (bool) $wpdb->delete( $this->prefix . 'better_review', array( 'uuid' => $review_uuid->toString() ) );
+		return (bool) $wpdb->delete( $wpdb->prefix . 'better_review', array( 'uuid' => $review_uuid->toString() ) );
 	}
 
 	/**
@@ -115,17 +116,15 @@ final class WpReviewRepository implements ReviewRepository {
 	 */
 	public function find_by_post( ProductId $product_id, int $limit = self::LIMIT, int $offset = self::OFFSET ): ReviewCollection {
 		global $wpdb;
-		$sql = 'SELECT * FROM ' . $this->prefix . 'better_review WHERE status = "published" and post_id = ' . $product_id->get_id();
-
-		if ( $limit > 0 ) {
-			$sql .= ' LIMIT ' . esc_sql( $limit );
-			if ( $offset > 0 ) {
-				$sql .= ' OFFSET ' . esc_sql( $offset );
-			}
-		}
-
-		$sql    .= ' ORDER BY created_at DESC';
-		$results = $wpdb->get_results( $sql, ARRAY_A );
+		$results = $wpdb->get_results(
+			$wpdb->prepare(
+				"SELECT * FROM {$wpdb->prefix}better_review WHERE status = 'published' and post_id = %s ORDER BY created_at DESC LIMIT %d OFFSET %d",
+				$product_id->get_id(),
+				$limit,
+				$offset
+			),
+			ARRAY_A
+		);
 
 		return ReviewCollection::from_results( $results );
 	}
@@ -139,8 +138,13 @@ final class WpReviewRepository implements ReviewRepository {
 	 */
 	public function count_by_post( ProductId $product_id ): int {
 		global $wpdb;
-
-		$count = $wpdb->get_results( 'SELECT COUNT(*) as counter  FROM ' . $this->prefix . 'better_review WHERE post_id = ' . $product_id->get_id() . ' ORDER BY created_at DESC', ARRAY_A );
+		$count = $wpdb->get_results(
+			$wpdb->prepare(
+				"SELECT COUNT(*) as counter FROM {$wpdb->prefix}better_review WHERE post_id = %s ORDER BY created_at DESC",
+				$product_id
+			),
+			ARRAY_A
+		);
 
 		return $count['counter'];
 	}

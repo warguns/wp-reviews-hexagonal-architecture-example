@@ -1,4 +1,9 @@
 <?php
+/**
+ * ReviewRepository
+ *
+ * @package Review
+ */
 
 declare( strict_types=1 );
 
@@ -28,8 +33,6 @@ interface ReviewRepository {
 	 *
 	 * @return Review
 	 * @throws ReviewNotFound Not Found.
-	 * @throws IncorrectStars IncorrectStars.
-	 * @throws StatusNotFound StatusNotFound.
 	 */
 	public function get( UuidInterface $review_uuid ): Review;
 

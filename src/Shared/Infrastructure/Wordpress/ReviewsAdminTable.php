@@ -1,4 +1,9 @@
 <?php
+/**
+ * ReviewsAdminTable
+ *
+ * @package Shared
+ */
 
 declare( strict_types=1 );
 
@@ -112,7 +117,8 @@ final class ReviewsAdminTable extends WP_List_Table {
 	public function column_default( $item, $column_name ) {
 		switch ( $column_name ) {
 			case 'uuid':
-				return "<a href='admin.php?page=edit-review&uuid=$item[$column_name]'>$item[$column_name]</a>";
+				$url = wp_nonce_url( 'admin.php?page=edit-review&uuid=' . $item[ $column_name ], 'edit-review' );
+				return "<a href='$url'>$item[$column_name]</a>";
 			case 'post_id':
 			case 'booktitle':
 			case 'title':
@@ -145,7 +151,7 @@ final class ReviewsAdminTable extends WP_List_Table {
 			case 'post_name':
 				return $this->post_names[ $item['post_id'] ];
 			default:
-				return print_r( $item, true );
+				break;
 		}
 	}
 

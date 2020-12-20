@@ -1,4 +1,9 @@
 <?php
+/**
+ * ListReviewsController
+ *
+ * @package UI
+ */
 
 declare( strict_types=1 );
 
@@ -65,18 +70,21 @@ class ListReviewsController {
 
 	/**
 	 * Load
+	 *
+	 * @throws IncorrectStars IncorrectStars.
+	 * @throws ReviewNotFound ReviewNotFound.
+	 * @throws StatusNotFound StatusNotFound.
 	 */
 	public function load(): void {
-
 		$this->bulk_delete();
-
+		$params           = $this->get_list_params();
 		$reviews_response = $this->list_handler->run(
 			new ListQuery(
-				$_REQUEST['s'] ?? null,
+				$params['s'] ?? null,
 				ReviewRepository::LIMIT,
-				( ( (int) isset( $_REQUEST['paged'] ) ? $_REQUEST['paged'] : 1 ) - 1 ) * ReviewRepository::LIMIT,
-				$_REQUEST['orderby'] ?? null,
-				$_REQUEST['order'] ?? null
+				( ( (int) isset( $params['paged'] ) ? $params['paged'] : 1 ) - 1 ) * ReviewRepository::LIMIT,
+				$params['orderby'] ?? null,
+				$params['order'] ?? null
 			)
 		);
 
@@ -113,24 +121,47 @@ class ListReviewsController {
 	 * @throws StatusNotFound StatusNotFound.
 	 */
 	protected function bulk_delete(): void {
-		if ( ( isset( $_POST['action'] ) && 'bulk-delete' === $_POST['action'] ) ) {
-			$this->verify_nonce();
-
-			$delete_uuids = esc_sql( $_REQUEST['bulk-delete'] );
-
-			foreach ( $delete_uuids as $uuid ) {
-				$this->delete_handler->run( new DeleteCommand( $uuid ) );
+		$params = $this->get_bulk_delete_params();
+		if ( ( $params && 'bulk-delete' === $params['action'] ) ) {
+			foreach ( $params['bulk-delete'] as $uuid ) {
+				$this->delete_handler->run( new DeleteCommand( sanitize_key( $uuid ) ) );
 			}
 		}
 	}
 
 	/**
-	 * Verify nonce
+	 * Get Params
+	 *
+	 * @return array|null
 	 */
-	private function verify_nonce(): void {
-		if ( ! check_admin_referer( 'listreviews', 'listreviews' ) ) {
-			die( 'Go get a life script kiddies' );
+	private function get_list_params(): ?array {
+		if ( isset( $_REQUEST['listreviews'] ) && check_admin_referer( 'listreviews', 'listreviews' ) && wp_verify_nonce( sanitize_key( $_REQUEST['listreviews'] ), 'listreviews' ) ) {
+			$params['s'] = ( isset( $_REQUEST['s'] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST['s'] ) ) : null;
+			if ( isset( $_SERVER['REQUEST_URI'] ) ) {
+				$_SERVER['REQUEST_URI'] = add_query_arg( array( 's' => $params['s'] ), sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) );
+			}
 		}
+		$params['paged']   = ( isset( $_REQUEST['paged'] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST['paged'] ) ) : null;
+		$params['orderby'] = ( isset( $_REQUEST['orderby'] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST['orderby'] ) ) : null;
+		$params['order']   = ( isset( $_REQUEST['order'] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST['order'] ) ) : null;
+
+		return $params;
+	}
+
+	/**
+	 * Get Params
+	 *
+	 * @return array|null
+	 */
+	private function get_bulk_delete_params(): ?array {
+		if ( isset( $_REQUEST['listreviews'], $_REQUEST['action'], $_REQUEST['bulk-delete'] ) && check_admin_referer( 'listreviews', 'listreviews' ) && wp_verify_nonce( sanitize_key( $_REQUEST['listreviews'] ), 'listreviews' ) ) {
+			$params['action']      = sanitize_text_field( wp_unslash( $_REQUEST['action'] ) );
+			$params['bulk-delete'] = wp_unslash( $_REQUEST['bulk-delete'] ); // @codingStandardsIgnoreLine
+
+			return $params;
+		}
+
+		return null;
 	}
 
 	/**

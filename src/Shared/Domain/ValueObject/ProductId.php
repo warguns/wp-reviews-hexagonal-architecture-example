@@ -1,4 +1,9 @@
 <?php
+/**
+ * ProductId
+ *
+ * @package Shared
+ */
 
 declare( strict_types=1 );
 

@@ -1,4 +1,10 @@
 <?php
+/**
+ * EditReview
+ *
+ * @package UI
+ */
+
 	use BetterReview\Review\Domain\Entity\Review;
 	use BetterReview\Review\Domain\ValueObject\Status;
 	/**
@@ -14,55 +20,51 @@
 	<form method="post" action="<?php echo esc_html( admin_url( 'admin.php?page=save-review' ) ); ?>">
 		<input type="hidden" name="page" value="save-review">
 		<div id="universal-message-container">
-			<h2><?php _e( 'Edit Review', 'better-reviews' ); ?></h2>
-			<input type="hidden" name="uuid" value="<?php echo ( isset( $review ) ) ? $review->get_uuid() : ''; ?>">
+			<h2><?php esc_html_e( 'Edit Review', 'better-reviews' ); ?></h2>
+			<input type="hidden" name="uuid" value="<?php echo ( isset( $review ) ) ? esc_html( $review->get_uuid() ) : null; ?>">
 			<div class="form-group">
-				<label for="post_id"><?php _e( 'Post ID:', 'better-reviews' ); ?></label>
-				<input type="text" class="form-control" id="post_id" name="post_id" aria-describedby="titleHelp"
-					   placeholder="<?php _e( 'Post ID:', 'better-reviews' ); ?>"
-					   value="<?php echo ( isset( $review ) ) ? $review->get_product_id()->get_id() : ''; ?>">
+				<label for="post_id"><?php esc_html_e( 'Post ID:', 'better-reviews' ); ?></label>
+				<input type="text" class="form-control" id="post_id" name="post_id" aria-describedby="titleHelp" placeholder="<?php esc_html_e( 'Post ID:', 'better-reviews' ); ?>" value="<?php echo ( isset( $review ) ) ? esc_html( $review->get_product_id()->get_id() ) : null; ?>">
 			</div>
 			<div class="form-group">
-				<label for="status"><?php _e( 'Status:', 'better-reviews' ); ?></label>
+				<label for="status"><?php esc_html_e( 'Status:', 'better-reviews' ); ?></label>
 				<select name="status">
-					<option value="<?php echo Status::PENDING; ?>" <?php echo ( isset( $review ) && $review->get_status()->get_status() === Status::PENDING ) ? 'selected="selected"' : ''; ?>><?php echo ucfirst( __( Status::PENDING, 'better-reviews' ) ); ?></option>
-					<option value="<?php echo Status::PUBLISHED; ?>" <?php echo ( isset( $review ) && $review->get_status()->get_status() === Status::PUBLISHED ) ? 'selected="selected"' : ''; ?>><?php echo ucfirst( __( Status::PUBLISHED, 'better-reviews' ) ); ?></option>
-					<option value="<?php echo Status::REJECTED; ?>" <?php echo ( isset( $review ) && $review->get_status()->get_status() === Status::REJECTED ) ? 'selected="selected"' : ''; ?>><?php echo ucfirst( __( Status::REJECTED, 'better-reviews' ) ); ?></option>
+					<option value="<?php echo esc_html( Status::PENDING ); ?>" <?php ( isset( $review ) && $review->get_status()->get_status() === Status::PENDING ) ? esc_html_e( 'selected="selected"' ) : null; ?>>
+						<?php echo esc_html( ucfirst( __( 'pending', 'better-reviews' ) ) ); ?>
+					</option>
+					<option value="<?php echo esc_html( Status::PUBLISHED ); ?>" <?php ( isset( $review ) && $review->get_status()->get_status() === Status::PUBLISHED ) ? esc_html_e( 'selected="selected"' ) : null; ?>>
+						<?php echo esc_html( ucfirst( __( 'published', 'better-reviews' ) ) ); ?>
+					</option>
+					<option value="<?php echo esc_html( Status::REJECTED ); ?>" <?php ( isset( $review ) && $review->get_status()->get_status() === Status::REJECTED ) ? esc_html_e( 'selected="selected"' ) : null; ?>>
+						<?php echo esc_html( ucfirst( __( 'rejected', 'better-reviews' ) ) ); ?>
+					</option>
 				</select>
 			</div>
 			<div class="form-group">
-				<label for="author"><?php _e( 'Author', 'better-reviews' ); ?></label>
-				<input type="text" class="form-control" id="author" name="author" aria-describedby="authorHelp"
-					   placeholder="<?php _e( 'Author', 'better-reviews' ); ?>"
-					   value="<?php echo ( isset( $review ) ) ? $review->get_author() : ''; ?>">
+				<label for="author"><?php esc_html_e( 'Author', 'better-reviews' ); ?></label>
+				<input type="text" class="form-control" id="author" name="author" aria-describedby="authorHelp" placeholder="<?php esc_html_e( 'Author', 'better-reviews' ); ?>" value="<?php echo ( isset( $review ) ) ? esc_html( $review->get_author() ) : ''; ?>">
 			</div>
 			<div class="form-group">
-				<label for="stars"><?php _e( 'Stars', 'better-reviews' ); ?></label>
+				<label for="stars"><?php esc_html_e( 'Stars', 'better-reviews' ); ?></label>
 				<div class="rating">
 					<?php for ( $i = 5; $i > 0; $i -- ) { ?>
-						<input type="radio" name="stars" id="rating-<?php echo $i; ?>" value="<?php echo $i; ?>"
-							   required="required" <?php echo ( isset( $review ) ) ? ( ( (int) $review->get_stars()->get_stars() === $i ) ? 'checked="checked"' : '' ) : ''; ?>>
-						<label for="rating-<?php echo $i; ?>"></label>
+						<input type="radio" name="stars" id="rating-<?php echo esc_html( $i ); ?>" value="<?php echo esc_html( $i ); ?>" required="required" <?php echo ( isset( $review ) ) ? ( ( (int) $review->get_stars()->get_stars() === $i ) ? 'checked="checked"' : '' ) : ''; ?>>
+						<label for="rating-<?php echo esc_html( $i ); ?>"></label>
 					<?php } ?>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="email"><?php _e( 'Email', 'better-reviews' ); ?></label>
-				<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
-					   placeholder="<?php _e( 'Email', 'better-reviews' ); ?>"
-					   value="<?php echo ( isset( $review ) ) ? $review->get_email()->get_email() : ''; ?>">
+				<label for="email"><?php esc_html_e( 'Email', 'better-reviews' ); ?></label>
+				<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="<?php esc_html_e( 'Email', 'better-reviews' ); ?>" value="<?php echo ( isset( $review ) ) ? esc_html( $review->get_email()->get_email() ) : ''; ?>">
 			</div>
 			<div class="form-group">
-				<label for="title"><?php _e( 'Title', 'better-reviews' ); ?></label>
-				<input type="text" class="form-control" id="title" name="title" aria-describedby="textHelp"
-					   placeholder="<?php _e( 'Title', 'better-reviews' ); ?>"
-					   value="<?php echo ( isset( $review ) ) ? $review->get_title() : ''; ?>">
+				<label for="title"><?php esc_html_e( 'Title', 'better-reviews' ); ?></label>
+				<input type="text" class="form-control" id="title" name="title" aria-describedby="textHelp" placeholder="<?php esc_html_e( 'Title', 'better-reviews' ); ?>" value="<?php echo ( isset( $review ) ) ? esc_html( $review->get_title() ) : ''; ?>">
 			</div>
 
 			<div class="form-group">
-				<label for="content"><?php _e( 'Content', 'better-reviews' ); ?></label>
-				<textarea name="content"
-						  id="content"><?php echo ( isset( $review ) ) ? $review->get_content() : ''; ?></textarea>
+				<label for="content"><?php esc_html_e( 'Content', 'better-reviews' ); ?></label>
+				<textarea name="content" id="content"><?php echo ( isset( $review ) ) ? esc_html( $review->get_content() ) : null; ?></textarea>
 			</div>
 
 

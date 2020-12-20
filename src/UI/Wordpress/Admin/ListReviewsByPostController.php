@@ -1,4 +1,9 @@
 <?php
+/**
+ * ListReviewsByPostController
+ *
+ * @package UI
+ */
 
 declare( strict_types=1 );
 

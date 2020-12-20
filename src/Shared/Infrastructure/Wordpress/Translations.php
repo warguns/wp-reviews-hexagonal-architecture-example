@@ -1,4 +1,9 @@
 <?php
+/**
+ * Translations
+ *
+ * @package Shared
+ */
 
 declare( strict_types=1 );
 

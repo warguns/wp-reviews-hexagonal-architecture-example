@@ -1,4 +1,9 @@
 <?php
+/**
+ * Email
+ *
+ * @package Review
+ */
 
 declare( strict_types=1 );
 

@@ -1,4 +1,9 @@
 <?php
+/**
+ * GetAverageHandler
+ *
+ * @package Average
+ */
 
 declare( strict_types=1 );
 

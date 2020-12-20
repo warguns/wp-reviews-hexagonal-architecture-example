@@ -1,4 +1,9 @@
 <?php
+/**
+ * DeleteHandler
+ *
+ * @package Review
+ */
 
 declare( strict_types=1 );
 

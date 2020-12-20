@@ -1,8 +1,8 @@
 <?php
 /**
- * File doc comment
+ * GetByPostQuery
  *
- * @package GetByPostQuery
+ * @package Review
  */
 
 declare( strict_types=1 );

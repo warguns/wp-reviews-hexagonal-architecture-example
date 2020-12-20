@@ -5,13 +5,10 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="547c3639-e3b4-40f3-9066-4107bf5fce20" name="Default Changelist" comment="add unit tests">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="547c3639-e3b4-40f3-9066-4107bf5fce20" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/UI/Wordpress/Front/assets/luxon.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/wp-reviews-hexagonal-architecture-example.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/wp-reviews-hexagonal-architecture-example.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Average/Application/Event/OnReviewAddedRecalculateAverage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Average/Application/Event/OnReviewAddedRecalculateAverage.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Average/Application/Event/OnReviewDeletedRecalculateAverage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Average/Application/Event/OnReviewDeletedRecalculateAverage.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Average/Application/Event/OnReviewUpdatedRecalculateAverage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Average/Application/Event/OnReviewUpdatedRecalculateAverage.php" afterDir="false" />
@@ -70,23 +67,7 @@
       <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Admin/templates/ListReviews.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Admin/templates/ListReviews.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Admin/templates/ListReviewsByPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Admin/templates/ListReviewsByPost.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Front/GetReviewsBlockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Front/GetReviewsBlockController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Front/assets/stars.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Front/assets/stars.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Front/assets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Front/assets/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Front/templates/GetReviewsBlock.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Front/templates/GetReviewsBlock.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Average/Domain/DTO/ReviewStatsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Average/Domain/DTO/ReviewStatsTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Average/Domain/Entity/AverageTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Average/Domain/Entity/AverageTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Average/Domain/Service/AverageCalculatorTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Average/Domain/Service/AverageCalculatorTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Review/Domain/DTO/ListReviewsResponseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/DTO/ListReviewsResponseTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Review/Domain/Entity/ReviewTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/Entity/ReviewTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Review/Domain/Event/ReviewAddedTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/Event/ReviewAddedTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Review/Domain/Event/ReviewDeletedTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/Event/ReviewDeletedTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Review/Domain/Event/ReviewUpdatedTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/Event/ReviewUpdatedTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Review/Domain/ValueObject/EmailTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/ValueObject/EmailTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Review/Domain/ValueObject/ReviewCollectionTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/ValueObject/ReviewCollectionTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Review/Domain/ValueObject/StarsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/ValueObject/StarsTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Review/Domain/ValueObject/StatusTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/ValueObject/StatusTest.php" afterDir="false" />
     </list>
     <list id="be2420c8-fab6-48ce-bd45-d514e2c83117" name="create hexagonal plugin" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,6 +83,11 @@
     <drupalPath />
   </component>
   <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
     <option name="SCHEME" value="Project" />
   </component>
   <component name="Git.Settings">
@@ -275,7 +261,9 @@
       <updated>1608232522300</updated>
       <workItem from="1608232523487" duration="3747000" />
       <workItem from="1608282660836" duration="18624000" />
-      <workItem from="1608372097698" duration="15204000" />
+      <workItem from="1608372097698" duration="19842000" />
+      <workItem from="1608403180893" duration="6285000" />
+      <workItem from="1608453322720" duration="8063000" />
     </task>
     <task id="LOCAL-00001" summary="add unit tests">
       <created>1608289122073</created>
@@ -284,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608289122073</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add coding style">
+      <created>1608392139422</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608392139422</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,7 +299,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add unit tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="add unit tests" />
+    <MESSAGE value="add coding style" />
+    <option name="LAST_COMMIT_MESSAGE" value="add coding style" />
   </component>
   <component name="WordPressConfiguration" enabled="true">
     <wordpressPath>$PROJECT_DIR$/../fast_rest</wordpressPath>

@@ -1,4 +1,9 @@
 <?php
+/**
+ * EditReviewController
+ *
+ * @package UI
+ */
 
 declare( strict_types=1 );
 
@@ -48,10 +53,10 @@ class EditReviewController {
 	 * @throws StatusNotFound StatusNotFound.
 	 */
 	public function load() {
-		if ( isset( $_REQUEST['uuid'] ) ) {
+		if ( isset( $_REQUEST['_wpnonce'], $_REQUEST['uuid'] ) && check_admin_referer( 'edit-review', '_wpnonce' ) && wp_verify_nonce( sanitize_key( $_REQUEST['_wpnonce'] ), 'edit-review' ) ) {
 			$review = $this->get_handler->run(
 				new GetQuery(
-					esc_attr( $_REQUEST['uuid'] )
+					sanitize_text_field( wp_unslash( $_REQUEST['uuid'] ) )
 				)
 			);
 		}
@@ -63,6 +68,6 @@ class EditReviewController {
 	 * Style Loader
 	 */
 	public function load_styles() {
-		wp_enqueue_style( 'admin-styles', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' );
+		wp_enqueue_style( 'admin-styles', '//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', array(), '20201212' );
 	}
 }

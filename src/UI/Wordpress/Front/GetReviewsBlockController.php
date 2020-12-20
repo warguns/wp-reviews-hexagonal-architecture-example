@@ -1,4 +1,9 @@
 <?php
+/**
+ * GetReviewsBlockController
+ *
+ * @package UI
+ */
 
 declare( strict_types=1 );
 
@@ -64,7 +69,7 @@ class GetReviewsBlockController {
 	 * Load Scripts
 	 */
 	public function load_scripts(): void {
-		wp_enqueue_script( 'luxon', '//moment.github.io/luxon/global/luxon.min.js', array(), '20201213', true );
+		wp_enqueue_script( 'luxon', plugins_url( '/assets/luxon.js', __FILE__ ), array(), '20201213', true );
 		wp_enqueue_style( 'better-review-stars', plugins_url( '/assets/stars.css', __FILE__ ), array(), '20201213', 'all' );
 		wp_enqueue_style( 'better-review-style', plugins_url( '/assets/style.css', __FILE__ ), array(), '20201213', 'all' );
 	}

@@ -1,4 +1,9 @@
 <?php
+/**
+ * OnReviewAddedRecalculateAverage
+ *
+ * @package Average
+ */
 
 declare( strict_types=1 );
 
