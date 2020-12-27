@@ -5,15 +5,16 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="547c3639-e3b4-40f3-9066-4107bf5fce20" name="Default Changelist" comment="">
+    <list default="true" id="547c3639-e3b4-40f3-9066-4107bf5fce20" name="Default Changelist" comment="apply wordpress coding style">
+      <change afterPath="$PROJECT_DIR$/assets/banner-1544x500.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/banner-772x250.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/logo-128x128.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/logo-256x256.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/logo.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Infrastructure/Wordpress/Persistence/WpReviewRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Infrastructure/Wordpress/Persistence/WpReviewRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Admin/ListReviewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Admin/ListReviewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.png" afterDir="false" />
     </list>
     <list id="be2420c8-fab6-48ce-bd45-d514e2c83117" name="create hexagonal plugin" comment="" />
+    <list id="35920c78-b837-465f-9721-b35c8a1f9230" name="Revert: " comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -168,6 +169,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -176,6 +178,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tests/unit/Review/Domain/Event" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.StarsTest.testItCannotBeMoreThanFive">
@@ -208,6 +213,7 @@
       <workItem from="1608372097698" duration="19842000" />
       <workItem from="1608403180893" duration="6285000" />
       <workItem from="1608453322720" duration="16251000" />
+      <workItem from="1609097653256" duration="3140000" />
     </task>
     <task id="LOCAL-00001" summary="add unit tests">
       <created>1608289122073</created>
@@ -244,7 +250,28 @@
       <option name="project" value="LOCAL" />
       <updated>1608470758054</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="implement PSR's on container and dispatcher">
+      <created>1608477314992</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1608477314992</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add acceptance dump">
+      <created>1608485623282</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1608485623282</updated>
+    </task>
+    <task id="LOCAL-00008" summary="create Readme file">
+      <created>1609101115939</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1609101115939</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +293,10 @@
     <MESSAGE value="add unit tests" />
     <MESSAGE value="add coding style" />
     <MESSAGE value="apply wordpress coding style" />
-    <option name="LAST_COMMIT_MESSAGE" value="apply wordpress coding style" />
+    <MESSAGE value="implement PSR's on container and dispatcher" />
+    <MESSAGE value="add acceptance dump" />
+    <MESSAGE value="create Readme file" />
+    <option name="LAST_COMMIT_MESSAGE" value="create Readme file" />
   </component>
   <component name="WordPressConfiguration" enabled="true">
     <wordpressPath>$PROJECT_DIR$/../fast_rest</wordpressPath>
