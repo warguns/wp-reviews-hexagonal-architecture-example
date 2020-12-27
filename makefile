@@ -57,6 +57,8 @@ plugin: ## makes production build inside build folder
 		cp -R ./better-reviews.php build/better-wp-reviews
 		cp -R ./composer.json build/better-wp-reviews
 		cp -R ./index.php build/better-wp-reviews
+		cp -R ./readme.txt build/better-wp-reviews
+		cp -R ./assets build/better-wp-reviews/assets
 		docker run --rm --interactive --tty --volume ${PWD}/build/better-wp-reviews:/app composer install --no-dev
 
 .PHONY: shell

@@ -32,7 +32,7 @@ use BetterReview\Shared\Infrastructure\Gravatar\GravatarService;
 <div id="reviews" class="alignwide">
 	<div class="total">
 		<?php esc_html_e( 'Average:', 'better-reviews' ); ?>
-		<?php echo esc_html( number_format( $review_stats->get_average(), 2 ) ); ?><?php esc_html_e( 'of', 'better-reviews' ); ?><?php echo esc_html( $review_stats->get_review_count() ); ?><?php esc_html_e( 'Reviews', 'better-reviews' ); ?>
+		<?php echo esc_html( number_format( $review_stats->get_average(), 2 ) ); ?> <?php esc_html_e( 'of', 'better-reviews' ); ?> <?php echo esc_html( $review_stats->get_review_count() ); ?><?php esc_html_e( 'Reviews', 'better-reviews' ); ?>
 	</div>
 	<form class="alignwide average" action="?p=<?php echo esc_html( $post->ID ); ?>" method="post" class="review-form">
 		<h4><?php esc_html_e( 'Review product', 'better-reviews' ); ?></h4>

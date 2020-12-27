@@ -166,6 +166,7 @@ final class WpReviewRepository implements ReviewRepository {
 		global $wpdb;
 		$select = 'SELECT * FROM ' . $this->prefix . 'better_review';
 
+		$where = '';
 		if ( null !== $search ) {
 			$where = $wpdb->prepare(
 				'WHERE title LIKE %s OR content LIKE %s OR status LIKE %s OR author LIKE %s',
@@ -176,6 +177,7 @@ final class WpReviewRepository implements ReviewRepository {
 			);
 		}
 
+		$ordering = '';
 		if ( ! empty( $orderby ) ) {
 			$ordering = 'ORDER BY ';
 			$orders   = array();
@@ -184,7 +186,7 @@ final class WpReviewRepository implements ReviewRepository {
 			}
 			$ordering .= implode( ',', $orders );
 		}
-
+		$limit_offset = '';
 		if ( $limit > 0 ) {
 			$limit_offset = ' LIMIT ' . esc_sql( $limit );
 			if ( $offset > 0 ) {
@@ -194,9 +196,7 @@ final class WpReviewRepository implements ReviewRepository {
 
 		// Samitized on prior lines.
 		$results = $wpdb->get_results(
-			$wpdb->prepare(
-				"$select $where $ordering $limit_offset" // @codingStandardsIgnoreLine
-			),
+			"$select $where $ordering $limit_offset", // @codingStandardsIgnoreLine
 			ARRAY_A
 		);
 
