@@ -7,20 +7,20 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Application\Command\Delete;
+namespace HexagonalReviews\Review\Application\Command\Delete;
 
-use BetterReview\Review\Domain\Event\ReviewDeleted;
-use BetterReview\Review\Domain\Exception\IncorrectStars;
-use BetterReview\Review\Domain\Exception\ReviewNotFound;
-use BetterReview\Review\Domain\Exception\StatusNotFound;
-use BetterReview\Review\Domain\Repository\ReviewRepository;
-use BetterReview\Shared\Domain\Service\EventDispatcher;
+use HexagonalReviews\Review\Domain\Event\ReviewDeleted;
+use HexagonalReviews\Review\Domain\Exception\IncorrectStars;
+use HexagonalReviews\Review\Domain\Exception\ReviewNotFound;
+use HexagonalReviews\Review\Domain\Exception\StatusNotFound;
+use HexagonalReviews\Review\Domain\Repository\ReviewRepository;
+use HexagonalReviews\Shared\Domain\Service\EventDispatcher;
 use Ramsey\Uuid\Uuid;
 
 /**
  * Class DeleteHandler
  *
- * @package BetterReview\Review\Application\Command\Delete
+ * @package HexagonalReviews\Review\Application\Command\Delete
  */
 final class DeleteHandler {
 	/**

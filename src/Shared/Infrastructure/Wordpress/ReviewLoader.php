@@ -7,12 +7,12 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Shared\Infrastructure\Wordpress;
+namespace HexagonalReviews\Shared\Infrastructure\Wordpress;
 
 /**
  * Class ReviewLoader Kernel inspired directly from JWT auth's plugin
  *
- * @package BetterReview\Shared\Infrastructure\Wordpress
+ * @package HexagonalReviews\Shared\Infrastructure\Wordpress
  */
 final class ReviewLoader {
 	/**

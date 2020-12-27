@@ -7,12 +7,12 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Shared\Domain\ValueObject;
+namespace HexagonalReviews\Shared\Domain\ValueObject;
 
 /**
  * Class ProductId
  *
- * @package BetterReview\Shared\Domain\ValueObject
+ * @package HexagonalReviews\Shared\Domain\ValueObject
  */
 final class ProductId {
 	/**

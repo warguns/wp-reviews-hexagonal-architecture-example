@@ -7,14 +7,14 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Shared\Domain\Service;
+namespace HexagonalReviews\Shared\Domain\Service;
 
 use Psr\EventDispatcher\EventDispatcherInterface;
 
 /**
  * Interface EventDispatcher
  *
- * @package BetterReview\Shared\Domain\Service
+ * @package HexagonalReviews\Shared\Domain\Service
  */
 interface EventDispatcher extends EventDispatcherInterface {
 

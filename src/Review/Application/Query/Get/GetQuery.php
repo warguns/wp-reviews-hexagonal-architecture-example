@@ -7,12 +7,12 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Application\Query\Get;
+namespace HexagonalReviews\Review\Application\Query\Get;
 
 /**
  * Class GetQuery
  *
- * @package BetterReview\Review\Application\Query\Get
+ * @package HexagonalReviews\Review\Application\Query\Get
  */
 final class GetQuery {
 

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BetterReview\Tests\unit\Review\Domain\DTO;
+namespace HexagonalReviews\Tests\unit\Review\Domain\DTO;
 
-use BetterReview\Review\Domain\DTO\ListReviewsResponse;
-use BetterReview\Review\Domain\ValueObject\ReviewCollection;
+use HexagonalReviews\Review\Domain\DTO\ListReviewsResponse;
+use HexagonalReviews\Review\Domain\ValueObject\ReviewCollection;
 
 
 class ListReviewsResponseTest extends \Codeception\Test\Unit

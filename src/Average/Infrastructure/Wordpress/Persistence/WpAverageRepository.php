@@ -7,16 +7,16 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Average\Infrastructure\Wordpress\Persistence;
+namespace HexagonalReviews\Average\Infrastructure\Wordpress\Persistence;
 
-use BetterReview\Average\Domain\Entity\Average;
-use BetterReview\Average\Domain\Repository\AverageRepository;
-use BetterReview\Shared\Domain\ValueObject\ProductId;
+use HexagonalReviews\Average\Domain\Entity\Average;
+use HexagonalReviews\Average\Domain\Repository\AverageRepository;
+use HexagonalReviews\Shared\Domain\ValueObject\ProductId;
 
 /**
  * Class WpAverageRepository
  *
- * @package BetterReview\Average\Infrastructure\Wordpress\Persistence
+ * @package HexagonalReviews\Average\Infrastructure\Wordpress\Persistence
  */
 final class WpAverageRepository implements AverageRepository {
 
@@ -48,7 +48,7 @@ final class WpAverageRepository implements AverageRepository {
 
 		$result = $wpdb->get_row(
 			$wpdb->prepare(
-				"SELECT * FROM {$wpdb->prefix}better_review_average WHERE post_id = %s",
+				"SELECT * FROM {$wpdb->prefix}hexagonal_review_average WHERE post_id = %s",
 				$product_id->get_id()
 			),
 			ARRAY_A
@@ -69,7 +69,7 @@ final class WpAverageRepository implements AverageRepository {
 	 */
 	public function insert( Average $average ): bool {
 		global $wpdb;
-		return (bool) $wpdb->insert( $this->prefix . 'better_review_average', $average->to_array() );
+		return (bool) $wpdb->insert( $this->prefix . 'hexagonal_review_average', $average->to_array() );
 	}
 
 	/**
@@ -81,6 +81,6 @@ final class WpAverageRepository implements AverageRepository {
 	 */
 	public function update( Average $average ): bool {
 		global $wpdb;
-		return (bool) $wpdb->update( $this->prefix . 'better_review_average', $average->to_array(), array( 'post_id' => $average->get_product_id()->get_id() ) );
+		return (bool) $wpdb->update( $this->prefix . 'hexagonal_review_average', $average->to_array(), array( 'post_id' => $average->get_product_id()->get_id() ) );
 	}
 }

@@ -7,17 +7,17 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Average\Application\Query\GetAverage;
+namespace HexagonalReviews\Average\Application\Query\GetAverage;
 
-use BetterReview\Average\Domain\DTO\ReviewStats;
-use BetterReview\Average\Domain\Repository\AverageRepository;
-use BetterReview\Average\Domain\Service\AverageCalculator;
-use BetterReview\Shared\Domain\ValueObject\ProductId;
+use HexagonalReviews\Average\Domain\DTO\ReviewStats;
+use HexagonalReviews\Average\Domain\Repository\AverageRepository;
+use HexagonalReviews\Average\Domain\Service\AverageCalculator;
+use HexagonalReviews\Shared\Domain\ValueObject\ProductId;
 
 /**
  * Class GetAverageHandler
  *
- * @package BetterReview\Average\Application\Query\GetAverage
+ * @package HexagonalReviews\Average\Application\Query\GetAverage
  */
 final class GetAverageHandler {
 	/**

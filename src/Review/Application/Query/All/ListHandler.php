@@ -7,15 +7,15 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Application\Query\All;
+namespace HexagonalReviews\Review\Application\Query\All;
 
-use BetterReview\Review\Domain\DTO\ListReviewsResponse;
-use BetterReview\Review\Domain\Repository\ReviewRepository;
+use HexagonalReviews\Review\Domain\DTO\ListReviewsResponse;
+use HexagonalReviews\Review\Domain\Repository\ReviewRepository;
 
 /**
  * Class ListHandler
  *
- * @package BetterReview\Review\Application\Query\All
+ * @package HexagonalReviews\Review\Application\Query\All
  */
 final class ListHandler {
 

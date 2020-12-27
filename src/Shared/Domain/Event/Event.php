@@ -7,12 +7,12 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Shared\Domain\Event;
+namespace HexagonalReviews\Shared\Domain\Event;
 
 /**
  * Interface Event
  *
- * @package BetterReview\Shared\Domain\Event
+ * @package HexagonalReviews\Shared\Domain\Event
  */
 interface Event {
 	/**

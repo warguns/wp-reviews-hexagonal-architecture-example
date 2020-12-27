@@ -7,12 +7,12 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Average\Application\Query\GetAverage;
+namespace HexagonalReviews\Average\Application\Query\GetAverage;
 
 /**
  * Class GetAverageQuery
  *
- * @package BetterReview\Average\Application\Query\GetAverage
+ * @package HexagonalReviews\Average\Application\Query\GetAverage
  */
 final class GetAverageQuery {
 	/**

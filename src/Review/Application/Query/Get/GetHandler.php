@@ -7,19 +7,19 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Application\Query\Get;
+namespace HexagonalReviews\Review\Application\Query\Get;
 
-use BetterReview\Review\Domain\Entity\Review;
-use BetterReview\Review\Domain\Exception\IncorrectStars;
-use BetterReview\Review\Domain\Exception\ReviewNotFound;
-use BetterReview\Review\Domain\Exception\StatusNotFound;
-use BetterReview\Review\Domain\Repository\ReviewRepository;
+use HexagonalReviews\Review\Domain\Entity\Review;
+use HexagonalReviews\Review\Domain\Exception\IncorrectStars;
+use HexagonalReviews\Review\Domain\Exception\ReviewNotFound;
+use HexagonalReviews\Review\Domain\Exception\StatusNotFound;
+use HexagonalReviews\Review\Domain\Repository\ReviewRepository;
 use Ramsey\Uuid\Uuid;
 
 /**
  * Class GetHandler
  *
- * @package BetterReview\Review\Application\Query\Get
+ * @package HexagonalReviews\Review\Application\Query\Get
  */
 final class GetHandler {
 

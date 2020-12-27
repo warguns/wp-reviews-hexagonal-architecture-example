@@ -7,15 +7,15 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Average\Domain\Repository;
+namespace HexagonalReviews\Average\Domain\Repository;
 
-use BetterReview\Average\Domain\Entity\Average;
-use BetterReview\Shared\Domain\ValueObject\ProductId;
+use HexagonalReviews\Average\Domain\Entity\Average;
+use HexagonalReviews\Shared\Domain\ValueObject\ProductId;
 
 /**
  * Interface AverageRepository
  *
- * @package BetterReview\Average\Domain\Repository
+ * @package HexagonalReviews\Average\Domain\Repository
  */
 interface AverageRepository {
 

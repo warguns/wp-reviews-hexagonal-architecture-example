@@ -7,14 +7,14 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Domain\ValueObject;
+namespace HexagonalReviews\Review\Domain\ValueObject;
 
-use BetterReview\Review\Domain\Exception\StatusNotFound;
+use HexagonalReviews\Review\Domain\Exception\StatusNotFound;
 
 /**
  * Class Status
  *
- * @package BetterReview\Review\Domain\ValueObject
+ * @package HexagonalReviews\Review\Domain\ValueObject
  */
 final class Status {
 	public const PENDING   = 'pending';

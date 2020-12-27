@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BetterReview\Tests\unit\Review\Domain\ValueObject;
+namespace HexagonalReviews\Tests\unit\Review\Domain\ValueObject;
 
-use BetterReview\Review\Domain\Exception\StatusNotFound;
-use BetterReview\Review\Domain\ValueObject\Status;
+use HexagonalReviews\Review\Domain\Exception\StatusNotFound;
+use HexagonalReviews\Review\Domain\ValueObject\Status;
 use Codeception\Test\Unit;
 
 class StatusTest extends Unit

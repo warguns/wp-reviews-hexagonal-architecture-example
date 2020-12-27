@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BetterReview\Tests\unit\Review\Domain\ValueObject;
+namespace HexagonalReviews\Tests\unit\Review\Domain\ValueObject;
 
-use BetterReview\Review\Domain\Exception\IncorrectStars;
-use BetterReview\Review\Domain\ValueObject\Stars;
+use HexagonalReviews\Review\Domain\Exception\IncorrectStars;
+use HexagonalReviews\Review\Domain\ValueObject\Stars;
 
 class StarsTest extends \Codeception\Test\Unit
 {

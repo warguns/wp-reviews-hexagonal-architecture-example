@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BetterReview\Tests\unit\Average\Domain\Entity;
+namespace HexagonalReviews\Tests\unit\Average\Domain\Entity;
 
-use BetterReview\Average\Domain\Entity\Average;
-use BetterReview\Shared\Domain\ValueObject\ProductId;
+use HexagonalReviews\Average\Domain\Entity\Average;
+use HexagonalReviews\Shared\Domain\ValueObject\ProductId;
 use Codeception\Test\Unit;
 
 class AverageTest extends Unit

@@ -7,15 +7,15 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Shared\Infrastructure\Wordpress;
+namespace HexagonalReviews\Shared\Infrastructure\Wordpress;
 
-use BetterReview\Review\Domain\Repository\ReviewRepository;
+use HexagonalReviews\Review\Domain\Repository\ReviewRepository;
 use WP_List_Table;
 
 /**
  * Class ReviewsAdminTable
  *
- * @package BetterReview\Shared\Infrastructure\Wordpress
+ * @package HexagonalReviews\Shared\Infrastructure\Wordpress
  */
 final class ReviewsAdminTable extends WP_List_Table {
 	/**
@@ -71,17 +71,17 @@ final class ReviewsAdminTable extends WP_List_Table {
 	public function get_columns() {
 		return array(
 			'cb'         => '<input type="checkbox" />',
-			'uuid'       => __( 'Uuid', 'better-reviews' ),
-			'post_id'    => __( 'Post Id', 'better-reviews' ),
-			'post_name'  => __( 'Post Name', 'better-reviews' ),
-			'status'     => __( 'Status', 'better-reviews' ),
-			'title'      => __( 'Titulo', 'better-reviews' ),
-			'author'     => __( 'Autor', 'better-reviews' ),
-			'content'    => __( 'content', 'better-reviews' ),
-			'email'      => __( 'Email', 'better-reviews' ),
-			'stars'      => __( 'Estrellas', 'better-reviews' ),
-			'created_at' => __( 'fecha de creacion', 'better-reviews' ),
-			'updated_at' => __( 'fecha de actualizacion', 'better-reviews' ),
+			'uuid'       => __( 'Uuid', 'hexagonal-reviews' ),
+			'post_id'    => __( 'Post Id', 'hexagonal-reviews' ),
+			'post_name'  => __( 'Post Name', 'hexagonal-reviews' ),
+			'status'     => __( 'Status', 'hexagonal-reviews' ),
+			'title'      => __( 'Titulo', 'hexagonal-reviews' ),
+			'author'     => __( 'Autor', 'hexagonal-reviews' ),
+			'content'    => __( 'content', 'hexagonal-reviews' ),
+			'email'      => __( 'Email', 'hexagonal-reviews' ),
+			'stars'      => __( 'Estrellas', 'hexagonal-reviews' ),
+			'created_at' => __( 'fecha de creacion', 'hexagonal-reviews' ),
+			'updated_at' => __( 'fecha de actualizacion', 'hexagonal-reviews' ),
 		);
 	}
 
@@ -141,11 +141,11 @@ final class ReviewsAdminTable extends WP_List_Table {
 			case 'status':
 				switch ( $item[ $column_name ] ) {
 					case 'pending':
-						return ucfirst( __( 'pending', 'better-reviews' ) );
+						return ucfirst( __( 'pending', 'hexagonal-reviews' ) );
 					case 'published':
-						return ucfirst( __( 'published', 'better-reviews' ) );
+						return ucfirst( __( 'published', 'hexagonal-reviews' ) );
 					case 'rejected':
-						return ucfirst( __( 'rejected', 'better-reviews' ) );
+						return ucfirst( __( 'rejected', 'hexagonal-reviews' ) );
 				}
 				break;
 			case 'post_name':
@@ -162,8 +162,8 @@ final class ReviewsAdminTable extends WP_List_Table {
 	 */
 	public function get_bulk_actions(): array {
 		return array(
-			'bulk-publish' => __( 'Publish', 'better-reviews' ),
-			'bulk-delete'  => __( 'Delete', 'better-reviews' ),
+			'bulk-publish' => __( 'Publish', 'hexagonal-reviews' ),
+			'bulk-delete'  => __( 'Delete', 'hexagonal-reviews' ),
 		);
 	}
 

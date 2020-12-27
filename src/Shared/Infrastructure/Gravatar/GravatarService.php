@@ -7,12 +7,12 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Shared\Infrastructure\Gravatar;
+namespace HexagonalReviews\Shared\Infrastructure\Gravatar;
 
 /**
  * Class GravatarService
  *
- * @package BetterReview\Shared\Infrastructure\Gravatar
+ * @package HexagonalReviews\Shared\Infrastructure\Gravatar
  */
 class GravatarService {
 

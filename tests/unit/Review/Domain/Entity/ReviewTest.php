@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace BetterReview\Tests\unit\Review\Domain\Entity;
+namespace HexagonalReviews\Tests\unit\Review\Domain\Entity;
 
-use BetterReview\Review\Domain\Entity\Review;
-use BetterReview\Review\Domain\ValueObject\Email;
-use BetterReview\Review\Domain\ValueObject\Stars;
-use BetterReview\Review\Domain\ValueObject\Status;
-use BetterReview\Shared\Domain\ValueObject\ProductId;
+use HexagonalReviews\Review\Domain\Entity\Review;
+use HexagonalReviews\Review\Domain\ValueObject\Email;
+use HexagonalReviews\Review\Domain\ValueObject\Stars;
+use HexagonalReviews\Review\Domain\ValueObject\Status;
+use HexagonalReviews\Shared\Domain\ValueObject\ProductId;
 use Codeception\Test\Unit;
 use Ramsey\Uuid\Uuid;
 

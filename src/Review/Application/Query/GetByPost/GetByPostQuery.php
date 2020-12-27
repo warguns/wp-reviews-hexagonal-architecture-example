@@ -7,16 +7,16 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Application\Query\GetByPost;
+namespace HexagonalReviews\Review\Application\Query\GetByPost;
 
-use BetterReview\Review\Domain\Repository\ReviewRepository;
+use HexagonalReviews\Review\Domain\Repository\ReviewRepository;
 
 /**
  * Class GetByPostQuery
  *
  * GeT.
  *
- * @package BetterReview\Review\Application\Query\GetByPost
+ * @package HexagonalReviews\Review\Application\Query\GetByPost
  */
 final class GetByPostQuery {
 	/**

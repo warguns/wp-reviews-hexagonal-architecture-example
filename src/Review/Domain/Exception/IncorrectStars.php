@@ -7,14 +7,14 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Domain\Exception;
+namespace HexagonalReviews\Review\Domain\Exception;
 
 use Exception;
 
 /**
  * Class IncorrectStars
  *
- * @package BetterReview\Review\Domain\Exception
+ * @package HexagonalReviews\Review\Domain\Exception
  */
 final class IncorrectStars extends Exception {
 	/**

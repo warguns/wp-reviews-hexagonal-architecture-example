@@ -1,4 +1,4 @@
-=== Better Reviews ===
+=== Hexagonal Reviews ===
 Contributors: warguns86
 Tags: rewviews, hexagonal, ddd
 Requires at least: 5.6
@@ -22,7 +22,7 @@ e.g.
 
 1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `[better-reviews post_id=1]` in your posts
+1. Place `[hexagonal-reviews post_id=1]` in your posts
 
 == Frequently Asked Questions ==
 

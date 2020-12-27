@@ -14,7 +14,7 @@
  </defs>
  <path id="Rectángulo-redondeado" d="M70 23 C47.909 23 30 40.909 30 63 L30 193 C30 215.091 47.909 233 70 233 L790 233 C812.091 233 830 215.091 830 193 L830 63 C830 40.909 812.091 23 790 23 Z" fill-opacity="1" fill="url(#linear-gradient)" stroke="none"/>
  <defs>
-  <text id="string" transform="matrix(1.0 0.0 0.0 1.0 15.0 42.0)" y="136.0" text-decoration="none" fill="#ffffff" font-size="150" x="193.40234375" font-family="ArialMT, Arial">Better</text>
+  <text id="string" transform="matrix(1.0 0.0 0.0 1.0 29.0 43.0)" y="136.0" x="34.90625" fill="#ffffff" font-family="ArialMT, Arial" font-size="150" text-decoration="none">Hexagonal</text>
  </defs>
- <use id="Better" xlink:href="#string"/>
+ <use id="Hexagonal" xlink:href="#string"/>
 </svg>

@@ -7,27 +7,27 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Application\Command\Update;
+namespace HexagonalReviews\Review\Application\Command\Update;
 
-use BetterReview\Review\Domain\Entity\Review;
-use BetterReview\Review\Domain\Event\ReviewAdded;
-use BetterReview\Review\Domain\Event\ReviewDeleted;
-use BetterReview\Review\Domain\Event\ReviewUpdated;
-use BetterReview\Review\Domain\Exception\IncorrectStars;
-use BetterReview\Review\Domain\Exception\ReviewNotFound;
-use BetterReview\Review\Domain\Exception\StatusNotFound;
-use BetterReview\Review\Domain\Repository\ReviewRepository;
-use BetterReview\Review\Domain\ValueObject\Email;
-use BetterReview\Review\Domain\ValueObject\Stars;
-use BetterReview\Review\Domain\ValueObject\Status;
-use BetterReview\Shared\Domain\Service\EventDispatcher;
-use BetterReview\Shared\Domain\ValueObject\ProductId;
+use HexagonalReviews\Review\Domain\Entity\Review;
+use HexagonalReviews\Review\Domain\Event\ReviewAdded;
+use HexagonalReviews\Review\Domain\Event\ReviewDeleted;
+use HexagonalReviews\Review\Domain\Event\ReviewUpdated;
+use HexagonalReviews\Review\Domain\Exception\IncorrectStars;
+use HexagonalReviews\Review\Domain\Exception\ReviewNotFound;
+use HexagonalReviews\Review\Domain\Exception\StatusNotFound;
+use HexagonalReviews\Review\Domain\Repository\ReviewRepository;
+use HexagonalReviews\Review\Domain\ValueObject\Email;
+use HexagonalReviews\Review\Domain\ValueObject\Stars;
+use HexagonalReviews\Review\Domain\ValueObject\Status;
+use HexagonalReviews\Shared\Domain\Service\EventDispatcher;
+use HexagonalReviews\Shared\Domain\ValueObject\ProductId;
 use Ramsey\Uuid\Uuid;
 
 /**
  * Class UpdateHandler
  *
- * @package BetterReview\Review\Application\Command\Update
+ * @package HexagonalReviews\Review\Application\Command\Update
  */
 final class UpdateHandler {
 

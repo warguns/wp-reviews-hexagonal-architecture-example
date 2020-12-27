@@ -7,32 +7,32 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Shared\Infrastructure\DependencyInjection;
+namespace HexagonalReviews\Shared\Infrastructure\DependencyInjection;
 
-use BetterReview\Average\Application\Event\OnReviewAddedRecalculateAverage;
-use BetterReview\Average\Application\Event\OnReviewDeletedRecalculateAverage;
-use BetterReview\Average\Application\Event\OnReviewUpdatedRecalculateAverage;
-use BetterReview\Average\Application\Query\GetAverage\GetAverageHandler;
-use BetterReview\Average\Domain\Service\AverageCalculator;
-use BetterReview\Average\Infrastructure\Wordpress\Persistence\WpAverageRepository;
-use BetterReview\Review\Application\Command\Create\CreateHandler;
-use BetterReview\Review\Application\Command\Delete\DeleteHandler;
-use BetterReview\Review\Application\Command\Update\UpdateHandler;
-use BetterReview\Review\Application\Query\All\ListHandler;
-use BetterReview\Review\Application\Query\Get\GetHandler;
-use BetterReview\Review\Application\Query\GetByPost\GetByPostHandler;
-use BetterReview\Review\Domain\Event\ReviewAdded;
-use BetterReview\Review\Domain\Event\ReviewDeleted;
-use BetterReview\Review\Domain\Event\ReviewUpdated;
-use BetterReview\Review\Infrastructure\Wordpress\Persistence\WpReviewRepository;
-use BetterReview\Shared\Infrastructure\DependencyInjection\Exception\DependencyNotFound;
-use BetterReview\Shared\Infrastructure\EventDispatcher\EventDispatcher;
+use HexagonalReviews\Average\Application\Event\OnReviewAddedRecalculateAverage;
+use HexagonalReviews\Average\Application\Event\OnReviewDeletedRecalculateAverage;
+use HexagonalReviews\Average\Application\Event\OnReviewUpdatedRecalculateAverage;
+use HexagonalReviews\Average\Application\Query\GetAverage\GetAverageHandler;
+use HexagonalReviews\Average\Domain\Service\AverageCalculator;
+use HexagonalReviews\Average\Infrastructure\Wordpress\Persistence\WpAverageRepository;
+use HexagonalReviews\Review\Application\Command\Create\CreateHandler;
+use HexagonalReviews\Review\Application\Command\Delete\DeleteHandler;
+use HexagonalReviews\Review\Application\Command\Update\UpdateHandler;
+use HexagonalReviews\Review\Application\Query\All\ListHandler;
+use HexagonalReviews\Review\Application\Query\Get\GetHandler;
+use HexagonalReviews\Review\Application\Query\GetByPost\GetByPostHandler;
+use HexagonalReviews\Review\Domain\Event\ReviewAdded;
+use HexagonalReviews\Review\Domain\Event\ReviewDeleted;
+use HexagonalReviews\Review\Domain\Event\ReviewUpdated;
+use HexagonalReviews\Review\Infrastructure\Wordpress\Persistence\WpReviewRepository;
+use HexagonalReviews\Shared\Infrastructure\DependencyInjection\Exception\DependencyNotFound;
+use HexagonalReviews\Shared\Infrastructure\EventDispatcher\EventDispatcher;
 use Psr\Container\ContainerInterface;
 
 /**
  * Class Container
  *
- * @package BetterReview\Shared\Infrastructure\DependencyInjection
+ * @package HexagonalReviews\Shared\Infrastructure\DependencyInjection
  */
 final class Container implements ContainerInterface {
 

@@ -7,14 +7,14 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Domain\DTO;
+namespace HexagonalReviews\Review\Domain\DTO;
 
-use BetterReview\Review\Domain\ValueObject\ReviewCollection;
+use HexagonalReviews\Review\Domain\ValueObject\ReviewCollection;
 
 /**
  * Class ListReviewsResponse
  *
- * @package BetterReview\Review\Domain\DTO
+ * @package HexagonalReviews\Review\Domain\DTO
  */
 final class ListReviewsResponse {
 	/**

@@ -7,20 +7,20 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Domain\Repository;
+namespace HexagonalReviews\Review\Domain\Repository;
 
-use BetterReview\Review\Domain\Entity\Review;
-use BetterReview\Review\Domain\Exception\IncorrectStars;
-use BetterReview\Review\Domain\Exception\ReviewNotFound;
-use BetterReview\Review\Domain\Exception\StatusNotFound;
-use BetterReview\Review\Domain\ValueObject\ReviewCollection;
-use BetterReview\Shared\Domain\ValueObject\ProductId;
+use HexagonalReviews\Review\Domain\Entity\Review;
+use HexagonalReviews\Review\Domain\Exception\IncorrectStars;
+use HexagonalReviews\Review\Domain\Exception\ReviewNotFound;
+use HexagonalReviews\Review\Domain\Exception\StatusNotFound;
+use HexagonalReviews\Review\Domain\ValueObject\ReviewCollection;
+use HexagonalReviews\Shared\Domain\ValueObject\ProductId;
 use Ramsey\Uuid\UuidInterface;
 
 /**
  * Interface ReviewRepository
  *
- * @package BetterReview\Review\Domain\Repository
+ * @package HexagonalReviews\Review\Domain\Repository
  */
 interface ReviewRepository {
 	public const LIMIT  = 100;

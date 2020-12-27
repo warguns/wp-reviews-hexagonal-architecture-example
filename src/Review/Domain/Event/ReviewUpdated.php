@@ -7,15 +7,15 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Domain\Event;
+namespace HexagonalReviews\Review\Domain\Event;
 
-use BetterReview\Shared\Domain\Event\Event;
+use HexagonalReviews\Shared\Domain\Event\Event;
 use Ramsey\Uuid\UuidInterface;
 
 /**
  * Class ReviewUpdated
  *
- * @package BetterReview\Review\Domain\Event
+ * @package HexagonalReviews\Review\Domain\Event
  */
 final class ReviewUpdated implements Event {
 

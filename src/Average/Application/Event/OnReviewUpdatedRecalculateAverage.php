@@ -7,17 +7,17 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Average\Application\Event;
+namespace HexagonalReviews\Average\Application\Event;
 
-use BetterReview\Average\Domain\Entity\Average;
-use BetterReview\Average\Domain\Repository\AverageRepository;
-use BetterReview\Review\Domain\Event\ReviewUpdated;
-use BetterReview\Shared\Domain\ValueObject\ProductId;
+use HexagonalReviews\Average\Domain\Entity\Average;
+use HexagonalReviews\Average\Domain\Repository\AverageRepository;
+use HexagonalReviews\Review\Domain\Event\ReviewUpdated;
+use HexagonalReviews\Shared\Domain\ValueObject\ProductId;
 
 /**
  * Class OnReviewUpdatedRecalculateAverage
  *
- * @package BetterReview\Average\Application\Event
+ * @package HexagonalReviews\Average\Application\Event
  */
 final class OnReviewUpdatedRecalculateAverage {
 

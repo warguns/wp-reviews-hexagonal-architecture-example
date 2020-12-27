@@ -7,14 +7,14 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Domain\Entity;
+namespace HexagonalReviews\Review\Domain\Entity;
 
-use BetterReview\Review\Domain\Exception\IncorrectStars;
-use BetterReview\Review\Domain\Exception\StatusNotFound;
-use BetterReview\Review\Domain\ValueObject\Email;
-use BetterReview\Review\Domain\ValueObject\Stars;
-use BetterReview\Review\Domain\ValueObject\Status;
-use BetterReview\Shared\Domain\ValueObject\ProductId;
+use HexagonalReviews\Review\Domain\Exception\IncorrectStars;
+use HexagonalReviews\Review\Domain\Exception\StatusNotFound;
+use HexagonalReviews\Review\Domain\ValueObject\Email;
+use HexagonalReviews\Review\Domain\ValueObject\Stars;
+use HexagonalReviews\Review\Domain\ValueObject\Status;
+use HexagonalReviews\Shared\Domain\ValueObject\ProductId;
 use DateTime;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
@@ -22,7 +22,7 @@ use Ramsey\Uuid\UuidInterface;
 /**
  * Class Review
  *
- * @package BetterReview\Review\Domain\Entity
+ * @package HexagonalReviews\Review\Domain\Entity
  */
 final class Review {
 

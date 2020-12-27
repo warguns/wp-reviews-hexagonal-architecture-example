@@ -7,21 +7,21 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Infrastructure\Wordpress\Persistence;
+namespace HexagonalReviews\Review\Infrastructure\Wordpress\Persistence;
 
-use BetterReview\Review\Domain\Entity\Review;
-use BetterReview\Review\Domain\Exception\IncorrectStars;
-use BetterReview\Review\Domain\Exception\ReviewNotFound;
-use BetterReview\Review\Domain\Exception\StatusNotFound;
-use BetterReview\Review\Domain\Repository\ReviewRepository;
-use BetterReview\Review\Domain\ValueObject\ReviewCollection;
-use BetterReview\Shared\Domain\ValueObject\ProductId;
+use HexagonalReviews\Review\Domain\Entity\Review;
+use HexagonalReviews\Review\Domain\Exception\IncorrectStars;
+use HexagonalReviews\Review\Domain\Exception\ReviewNotFound;
+use HexagonalReviews\Review\Domain\Exception\StatusNotFound;
+use HexagonalReviews\Review\Domain\Repository\ReviewRepository;
+use HexagonalReviews\Review\Domain\ValueObject\ReviewCollection;
+use HexagonalReviews\Shared\Domain\ValueObject\ProductId;
 use Ramsey\Uuid\UuidInterface;
 
 /**
  * Class WpReviewRepository
  *
- * @package BetterReview\Review\Infrastructure\Wordpress\Persistence
+ * @package HexagonalReviews\Review\Infrastructure\Wordpress\Persistence
  */
 final class WpReviewRepository implements ReviewRepository {
 
@@ -54,7 +54,7 @@ final class WpReviewRepository implements ReviewRepository {
 
 		$result = $wpdb->get_row(
 			$wpdb->prepare(
-				"SELECT * FROM {$wpdb->prefix}better_review WHERE uuid = %s",
+				"SELECT * FROM {$wpdb->prefix}hexagonal_review WHERE uuid = %s",
 				array(
 					$review_uuid->toString(),
 				)
@@ -79,7 +79,7 @@ final class WpReviewRepository implements ReviewRepository {
 	public function insert( Review $review ): bool {
 		global $wpdb;
 
-		return (bool) $wpdb->insert( $wpdb->prefix . 'better_review', $review->to_array() );
+		return (bool) $wpdb->insert( $wpdb->prefix . 'hexagonal_review', $review->to_array() );
 	}
 
 	/**
@@ -92,7 +92,7 @@ final class WpReviewRepository implements ReviewRepository {
 	public function update( Review $review ): bool {
 		global $wpdb;
 
-		return (bool) $wpdb->update( $wpdb->prefix . 'better_review', $review->to_array(), array( 'uuid' => $review->get_uuid()->toString() ) );
+		return (bool) $wpdb->update( $wpdb->prefix . 'hexagonal_review', $review->to_array(), array( 'uuid' => $review->get_uuid()->toString() ) );
 	}
 
 	/**
@@ -105,7 +105,7 @@ final class WpReviewRepository implements ReviewRepository {
 	public function delete( UuidInterface $review_uuid ): bool {
 		global $wpdb;
 
-		return (bool) $wpdb->delete( $wpdb->prefix . 'better_review', array( 'uuid' => $review_uuid->toString() ) );
+		return (bool) $wpdb->delete( $wpdb->prefix . 'hexagonal_review', array( 'uuid' => $review_uuid->toString() ) );
 	}
 
 	/**
@@ -121,7 +121,7 @@ final class WpReviewRepository implements ReviewRepository {
 		global $wpdb;
 		$results = $wpdb->get_results(
 			$wpdb->prepare(
-				"SELECT * FROM {$wpdb->prefix}better_review WHERE status = 'published' and post_id = %s ORDER BY created_at DESC LIMIT %d OFFSET %d",
+				"SELECT * FROM {$wpdb->prefix}hexagonal_review WHERE status = 'published' and post_id = %s ORDER BY created_at DESC LIMIT %d OFFSET %d",
 				$product_id->get_id(),
 				$limit,
 				$offset
@@ -143,7 +143,7 @@ final class WpReviewRepository implements ReviewRepository {
 		global $wpdb;
 		$count = $wpdb->get_results(
 			$wpdb->prepare(
-				"SELECT COUNT(*) as counter FROM {$wpdb->prefix}better_review WHERE post_id = %s ORDER BY created_at DESC",
+				"SELECT COUNT(*) as counter FROM {$wpdb->prefix}hexagonal_review WHERE post_id = %s ORDER BY created_at DESC",
 				$product_id
 			),
 			ARRAY_A
@@ -164,7 +164,7 @@ final class WpReviewRepository implements ReviewRepository {
 	 */
 	public function all( int $limit = self::LIMIT, int $offset = self::OFFSET, array $orderby = array(), string $search = null ): ReviewCollection {
 		global $wpdb;
-		$select = 'SELECT * FROM ' . $this->prefix . 'better_review';
+		$select = 'SELECT * FROM ' . $this->prefix . 'hexagonal_review';
 
 		$where = '';
 		if ( null !== $search ) {
@@ -214,7 +214,7 @@ final class WpReviewRepository implements ReviewRepository {
 		global $wpdb;
 		$count = $wpdb->get_results(
 			$wpdb->prepare(
-				"SELECT COUNT(*) as counter FROM {$wpdb->prefix}better_review WHERE title LIKE %s OR content LIKE %s OR status LIKE %s OR author LIKE %s",
+				"SELECT COUNT(*) as counter FROM {$wpdb->prefix}hexagonal_review WHERE title LIKE %s OR content LIKE %s OR status LIKE %s OR author LIKE %s",
 				(string) esc_sql( $wpdb->esc_like( $search ) ),
 				(string) esc_sql( $wpdb->esc_like( $search ) ),
 				(string) esc_sql( $wpdb->esc_like( $search ) ),

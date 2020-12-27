@@ -7,14 +7,14 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Shared\Infrastructure\EventDispatcher\Exception;
+namespace HexagonalReviews\Shared\Infrastructure\EventDispatcher\Exception;
 
 use Exception;
 
 /**
  * Class EventNotFound
  *
- * @package BetterReview\Shared\Infrastructure\EventDispatcher\Exception
+ * @package HexagonalReviews\Shared\Infrastructure\EventDispatcher\Exception
  */
 class EventNotFound extends Exception {
 

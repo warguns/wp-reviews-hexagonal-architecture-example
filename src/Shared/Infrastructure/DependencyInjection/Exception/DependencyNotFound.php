@@ -5,7 +5,7 @@
  * @package Shared
  */
 
-namespace BetterReview\Shared\Infrastructure\DependencyInjection\Exception;
+namespace HexagonalReviews\Shared\Infrastructure\DependencyInjection\Exception;
 
 use Exception;
 use Psr\Container\NotFoundExceptionInterface;
@@ -13,7 +13,7 @@ use Psr\Container\NotFoundExceptionInterface;
 /**
  * Class DependencyNotFound
  *
- * @package BetterReview\Shared\Infrastructure\DependencyInjection\Exception
+ * @package HexagonalReviews\Shared\Infrastructure\DependencyInjection\Exception
  */
 class DependencyNotFound extends Exception implements NotFoundExceptionInterface {
 

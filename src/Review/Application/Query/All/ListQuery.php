@@ -7,12 +7,12 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Application\Query\All;
+namespace HexagonalReviews\Review\Application\Query\All;
 
 /**
  * Class ListQuery
  *
- * @package BetterReview\Review\Application\Query\All
+ * @package HexagonalReviews\Review\Application\Query\All
  */
 final class ListQuery {
 

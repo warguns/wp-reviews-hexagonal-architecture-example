@@ -7,12 +7,12 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Application\Command\Create;
+namespace HexagonalReviews\Review\Application\Command\Create;
 
 /**
  * Class CreateCommand
  *
- * @package BetterReview\Review\Application\Command\Create
+ * @package HexagonalReviews\Review\Application\Command\Create
  */
 final class CreateCommand {
 

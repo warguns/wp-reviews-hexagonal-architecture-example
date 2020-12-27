@@ -7,17 +7,17 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Domain\ValueObject;
+namespace HexagonalReviews\Review\Domain\ValueObject;
 
-use BetterReview\Review\Domain\Entity\Review;
-use BetterReview\Review\Domain\Exception\IncorrectStars;
-use BetterReview\Review\Domain\Exception\StatusNotFound;
+use HexagonalReviews\Review\Domain\Entity\Review;
+use HexagonalReviews\Review\Domain\Exception\IncorrectStars;
+use HexagonalReviews\Review\Domain\Exception\StatusNotFound;
 use Iterator;
 
 /**
  * Class ReviewCollection
  *
- * @package BetterReview\Review\Domain\ValueObject
+ * @package HexagonalReviews\Review\Domain\ValueObject
  */
 final class ReviewCollection implements Iterator {
 	/**

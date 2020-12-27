@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace BetterReview\Tests\unit\Review\Domain\ValueObject;
+namespace HexagonalReviews\Tests\unit\Review\Domain\ValueObject;
 
-use BetterReview\Review\Domain\ValueObject\Email;
+use HexagonalReviews\Review\Domain\ValueObject\Email;
 
 class EmailTest extends \Codeception\Test\Unit
 {

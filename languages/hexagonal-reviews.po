@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: better-reviews\n"
-"POT-Creation-Date: 2020-12-14 22:22+0100\n"
-"PO-Revision-Date: 2020-12-14 22:22+0100\n"
+"Project-Id-Version: hexagonal-reviews\n"
+"POT-Creation-Date: 2020-12-14 10:26+0100\n"
+"PO-Revision-Date: 2020-12-14 10:27+0100\n"
 "Last-Translator: \n"
 "Language-Team: cristian bargans\n"
 "Language: en\n"
@@ -60,11 +60,11 @@ msgstr "created At"
 msgid "fecha de actualizacion"
 msgstr "updated At"
 
-#: src/Infrastructure/Wordpress/ReviewsAdminTable.php:99
+#: src/Infrastructure/Wordpress/ReviewsAdminTable.php:101
 msgid "Publish"
 msgstr "Publish"
 
-#: src/Infrastructure/Wordpress/ReviewsAdminTable.php:100
+#: src/Infrastructure/Wordpress/ReviewsAdminTable.php:102
 msgid "Delete"
 msgstr "Delete"
 
@@ -73,11 +73,11 @@ msgstr "Delete"
 msgid "Edit Review"
 msgstr "Edit Review"
 
-#: src/UI/Wordpress/Admin/ListReviewsController.php:56
+#: src/UI/Wordpress/Admin/ListReviewsController.php:45
 msgid "Review"
 msgstr "Review"
 
-#: src/UI/Wordpress/Admin/ListReviewsController.php:57
+#: src/UI/Wordpress/Admin/ListReviewsController.php:46
 #: src/UI/Wordpress/Front/templates/GetReviewsBlock.php:13
 msgid "Reviews"
 msgstr "Reviews"
@@ -90,18 +90,6 @@ msgstr "Post ID:"
 #: src/UI/Wordpress/Admin/templates/EditReview.php:21
 msgid "Status:"
 msgstr "Status:"
-
-#: src/UI/Wordpress/Admin/templates/EditReview.php:23
-msgid "pending"
-msgstr "pending"
-
-#: src/UI/Wordpress/Admin/templates/EditReview.php:24
-msgid "published"
-msgstr "published"
-
-#: src/UI/Wordpress/Admin/templates/EditReview.php:25
-msgid "rejected"
-msgstr "rejected"
 
 #: src/UI/Wordpress/Admin/templates/EditReview.php:29
 #: src/UI/Wordpress/Admin/templates/EditReview.php:30
@@ -123,23 +111,15 @@ msgstr "Title"
 msgid "Content"
 msgstr "Content"
 
-#: src/UI/Wordpress/Admin/templates/ListReviews.php:5
+#: src/UI/Wordpress/Admin/templates/ListReviews.php:4
 msgid "List Reviews"
 msgstr "List Reviews"
 
-#: src/UI/Wordpress/Admin/templates/ListReviews.php:5
+#: src/UI/Wordpress/Admin/templates/ListReviews.php:4
 msgid "Create New"
 msgstr "Create New"
 
-#: src/UI/Wordpress/Admin/templates/ListReviews.php:9
-msgid "Option only for PRO Users"
-msgstr ""
-
-#: src/UI/Wordpress/Admin/templates/ListReviews.php:14
-msgid "You can show your reviews using the shortcut:"
-msgstr ""
-
-#: src/UI/Wordpress/Admin/templates/ListReviews.php:18
+#: src/UI/Wordpress/Admin/templates/ListReviews.php:7
 msgid "Search"
 msgstr "Search"
 

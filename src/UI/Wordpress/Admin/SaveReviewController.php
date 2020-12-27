@@ -7,21 +7,21 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\UI\Wordpress\Admin;
+namespace HexagonalReviews\UI\Wordpress\Admin;
 
-use BetterReview\Review\Application\Command\Create\CreateCommand;
-use BetterReview\Review\Application\Command\Create\CreateHandler;
-use BetterReview\Review\Application\Command\Update\UpdateCommand;
-use BetterReview\Review\Application\Command\Update\UpdateHandler;
-use BetterReview\Review\Domain\Exception\IncorrectStars;
-use BetterReview\Review\Domain\Exception\ReviewNotFound;
-use BetterReview\Review\Domain\Exception\StatusNotFound;
-use BetterReview\Shared\Infrastructure\DependencyInjection\Container;
+use HexagonalReviews\Review\Application\Command\Create\CreateCommand;
+use HexagonalReviews\Review\Application\Command\Create\CreateHandler;
+use HexagonalReviews\Review\Application\Command\Update\UpdateCommand;
+use HexagonalReviews\Review\Application\Command\Update\UpdateHandler;
+use HexagonalReviews\Review\Domain\Exception\IncorrectStars;
+use HexagonalReviews\Review\Domain\Exception\ReviewNotFound;
+use HexagonalReviews\Review\Domain\Exception\StatusNotFound;
+use HexagonalReviews\Shared\Infrastructure\DependencyInjection\Container;
 
 /**
  * Class SaveReviewController
  *
- * @package BetterReview\UI\Wordpress\Admin
+ * @package HexagonalReviews\UI\Wordpress\Admin
  */
 class SaveReviewController {
 	/**

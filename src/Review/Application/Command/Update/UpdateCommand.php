@@ -7,12 +7,12 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Application\Command\Update;
+namespace HexagonalReviews\Review\Application\Command\Update;
 
 /**
  * Class UpdateCommand
  *
- * @package BetterReview\Review\Application\Command\Update
+ * @package HexagonalReviews\Review\Application\Command\Update
  */
 final class UpdateCommand {
 

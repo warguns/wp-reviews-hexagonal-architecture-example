@@ -7,14 +7,14 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Domain\ValueObject;
+namespace HexagonalReviews\Review\Domain\ValueObject;
 
-use BetterReview\Review\Domain\Exception\IncorrectStars;
+use HexagonalReviews\Review\Domain\Exception\IncorrectStars;
 
 /**
  * Class Stars
  *
- * @package BetterReview\Review\Domain\ValueObject
+ * @package HexagonalReviews\Review\Domain\ValueObject
  */
 final class Stars {
 	private const MIN_STARS = 0;

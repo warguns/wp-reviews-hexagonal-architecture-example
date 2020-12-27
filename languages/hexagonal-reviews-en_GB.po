@@ -1,11 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: better-reviews\n"
-"POT-Creation-Date: 2020-12-14 22:23+0100\n"
-"PO-Revision-Date: 2020-12-14 23:08+0100\n"
+"Project-Id-Version: hexagonal-reviews\n"
+"POT-Creation-Date: 2020-12-14 22:22+0100\n"
+"PO-Revision-Date: 2020-12-14 22:22+0100\n"
 "Last-Translator: \n"
 "Language-Team: cristian bargans\n"
-"Language: es\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;esc_html;esc_html__;esc_attr;esc_attr__;"
-"esct_attr_e;esc_html_e;_e(ucfirst\n"
+"esct_attr_e;esc_html_e\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: src/Infrastructure/Wordpress/ReviewsAdminTable.php:24
@@ -23,23 +23,23 @@ msgstr "Uuid"
 
 #: src/Infrastructure/Wordpress/ReviewsAdminTable.php:25
 msgid "Post Id"
-msgstr "ID de Post"
+msgstr "Post ID"
 
 #: src/Infrastructure/Wordpress/ReviewsAdminTable.php:26
 msgid "Status"
-msgstr "Estado"
+msgstr "Status"
 
 #: src/Infrastructure/Wordpress/ReviewsAdminTable.php:27
 msgid "Titulo"
-msgstr "Título"
+msgstr "Title"
 
 #: src/Infrastructure/Wordpress/ReviewsAdminTable.php:28
 msgid "Autor"
-msgstr "Autor"
+msgstr "Author"
 
 #: src/Infrastructure/Wordpress/ReviewsAdminTable.php:29
 msgid "content"
-msgstr "contenido"
+msgstr "content"
 
 #: src/Infrastructure/Wordpress/ReviewsAdminTable.php:30
 #: src/UI/Wordpress/Admin/templates/EditReview.php:42
@@ -50,28 +50,28 @@ msgstr "Email"
 
 #: src/Infrastructure/Wordpress/ReviewsAdminTable.php:31
 msgid "Estrellas"
-msgstr "Estrellas"
+msgstr "Stars"
 
 #: src/Infrastructure/Wordpress/ReviewsAdminTable.php:32
 msgid "fecha de creacion"
-msgstr "fecha de creacion"
+msgstr "created At"
 
 #: src/Infrastructure/Wordpress/ReviewsAdminTable.php:33
 msgid "fecha de actualizacion"
-msgstr "fecha de actualizacion"
+msgstr "updated At"
 
 #: src/Infrastructure/Wordpress/ReviewsAdminTable.php:99
 msgid "Publish"
-msgstr "Publicar"
+msgstr "Publish"
 
 #: src/Infrastructure/Wordpress/ReviewsAdminTable.php:100
 msgid "Delete"
-msgstr "Eliminar"
+msgstr "Delete"
 
 #: src/UI/Wordpress/Admin/EditReviewController.php:23
 #: src/UI/Wordpress/Admin/templates/EditReview.php:14
 msgid "Edit Review"
-msgstr "Editar Review"
+msgstr "Edit Review"
 
 #: src/UI/Wordpress/Admin/ListReviewsController.php:56
 msgid "Review"
@@ -85,113 +85,113 @@ msgstr "Reviews"
 #: src/UI/Wordpress/Admin/templates/EditReview.php:17
 #: src/UI/Wordpress/Admin/templates/EditReview.php:18
 msgid "Post ID:"
-msgstr "ID de Post:"
+msgstr "Post ID:"
 
 #: src/UI/Wordpress/Admin/templates/EditReview.php:21
 msgid "Status:"
-msgstr "Estado:"
+msgstr "Status:"
 
 #: src/UI/Wordpress/Admin/templates/EditReview.php:23
 msgid "pending"
-msgstr "pendiente"
+msgstr "pending"
 
 #: src/UI/Wordpress/Admin/templates/EditReview.php:24
 msgid "published"
-msgstr "publicado"
+msgstr "published"
 
 #: src/UI/Wordpress/Admin/templates/EditReview.php:25
 msgid "rejected"
-msgstr "denegado"
+msgstr "rejected"
 
 #: src/UI/Wordpress/Admin/templates/EditReview.php:29
 #: src/UI/Wordpress/Admin/templates/EditReview.php:30
 msgid "Author"
-msgstr "Autor"
+msgstr "Author"
 
 #: src/UI/Wordpress/Admin/templates/EditReview.php:33
 msgid "Stars"
-msgstr "Valoración"
+msgstr "Stars"
 
 #: src/UI/Wordpress/Admin/templates/EditReview.php:46
 #: src/UI/Wordpress/Admin/templates/EditReview.php:47
 #: src/UI/Wordpress/Front/templates/GetReviewsBlock.php:41
 msgid "Title"
-msgstr "Título"
+msgstr "Title"
 
 #: src/UI/Wordpress/Admin/templates/EditReview.php:51
 #: src/UI/Wordpress/Front/templates/GetReviewsBlock.php:46
 msgid "Content"
-msgstr "Contenido"
+msgstr "Content"
 
 #: src/UI/Wordpress/Admin/templates/ListReviews.php:5
 msgid "List Reviews"
-msgstr "Listar Reviews"
+msgstr "List Reviews"
 
 #: src/UI/Wordpress/Admin/templates/ListReviews.php:5
 msgid "Create New"
-msgstr "Crear Nueva Review"
+msgstr "Create New"
 
 #: src/UI/Wordpress/Admin/templates/ListReviews.php:9
 msgid "Option only for PRO Users"
-msgstr "Opcion única para usuarios poseedores de la versión PRO"
+msgstr ""
 
 #: src/UI/Wordpress/Admin/templates/ListReviews.php:14
 msgid "You can show your reviews using the shortcut:"
-msgstr "Puedes añadir las reviews en los post usando el shortcut:"
+msgstr ""
 
 #: src/UI/Wordpress/Admin/templates/ListReviews.php:18
 msgid "Search"
-msgstr "Búsqueda"
+msgstr "Search"
 
 #: src/UI/Wordpress/Front/templates/GetReviewsBlock.php:13
 msgid "Average:"
-msgstr "Valoración media:"
+msgstr "Average:"
 
 #: src/UI/Wordpress/Front/templates/GetReviewsBlock.php:13
 msgid "of"
-msgstr "de"
+msgstr "of"
 
 #: src/UI/Wordpress/Front/templates/GetReviewsBlock.php:16
 msgid "Review product"
-msgstr "Valorar producto"
+msgstr "Review product"
 
 #: src/UI/Wordpress/Front/templates/GetReviewsBlock.php:17
 msgid "Share your opinion with other clients"
-msgstr "Comparte tu opinión con otros clientes"
+msgstr "Share your opinion with other clients"
 
 #: src/UI/Wordpress/Front/templates/GetReviewsBlock.php:20
 msgid ""
 "Thank you for your review! Your review is on approval process, once is "
 "approved your review will be published!"
 msgstr ""
-"Muchas gracias! Su valoración está en proceso de verificación, una vez "
-"aprobada la publicaremos."
+"Thank you for your review! Your review is on approval process, once is "
+"approved your review will be published!"
 
 #: src/UI/Wordpress/Front/templates/GetReviewsBlock.php:24
 #: src/UI/Wordpress/Front/templates/GetReviewsBlock.php:25
 msgid "Name"
-msgstr "Nombre"
+msgstr "Name"
 
 #: src/UI/Wordpress/Front/templates/GetReviewsBlock.php:28
 msgid "Rating"
-msgstr "Valoración"
+msgstr "Rating"
 
 #: src/UI/Wordpress/Front/templates/GetReviewsBlock.php:38
 msgid "Insert your Email"
-msgstr "Introduce tu correo electrónico"
+msgstr "Insert your Email"
 
 #: src/UI/Wordpress/Front/templates/GetReviewsBlock.php:42
 msgid "What was the most important?"
-msgstr "Qué fué lo más importante?"
+msgstr "What was the most important?"
 
 #: src/UI/Wordpress/Front/templates/GetReviewsBlock.php:47
 msgid "What did liked you and what not? Express your opinion."
-msgstr "Qué te gustó y qué no? Exprésalo aquí."
+msgstr "What did liked you and what not? Express your opinion."
 
 #: src/UI/Wordpress/Front/templates/GetReviewsBlock.php:51
 msgid "I have read the Terms & Conditions and the Privacy Policy"
-msgstr "He leído los Términos y condiciones y la Política de Privacidad"
+msgstr "I have read the Terms & Conditions and the Privacy Policy"
 
 #: src/UI/Wordpress/Front/templates/GetReviewsBlock.php:54
 msgid "Publish my opinion"
-msgstr "Publicar mi opinión"
+msgstr "Publish my opinion"

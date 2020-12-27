@@ -7,7 +7,7 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Domain\Exception;
+namespace HexagonalReviews\Review\Domain\Exception;
 
 use Exception;
 use Ramsey\Uuid\UuidInterface;
@@ -16,7 +16,7 @@ use Throwable;
 /**
  * Class ReviewNotFound
  *
- * @package BetterReview\Review\Domain\Exception
+ * @package HexagonalReviews\Review\Domain\Exception
  */
 final class ReviewNotFound extends Exception {
 

@@ -7,12 +7,12 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Application\Command\Delete;
+namespace HexagonalReviews\Review\Application\Command\Delete;
 
 /**
  * Class DeleteCommand
  *
- * @package BetterReview\Review\Application\Command\Delete
+ * @package HexagonalReviews\Review\Application\Command\Delete
  */
 final class DeleteCommand {
 	/**

@@ -37,29 +37,29 @@ up: ## spin up environment
 
 .PHONY: unit
 unit: ## execute project unit tests
-		$(compose) exec -T wordpress sh -lc "cd wp-content/plugins/better-wp-reviews && ./vendor/bin/codecept run unit"
+		$(compose) exec -T wordpress sh -lc "cd wp-content/plugins/hexagonal-reviews && ./vendor/bin/codecept run unit"
 
 .PHONY: acceptance
 acceptance: ## run acceptance tests
 		$(compose) exec -T wordpress sh -lc "docker-php-ext-install pdo_mysql"
-		$(compose) exec -T wordpress sh -lc "cd wp-content/plugins/better-wp-reviews && ./vendor/bin/codecept run acceptance"
+		$(compose) exec -T wordpress sh -lc "cd wp-content/plugins/hexagonal-reviews && ./vendor/bin/codecept run acceptance"
 
 .PHONY: cs
 cs: ## run wordpress code sniffer on src
-		$(compose) exec -T wordpress sh -lc "cd wp-content/plugins/better-wp-reviews && ./vendor/bin/phpcs --config-set installed_paths /var/www/html/wp-content/plugins/better-wp-reviews/vendor/wp-coding-standards/wpcs && ./vendor/bin/phpcs --standard=WordPress ./src"
+		$(compose) exec -T wordpress sh -lc "cd wp-content/plugins/hexagonal-reviews && ./vendor/bin/phpcs --config-set installed_paths /var/www/html/wp-content/plugins/hexagonal-reviews/vendor/wp-coding-standards/wpcs && ./vendor/bin/phpcs --standard=WordPress ./src"
 
 .PHONY: plugin
 plugin: ## makes production build inside build folder
 		rm -fr build
-		mkdir -p build/better-wp-reviews
-		cp -R ./languages build/better-wp-reviews/languages
-		cp -R ./src build/better-wp-reviews/src
-		cp -R ./better-reviews.php build/better-wp-reviews
-		cp -R ./composer.json build/better-wp-reviews
-		cp -R ./index.php build/better-wp-reviews
-		cp -R ./readme.txt build/better-wp-reviews
-		cp -R ./assets build/better-wp-reviews/assets
-		docker run --rm --interactive --tty --volume ${PWD}/build/better-wp-reviews:/app composer install --no-dev
+		mkdir -p build/hexagonal-reviews
+		cp -R ./languages build/hexagonal-reviews/languages
+		cp -R ./src build/hexagonal-reviews/src
+		cp -R ./hexagonal-reviews.php build/hexagonal-reviews
+		cp -R ./composer.json build/hexagonal-reviews
+		cp -R ./index.php build/hexagonal-reviews
+		cp -R ./readme.txt build/hexagonal-reviews
+		cp -R ./assets build/hexagonal-reviews/assets
+		docker run --rm --interactive --tty --volume ${PWD}/build/hexagonal-reviews:/app composer install --no-dev
 
 .PHONY: shell
 shell: ## gets inside wordpress container

@@ -7,13 +7,13 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Shared\Infrastructure\Wordpress;
+namespace HexagonalReviews\Shared\Infrastructure\Wordpress;
 
-use BetterReview\UI\Wordpress\Admin\EditReviewController;
-use BetterReview\UI\Wordpress\Admin\ListReviewsByPostController;
-use BetterReview\UI\Wordpress\Admin\ListReviewsController;
-use BetterReview\UI\Wordpress\Admin\SaveReviewController;
-use BetterReview\UI\Wordpress\Front\GetReviewsBlockController;
+use HexagonalReviews\UI\Wordpress\Admin\EditReviewController;
+use HexagonalReviews\UI\Wordpress\Admin\ListReviewsByPostController;
+use HexagonalReviews\UI\Wordpress\Admin\ListReviewsController;
+use HexagonalReviews\UI\Wordpress\Admin\SaveReviewController;
+use HexagonalReviews\UI\Wordpress\Front\GetReviewsBlockController;
 
 /**
  * Kernel Inspired directly from JWT auth's plugin: https://github.com/Tmeister/wp-api-jwt-auth
@@ -31,7 +31,7 @@ final class Kernel {
 	 *
 	 * @var string
 	 */
-	protected $plugin_name = 'better-reviews';
+	protected $plugin_name = 'hexagonal-reviews';
 
 	/**
 	 * Version

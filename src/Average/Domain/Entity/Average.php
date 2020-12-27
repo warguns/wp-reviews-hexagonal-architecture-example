@@ -7,14 +7,14 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Average\Domain\Entity;
+namespace HexagonalReviews\Average\Domain\Entity;
 
-use BetterReview\Shared\Domain\ValueObject\ProductId;
+use HexagonalReviews\Shared\Domain\ValueObject\ProductId;
 
 /**
  * Class Average
  *
- * @package BetterReview\Average\Domain\Entity
+ * @package HexagonalReviews\Average\Domain\Entity
  */
 final class Average {
 

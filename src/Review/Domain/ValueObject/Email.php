@@ -7,12 +7,12 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Domain\ValueObject;
+namespace HexagonalReviews\Review\Domain\ValueObject;
 
 /**
  * Class Email
  *
- * @package BetterReview\Review\Domain\ValueObject
+ * @package HexagonalReviews\Review\Domain\ValueObject
  */
 final class Email {
 	/**

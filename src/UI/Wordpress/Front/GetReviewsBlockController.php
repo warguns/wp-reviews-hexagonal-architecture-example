@@ -7,25 +7,25 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\UI\Wordpress\Front;
+namespace HexagonalReviews\UI\Wordpress\Front;
 
-use BetterReview\Average\Application\Query\GetAverage\GetAverageHandler;
-use BetterReview\Average\Application\Query\GetAverage\GetAverageQuery;
-use BetterReview\Average\Domain\DTO\ReviewStats;
-use BetterReview\Review\Application\Command\Create\CreateCommand;
-use BetterReview\Review\Application\Command\Create\CreateHandler;
-use BetterReview\Review\Application\Query\GetByPost\GetByPostHandler;
-use BetterReview\Review\Application\Query\GetByPost\GetByPostQuery;
-use BetterReview\Review\Domain\Exception\IncorrectStars;
-use BetterReview\Review\Domain\Repository\ReviewRepository;
-use BetterReview\Review\Domain\ValueObject\ReviewCollection;
-use BetterReview\Shared\Infrastructure\DependencyInjection\Container;
+use HexagonalReviews\Average\Application\Query\GetAverage\GetAverageHandler;
+use HexagonalReviews\Average\Application\Query\GetAverage\GetAverageQuery;
+use HexagonalReviews\Average\Domain\DTO\ReviewStats;
+use HexagonalReviews\Review\Application\Command\Create\CreateCommand;
+use HexagonalReviews\Review\Application\Command\Create\CreateHandler;
+use HexagonalReviews\Review\Application\Query\GetByPost\GetByPostHandler;
+use HexagonalReviews\Review\Application\Query\GetByPost\GetByPostQuery;
+use HexagonalReviews\Review\Domain\Exception\IncorrectStars;
+use HexagonalReviews\Review\Domain\Repository\ReviewRepository;
+use HexagonalReviews\Review\Domain\ValueObject\ReviewCollection;
+use HexagonalReviews\Shared\Infrastructure\DependencyInjection\Container;
 use WP_Post;
 
 /**
  * Class GetReviewsBlockController
  *
- * @package BetterReview\UI\Wordpress\Front
+ * @package HexagonalReviews\UI\Wordpress\Front
  */
 class GetReviewsBlockController {
 	/**
@@ -64,7 +64,7 @@ class GetReviewsBlockController {
 	 */
 	public function run(): void {
 		add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts' ) );
-		add_shortcode( 'better-reviews', array( $this, 'load' ) );
+		add_shortcode( 'hexagonal-reviews', array( $this, 'load' ) );
 	}
 
 	/**
@@ -72,8 +72,8 @@ class GetReviewsBlockController {
 	 */
 	public function load_scripts(): void {
 		wp_enqueue_script( 'luxon', '//cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js', array(), '20201213', true );
-		wp_enqueue_style( 'better-review-stars', plugins_url( '/assets/stars.css', __FILE__ ), array(), '20201213', 'all' );
-		wp_enqueue_style( 'better-review-style', plugins_url( '/assets/style.css', __FILE__ ), array(), '20201213', 'all' );
+		wp_enqueue_style( 'hexagonal-reviews-stars', plugins_url( '/assets/stars.css', __FILE__ ), array(), '20201213', 'all' );
+		wp_enqueue_style( 'hexagonal-reviews-style', plugins_url( '/assets/style.css', __FILE__ ), array(), '20201213', 'all' );
 	}
 
 	/**

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace BetterReview\Tests\unit\Review\Domain\Exception;
+namespace HexagonalReviews\Tests\unit\Review\Domain\Exception;
 
-use BetterReview\Review\Domain\Exception\ReviewNotFound;
+use HexagonalReviews\Review\Domain\Exception\ReviewNotFound;
 use Codeception\Test\Unit;
 use Ramsey\Uuid\Uuid;
 

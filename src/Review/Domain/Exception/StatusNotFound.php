@@ -7,7 +7,7 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Domain\Exception;
+namespace HexagonalReviews\Review\Domain\Exception;
 
 use Exception;
 use Throwable;
@@ -15,7 +15,7 @@ use Throwable;
 /**
  * Class StatusNotFound
  *
- * @package BetterReview\Review\Domain\Exception
+ * @package HexagonalReviews\Review\Domain\Exception
  */
 final class StatusNotFound extends Exception {
 

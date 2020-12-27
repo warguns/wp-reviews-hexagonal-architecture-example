@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BetterReview\Tests\unit\Review\Domain\Event;
+namespace HexagonalReviews\Tests\unit\Review\Domain\Event;
 
-use BetterReview\Review\Domain\Event\ReviewUpdated;
-use BetterReview\Review\Domain\ValueObject\Status;
+use HexagonalReviews\Review\Domain\Event\ReviewUpdated;
+use HexagonalReviews\Review\Domain\ValueObject\Status;
 use Codeception\Test\Unit;
 use Ramsey\Uuid\Uuid;
 

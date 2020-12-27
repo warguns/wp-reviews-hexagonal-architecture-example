@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace BetterReview\Tests\unit\Average\Domain\DTO;
+namespace HexagonalReviews\Tests\unit\Average\Domain\DTO;
 
-use BetterReview\Average\Domain\DTO\ReviewStats;
+use HexagonalReviews\Average\Domain\DTO\ReviewStats;
 use Codeception\Test\Unit;
 
 class ReviewStatsTest extends Unit

@@ -7,17 +7,17 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Shared\Infrastructure\EventDispatcher;
+namespace HexagonalReviews\Shared\Infrastructure\EventDispatcher;
 
-use BetterReview\Shared\Domain\Service\EventDispatcher as SharedEventDispatcher;
-use BetterReview\Shared\Infrastructure\DependencyInjection\Container;
-use BetterReview\Shared\Infrastructure\DependencyInjection\Exception\DependencyNotFound;
-use BetterReview\Shared\Infrastructure\EventDispatcher\Exception\EventNotFound;
+use HexagonalReviews\Shared\Domain\Service\EventDispatcher as SharedEventDispatcher;
+use HexagonalReviews\Shared\Infrastructure\DependencyInjection\Container;
+use HexagonalReviews\Shared\Infrastructure\DependencyInjection\Exception\DependencyNotFound;
+use HexagonalReviews\Shared\Infrastructure\EventDispatcher\Exception\EventNotFound;
 
 /**
  * Class EventDispatcher
  *
- * @package BetterReview\Shared\Infrastructure\EventDispatcher
+ * @package HexagonalReviews\Shared\Infrastructure\EventDispatcher
  */
 final class EventDispatcher implements SharedEventDispatcher {
 

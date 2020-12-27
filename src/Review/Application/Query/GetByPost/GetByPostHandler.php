@@ -7,16 +7,16 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Application\Query\GetByPost;
+namespace HexagonalReviews\Review\Application\Query\GetByPost;
 
-use BetterReview\Review\Domain\Repository\ReviewRepository;
-use BetterReview\Review\Domain\ValueObject\ReviewCollection;
-use BetterReview\Shared\Domain\ValueObject\ProductId;
+use HexagonalReviews\Review\Domain\Repository\ReviewRepository;
+use HexagonalReviews\Review\Domain\ValueObject\ReviewCollection;
+use HexagonalReviews\Shared\Domain\ValueObject\ProductId;
 
 /**
  * Class GetByPostHandler
  *
- * @package BetterReview\Review\Application\Query\GetByPost
+ * @package HexagonalReviews\Review\Application\Query\GetByPost
  */
 final class GetByPostHandler {
 	/**

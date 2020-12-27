@@ -7,22 +7,22 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Review\Application\Command\Create;
+namespace HexagonalReviews\Review\Application\Command\Create;
 
-use BetterReview\Review\Domain\Entity\Review;
-use BetterReview\Review\Domain\Event\ReviewAdded;
-use BetterReview\Review\Domain\Repository\ReviewRepository;
-use BetterReview\Review\Domain\ValueObject\Email;
-use BetterReview\Review\Domain\ValueObject\Stars;
-use BetterReview\Review\Domain\ValueObject\Status;
-use BetterReview\Shared\Domain\Service\EventDispatcher;
-use BetterReview\Shared\Domain\ValueObject\ProductId;
+use HexagonalReviews\Review\Domain\Entity\Review;
+use HexagonalReviews\Review\Domain\Event\ReviewAdded;
+use HexagonalReviews\Review\Domain\Repository\ReviewRepository;
+use HexagonalReviews\Review\Domain\ValueObject\Email;
+use HexagonalReviews\Review\Domain\ValueObject\Stars;
+use HexagonalReviews\Review\Domain\ValueObject\Status;
+use HexagonalReviews\Shared\Domain\Service\EventDispatcher;
+use HexagonalReviews\Shared\Domain\ValueObject\ProductId;
 use Ramsey\Uuid\Uuid;
 
 /**
  * Class CreateHandler
  *
- * @package BetterReview\Review\Application\Command\Create
+ * @package HexagonalReviews\Review\Application\Command\Create
  */
 final class CreateHandler {
 	/**
@@ -55,7 +55,7 @@ final class CreateHandler {
 	 *
 	 * @param CreateCommand $command command.
 	 *
-	 * @throws \BetterReview\Review\Domain\Exception\IncorrectStars Stars are not correct.
+	 * @throws \HexagonalReviews\Review\Domain\Exception\IncorrectStars Stars are not correct.
 	 */
 	public function run( CreateCommand $command ) {
 		$review = Review::build(

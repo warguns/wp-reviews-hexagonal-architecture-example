@@ -1,5 +1,5 @@
 {
-    "name": "cristianbargansmarin/better-wp-reviews",
+    "name": "cristianbargansmarin/hexagonal-reviews",
     "type": "project",
     "authors": [
         {
@@ -9,12 +9,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "BetterReview\\": "src/"
+            "HexagonalReviews\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "BetterReview\\Tests\\": "tests/"
+            "HexagonalReviews\\Tests\\": "tests/"
         }
     },
     "require": {

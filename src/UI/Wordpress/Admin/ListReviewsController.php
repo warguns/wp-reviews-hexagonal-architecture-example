@@ -7,18 +7,18 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\UI\Wordpress\Admin;
+namespace HexagonalReviews\UI\Wordpress\Admin;
 
-use BetterReview\Review\Application\Command\Delete\DeleteCommand;
-use BetterReview\Review\Application\Command\Delete\DeleteHandler;
-use BetterReview\Review\Application\Query\All\ListHandler;
-use BetterReview\Review\Application\Query\All\ListQuery;
-use BetterReview\Review\Domain\Exception\IncorrectStars;
-use BetterReview\Review\Domain\Exception\ReviewNotFound;
-use BetterReview\Review\Domain\Exception\StatusNotFound;
-use BetterReview\Review\Domain\Repository\ReviewRepository;
-use BetterReview\Shared\Infrastructure\DependencyInjection\Container;
-use BetterReview\Shared\Infrastructure\Wordpress\ReviewsAdminTable;
+use HexagonalReviews\Review\Application\Command\Delete\DeleteCommand;
+use HexagonalReviews\Review\Application\Command\Delete\DeleteHandler;
+use HexagonalReviews\Review\Application\Query\All\ListHandler;
+use HexagonalReviews\Review\Application\Query\All\ListQuery;
+use HexagonalReviews\Review\Domain\Exception\IncorrectStars;
+use HexagonalReviews\Review\Domain\Exception\ReviewNotFound;
+use HexagonalReviews\Review\Domain\Exception\StatusNotFound;
+use HexagonalReviews\Review\Domain\Repository\ReviewRepository;
+use HexagonalReviews\Shared\Infrastructure\DependencyInjection\Container;
+use HexagonalReviews\Shared\Infrastructure\Wordpress\ReviewsAdminTable;
 use WP_Post;
 use WP_Query;
 use function add_menu_page;
@@ -26,7 +26,7 @@ use function add_menu_page;
 /**
  * Class ListReviewsController
  *
- * @package BetterReview\UI\Wordpress\Admin
+ * @package HexagonalReviews\UI\Wordpress\Admin
  */
 class ListReviewsController {
 
@@ -66,7 +66,7 @@ class ListReviewsController {
 	 */
 	public function admin_style(): void {
 		wp_enqueue_style( 'starability', plugins_url( '/../Front/assets/stars.css', __FILE__ ), array(), '20201212', 'all' );
-		wp_enqueue_style( 'better-review-style', plugins_url( '/../Front/assets/style.css', __FILE__ ), array(), '20201212', 'all' );
+		wp_enqueue_style( 'hexagonal-review-style', plugins_url( '/../Front/assets/style.css', __FILE__ ), array(), '20201212', 'all' );
 	}
 
 	/**

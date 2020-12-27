@@ -7,12 +7,12 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Average\Domain\DTO;
+namespace HexagonalReviews\Average\Domain\DTO;
 
 /**
  * Class ReviewStats
  *
- * @package BetterReview\Average\Domain\DTO
+ * @package HexagonalReviews\Average\Domain\DTO
  */
 final class ReviewStats {
 	/**

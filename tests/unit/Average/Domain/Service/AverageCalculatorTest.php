@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace BetterReview\Tests\unit\Average\Domain\Service;
+namespace HexagonalReviews\Tests\unit\Average\Domain\Service;
 
-use BetterReview\Average\Domain\DTO\ReviewStats;
-use BetterReview\Average\Domain\Entity\Average;
-use BetterReview\Average\Domain\Service\AverageCalculator;
+use HexagonalReviews\Average\Domain\DTO\ReviewStats;
+use HexagonalReviews\Average\Domain\Entity\Average;
+use HexagonalReviews\Average\Domain\Service\AverageCalculator;
 use Codeception\Test\Unit;
 
 class AverageCalculatorTest extends Unit

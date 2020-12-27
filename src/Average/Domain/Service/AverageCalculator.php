@@ -7,15 +7,15 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Average\Domain\Service;
+namespace HexagonalReviews\Average\Domain\Service;
 
-use BetterReview\Average\Domain\DTO\ReviewStats;
-use BetterReview\Average\Domain\Entity\Average;
+use HexagonalReviews\Average\Domain\DTO\ReviewStats;
+use HexagonalReviews\Average\Domain\Entity\Average;
 
 /**
  * Class AverageCalculator
  *
- * @package BetterReview\Average\Domain\Service
+ * @package HexagonalReviews\Average\Domain\Service
  */
 final class AverageCalculator {
 

@@ -8,15 +8,15 @@
  * @since             1.0.0
  *
  * @wordpress-plugin
- * Plugin Name:       Better Reviews
- * Plugin URI:        https://cristianbargans.es
+ * Plugin Name:       Hexagonal Reviews
+ * Plugin URI:        https://github.com/warguns/wp-reviews-hexagonal-architecture-example
  * Description:       The Wp Reviews you always desired
  * Version:           1.2.6
  * Author:            Cristian Bargans
  * Author URI:        https://cristianbargans.es
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       better-reviews
+ * Text Domain:       hexagonal-reviews
  * Domain Path:       /languages
  */
 
@@ -24,8 +24,8 @@ if (!defined('WPINC')) {
     die;
 }
 
-use BetterReview\Shared\Infrastructure\Wordpress\Activate;
-use BetterReview\Shared\Infrastructure\Wordpress\Uninstall;
+use HexagonalReviews\Shared\Infrastructure\Wordpress\Activate;
+use HexagonalReviews\Shared\Infrastructure\Wordpress\Uninstall;
 
 require plugin_dir_path(__FILE__) . '/vendor/autoload.php';
 
@@ -41,10 +41,10 @@ function uninstall() {
 register_uninstall_hook( __FILE__, 'uninstall' );
 
 
-function run_better_reviews()
+function run_hexagonal_reviews()
 {
-    $plugin = new BetterReview\Shared\Infrastructure\Wordpress\Kernel();
+    $plugin = new HexagonalReviews\Shared\Infrastructure\Wordpress\Kernel();
     $plugin->run();
 }
 
-run_better_reviews();
+run_hexagonal_reviews();

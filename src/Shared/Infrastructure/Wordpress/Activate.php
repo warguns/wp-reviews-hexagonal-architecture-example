@@ -7,12 +7,12 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Shared\Infrastructure\Wordpress;
+namespace HexagonalReviews\Shared\Infrastructure\Wordpress;
 
 /**
  * Class Activate
  *
- * @package BetterReview\Shared\Infrastructure\Wordpress
+ * @package HexagonalReviews\Shared\Infrastructure\Wordpress
  */
 final class Activate {
 
@@ -23,7 +23,7 @@ final class Activate {
 		global $wpdb;
 
 		$wpdb->query(
-			"CREATE TABLE `wp_better_review` (
+			"CREATE TABLE `wp_hexagonal_review` (
                               `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
                               `uuid` varchar(300) NOT NULL DEFAULT '',
                               `post_id` bigint(20) unsigned DEFAULT NULL,
@@ -43,7 +43,7 @@ final class Activate {
 		);
 
 		$wpdb->query(
-			"CREATE TABLE `wp_better_review_average` (
+			"CREATE TABLE `wp_hexagonal_review_average` (
                               `post_id` bigint(20) unsigned NOT NULL,
                               `review_count` int(11) DEFAULT '0',
                               `total_review` int(11) DEFAULT '0',

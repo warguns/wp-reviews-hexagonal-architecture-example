@@ -7,7 +7,7 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\Shared\Infrastructure\Wordpress;
+namespace HexagonalReviews\Shared\Infrastructure\Wordpress;
 
 /**
  * Translations Inspired directly from JWT auth's plugin: https://github.com/Tmeister/wp-api-jwt-auth

@@ -7,14 +7,14 @@
 
 declare( strict_types=1 );
 
-namespace BetterReview\UI\Wordpress\Admin;
+namespace HexagonalReviews\UI\Wordpress\Admin;
 
 use function add_menu_page;
 
 /**
  * Class ListReviewsByPostController
  *
- * @package BetterReview\UI\Wordpress\Admin
+ * @package HexagonalReviews\UI\Wordpress\Admin
  */
 class ListReviewsByPostController {
 

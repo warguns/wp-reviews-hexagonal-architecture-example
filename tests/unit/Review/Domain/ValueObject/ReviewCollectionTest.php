@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace BetterReview\Tests\unit\Review\Domain\ValueObject;
+namespace HexagonalReviews\Tests\unit\Review\Domain\ValueObject;
 
-use BetterReview\Review\Domain\Entity\Review;
-use BetterReview\Review\Domain\ValueObject\ReviewCollection;
-use BetterReview\Review\Domain\ValueObject\Status;
+use HexagonalReviews\Review\Domain\Entity\Review;
+use HexagonalReviews\Review\Domain\ValueObject\ReviewCollection;
+use HexagonalReviews\Review\Domain\ValueObject\Status;
 use Codeception\Test\Unit;
 use Ramsey\Uuid\Uuid;
 
