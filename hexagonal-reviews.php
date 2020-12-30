@@ -1,11 +1,10 @@
 <?php
-
 /**
  * The plugin bootstrap file.
  *
- *
  * @link              https://cristianbargans.es
  * @since             1.0.0
+ * @package HexagonalReviews
  *
  * @wordpress-plugin
  * Plugin Name:       Hexagonal Reviews
@@ -20,31 +19,37 @@
  * Domain Path:       /languages
  */
 
-if (!defined('WPINC')) {
-    die;
+if ( ! defined( 'WPINC' ) ) {
+	die;
 }
 
 use HexagonalReviews\Shared\Infrastructure\Wordpress\Activate;
 use HexagonalReviews\Shared\Infrastructure\Wordpress\Uninstall;
 
-require plugin_dir_path(__FILE__) . '/vendor/autoload.php';
+require plugin_dir_path( __FILE__ ) . '/vendor/autoload.php';
 
-
-function activate() {
-    Activate::activate();
+/**
+ * Activate Hexagonal Reviews
+ */
+function hexrev_activate() {
+	Activate::activate();
 }
-register_activation_hook( __FILE__, 'activate' );
+register_activation_hook( __FILE__, 'hexrev_activate' );
 
-function uninstall() {
-    Uninstall::uninstall();
+/**
+ * Deactivate Hexagonal Reviews
+ */
+function hexrev_uninstall() {
+	Uninstall::uninstall();
 }
-register_uninstall_hook( __FILE__, 'uninstall' );
+register_uninstall_hook( __FILE__, 'hexrev_uninstall' );
 
-
-function run_hexagonal_reviews()
-{
-    $plugin = new HexagonalReviews\Shared\Infrastructure\Wordpress\Kernel();
-    $plugin->run();
+/**
+ * Run Hexagonal Reviews
+ */
+function run_hexagonal_reviews() {
+	$plugin = new HexagonalReviews\Shared\Infrastructure\Wordpress\Kernel();
+	$plugin->run();
 }
 
 run_hexagonal_reviews();

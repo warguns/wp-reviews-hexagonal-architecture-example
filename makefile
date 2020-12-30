@@ -46,7 +46,16 @@ acceptance: ## run acceptance tests
 
 .PHONY: cs
 cs: ## run wordpress code sniffer on src
-		$(compose) exec -T wordpress sh -lc "cd wp-content/plugins/hexagonal-reviews && ./vendor/bin/phpcs --config-set installed_paths /var/www/html/wp-content/plugins/hexagonal-reviews/vendor/wp-coding-standards/wpcs && ./vendor/bin/phpcs --standard=WordPress ./src"
+		$(compose) exec -T wordpress sh -lc "cd wp-content/plugins/hexagonal-reviews && ./vendor/bin/phpcs --config-set installed_paths /var/www/html/wp-content/plugins/hexagonal-reviews/vendor/wp-coding-standards/wpcs && ./vendor/bin/phpcs --standard=WordPress ./src hexagonal-reviews.php"
+
+.PHONY: bf
+bf: ## run wordpress code beautifier on src
+		$(compose) exec -T wordpress sh -lc "cd wp-content/plugins/hexagonal-reviews && ./vendor/bin/phpcs --config-set installed_paths /var/www/html/wp-content/plugins/hexagonal-reviews/vendor/wp-coding-standards/wpcs && /usr/local/bin/php -d memory_limit=512M ./vendor/bin/phpcbf --standard=WordPress ./src hexagonal-reviews.php"
+
+.PHONY: jslint
+jslint: ## run wordpress code beautifier on src
+		$(compose) run --rm jslint /app
+
 
 .PHONY: plugin
 plugin: ## makes production build inside build folder

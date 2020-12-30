@@ -6,105 +6,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="547c3639-e3b4-40f3-9066-4107bf5fce20" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/etc/containers/lint/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Period/Period.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/wp-reviews-hexagonal-architecture-example.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/wp-reviews-hexagonal-architecture-example.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/banner-1544x500.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/banner-1544x500.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/banner-772x250.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/banner-772x250.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/logo-128x128.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/logo-128x128.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/logo-256x256.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/logo-256x256.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/better-reviews.php" beforeDir="false" afterPath="$PROJECT_DIR$/hexagonal-reviews.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/languages/better-reviews-en_GB.mo" beforeDir="false" afterPath="$PROJECT_DIR$/languages/hexagonal-reviews-en_GB.mo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/languages/better-reviews-en_GB.po" beforeDir="false" afterPath="$PROJECT_DIR$/languages/hexagonal-reviews-en_GB.po" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/languages/better-reviews-es_ES.mo" beforeDir="false" afterPath="$PROJECT_DIR$/languages/hexagonal-reviews-es_ES.mo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/languages/better-reviews-es_ES.po" beforeDir="false" afterPath="$PROJECT_DIR$/languages/hexagonal-reviews-es_ES.po" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/languages/better-reviews.mo" beforeDir="false" afterPath="$PROJECT_DIR$/languages/hexagonal-reviews.mo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/languages/better-reviews.po" beforeDir="false" afterPath="$PROJECT_DIR$/languages/hexagonal-reviews.po" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hexagonal-reviews.php" beforeDir="false" afterPath="$PROJECT_DIR$/hexagonal-reviews.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/languages/hexagonal-reviews-en_GB.mo" beforeDir="false" afterPath="$PROJECT_DIR$/languages/hexagonal-reviews-en_GB.mo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/languages/hexagonal-reviews-en_GB.po" beforeDir="false" afterPath="$PROJECT_DIR$/languages/hexagonal-reviews-en_GB.po" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/languages/hexagonal-reviews-es_ES.mo" beforeDir="false" afterPath="$PROJECT_DIR$/languages/hexagonal-reviews-es_ES.mo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/languages/hexagonal-reviews-es_ES.po" beforeDir="false" afterPath="$PROJECT_DIR$/languages/hexagonal-reviews-es_ES.po" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Average/Application/Event/OnReviewAddedRecalculateAverage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Average/Application/Event/OnReviewAddedRecalculateAverage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Average/Application/Event/OnReviewDeletedRecalculateAverage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Average/Application/Event/OnReviewDeletedRecalculateAverage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Average/Application/Event/OnReviewUpdatedRecalculateAverage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Average/Application/Event/OnReviewUpdatedRecalculateAverage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Average/Application/Query/GetAverage/GetAverageHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Average/Application/Query/GetAverage/GetAverageHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Average/Application/Query/GetAverage/GetAverageQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Average/Application/Query/GetAverage/GetAverageQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Average/Domain/DTO/ReviewStats.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Average/Domain/DTO/ReviewStats.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Average/Domain/Entity/Average.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Average/Domain/Entity/Average.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Average/Domain/Repository/AverageRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Average/Domain/Repository/AverageRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Average/Domain/Service/AverageCalculator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Average/Domain/Service/AverageCalculator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Average/Infrastructure/Wordpress/Persistence/WpAverageRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Average/Infrastructure/Wordpress/Persistence/WpAverageRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Application/Command/Create/CreateCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Application/Command/Create/CreateCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Application/Command/Create/CreateHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Application/Command/Create/CreateHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Application/Command/Delete/DeleteCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Application/Command/Delete/DeleteCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Application/Command/Delete/DeleteHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Application/Command/Delete/DeleteHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Application/Command/Update/UpdateCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Application/Command/Update/UpdateCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Application/Command/Update/UpdateHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Application/Command/Update/UpdateHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Application/Query/All/ListHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Application/Query/All/ListHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Application/Query/All/ListQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Application/Query/All/ListQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Application/Query/Get/GetHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Application/Query/Get/GetHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Application/Query/Get/GetQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Application/Query/Get/GetQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Application/Query/GetByPost/GetByPostHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Application/Query/GetByPost/GetByPostHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Application/Query/GetByPost/GetByPostQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Application/Query/GetByPost/GetByPostQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Domain/DTO/ListReviewsResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Domain/DTO/ListReviewsResponse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Domain/Entity/Review.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Domain/Entity/Review.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Domain/Event/ReviewAdded.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Domain/Event/ReviewAdded.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Domain/Event/ReviewDeleted.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Domain/Event/ReviewDeleted.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Domain/Event/ReviewUpdated.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Domain/Event/ReviewUpdated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Domain/Exception/IncorrectStars.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Domain/Exception/IncorrectStars.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Domain/Exception/ReviewNotFound.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Domain/Exception/ReviewNotFound.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Domain/Exception/StatusNotFound.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Domain/Exception/StatusNotFound.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Domain/Repository/ReviewRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Domain/Repository/ReviewRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Domain/ValueObject/Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Domain/ValueObject/Email.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Domain/ValueObject/ReviewCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Domain/ValueObject/ReviewCollection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Domain/ValueObject/Stars.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Domain/ValueObject/Stars.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Domain/ValueObject/Status.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Domain/ValueObject/Status.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Review/Infrastructure/Wordpress/Persistence/WpReviewRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Review/Infrastructure/Wordpress/Persistence/WpReviewRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Domain/Event/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Domain/Event/Event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Domain/Service/EventDispatcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Domain/Service/EventDispatcher.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Domain/ValueObject/ProductId.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Domain/ValueObject/ProductId.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/DependencyInjection/Container.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/DependencyInjection/Container.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/DependencyInjection/Exception/DependencyNotFound.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/DependencyInjection/Exception/DependencyNotFound.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/EventDispatcher/EventDispatcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/EventDispatcher/EventDispatcher.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/EventDispatcher/Exception/EventNotFound.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/EventDispatcher/Exception/EventNotFound.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Gravatar/GravatarService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Gravatar/GravatarService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Wordpress/Activate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Wordpress/Activate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Wordpress/Deactivate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Wordpress/Deactivate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Wordpress/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Wordpress/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Wordpress/ReviewLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Wordpress/ReviewLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Wordpress/ReviewsAdminTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Wordpress/ReviewsAdminTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Wordpress/Translations.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Wordpress/Translations.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Wordpress/Uninstall.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Wordpress/Uninstall.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Admin/EditReviewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Admin/EditReviewController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Admin/ListReviewsByPostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Admin/ListReviewsByPostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Admin/ListReviewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Admin/ListReviewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Admin/SaveReviewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Admin/SaveReviewController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Admin/templates/EditReview.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Admin/templates/EditReview.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Admin/templates/ListReviews.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Admin/templates/ListReviews.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Admin/templates/ListReviewsByPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Admin/templates/ListReviewsByPost.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Front/GetReviewsBlockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Front/GetReviewsBlockController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Front/assets/stars.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Front/assets/stars.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Front/assets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Front/assets/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Front/templates/GetReviewsBlock.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Front/templates/GetReviewsBlock.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/_data/dump.sql" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_data/dump.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/_output/FrontendCest.given.an.user.when.I.try.to.navigate.to.some.post.i.should.able.to.add.reviews.fail.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/FrontendCest.given.an.user.when.I.try.to.navigate.to.some.post.i.should.able.to.add.reviews.fail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/_output/FrontendCest.given.an.user.when.I.try.to.navigate.to.some.post.i.should.able.to.add.reviews.fail.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/FrontendCest.given.an.user.when.I.try.to.navigate.to.some.post.i.should.able.to.add.reviews.fail.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Average/Domain/DTO/ReviewStatsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Average/Domain/DTO/ReviewStatsTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Average/Domain/Entity/AverageTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Average/Domain/Entity/AverageTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Average/Domain/Service/AverageCalculatorTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Average/Domain/Service/AverageCalculatorTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Review/Domain/DTO/ListReviewsResponseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/DTO/ListReviewsResponseTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Review/Domain/Entity/ReviewTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/Entity/ReviewTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Review/Domain/Event/ReviewAddedTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/Event/ReviewAddedTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Review/Domain/Event/ReviewDeletedTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/Event/ReviewDeletedTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Review/Domain/Event/ReviewUpdatedTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/Event/ReviewUpdatedTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Review/Domain/Exception/IncorrectStarsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/Exception/IncorrectStarsTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Review/Domain/Exception/ReviewNotFoundTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/Exception/ReviewNotFoundTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Review/Domain/Exception/StatusNotFoundTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/Exception/StatusNotFoundTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Review/Domain/ValueObject/EmailTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/ValueObject/EmailTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Review/Domain/ValueObject/ReviewCollectionTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/ValueObject/ReviewCollectionTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Review/Domain/ValueObject/StarsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/ValueObject/StarsTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/Review/Domain/ValueObject/StatusTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/Review/Domain/ValueObject/StatusTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/wpunit.suite.yml" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wpunit.suite.yml" afterDir="false" />
     </list>
     <list id="be2420c8-fab6-48ce-bd45-d514e2c83117" name="create hexagonal plugin" comment="" />
     <list id="35920c78-b837-465f-9721-b35c8a1f9230" name="Revert: " comment="" />
@@ -306,7 +222,11 @@
       <workItem from="1608372097698" duration="19842000" />
       <workItem from="1608403180893" duration="6285000" />
       <workItem from="1608453322720" duration="16251000" />
-      <workItem from="1609097653256" duration="6590000" />
+      <workItem from="1609097653256" duration="6645000" />
+      <workItem from="1609261549334" duration="1838000" />
+      <workItem from="1609263780502" duration="3969000" />
+      <workItem from="1609271857429" duration="4841000" />
+      <workItem from="1609350182965" duration="3844000" />
     </task>
     <task id="LOCAL-00001" summary="add unit tests">
       <created>1608289122073</created>
@@ -371,7 +291,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609103458387</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Rename to Hexagonal Reviews">
+      <created>1609109287252</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1609109287252</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,7 +324,8 @@
     <MESSAGE value="add acceptance dump" />
     <MESSAGE value="create Readme file" />
     <MESSAGE value="add images for plugin" />
-    <option name="LAST_COMMIT_MESSAGE" value="add images for plugin" />
+    <MESSAGE value="Rename to Hexagonal Reviews" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename to Hexagonal Reviews" />
   </component>
   <component name="WordPressConfiguration" enabled="true">
     <wordpressPath>$PROJECT_DIR$/../fast_rest</wordpressPath>

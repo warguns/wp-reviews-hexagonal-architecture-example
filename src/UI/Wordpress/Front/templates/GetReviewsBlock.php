@@ -9,6 +9,7 @@ use HexagonalReviews\Average\Domain\DTO\ReviewStats;
 use HexagonalReviews\Review\Domain\Entity\Review;
 use HexagonalReviews\Review\Domain\ValueObject\ReviewCollection;
 use HexagonalReviews\Shared\Infrastructure\Gravatar\GravatarService;
+use HexagonalReviews\Shared\Infrastructure\Period\Period;
 
 /**
  * Review collection
@@ -80,9 +81,6 @@ use HexagonalReviews\Shared\Infrastructure\Gravatar\GravatarService;
 			</p>
 		<?php } ?>
 	</form>
-	<script>
-		var DateTime = luxon.DateTime;
-	</script>
 	<?php
 	/**
 	 * Review object.
@@ -96,10 +94,7 @@ use HexagonalReviews\Shared\Infrastructure\Gravatar\GravatarService;
 						src="<?php echo esc_html( GravatarService::image( $review->get_email()->get_email(), 150 ) ); ?>"></div>
 			<div class="grid-title"><?php echo esc_html( $review->get_title() ); ?></div>
 			<div class="grid-author"><span class="author"><?php echo esc_html( $review->get_author() ); ?></span> <span
-						id="time-<?php echo esc_html( $review->get_uuid() ); ?>" class="time"></span>
-				<script>
-					document.getElementById('time-<?php echo esc_html( $review->get_uuid() ); ?>').innerHTML = DateTime.fromSeconds(<?php echo esc_html( $review->get_created_at()->getTimestamp() ); ?>).toRelative();
-				</script>
+						id="time-<?php echo esc_html( $review->get_uuid() ); ?>" class="time"><?php echo esc_html( Period::get_timeago( $review->get_created_at()->getTimestamp() ) ); ?></span>
 			</div>
 			<div class="grid-content"><?php echo esc_html( $review->get_content() ); ?></div>
 			<div class="grid-stars">

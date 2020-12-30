@@ -71,8 +71,7 @@ class GetReviewsBlockController {
 	 * Load Scripts
 	 */
 	public function load_scripts(): void {
-		wp_enqueue_script( 'luxon', '//cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js', array(), '20201213', true );
-		wp_enqueue_style( 'hexagonal-reviews-stars', plugins_url( '/assets/stars.css', __FILE__ ), array(), '20201213', 'all' );
+		wp_enqueue_style( 'hexagonal-reviews-stars', plugins_url( '/assets/stars.css', __FILE__ ), array(), '20201230', 'all' );
 		wp_enqueue_style( 'hexagonal-reviews-style', plugins_url( '/assets/style.css', __FILE__ ), array(), '20201213', 'all' );
 	}
 

@@ -64,11 +64,4 @@ class EditReviewController {
 
 		include 'templates/EditReview.php';
 	}
-
-	/**
-	 * Style Loader
-	 */
-	public function load_styles() {
-		wp_enqueue_style( 'admin-styles', '//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', array(), '20201212' );
-	}
 }

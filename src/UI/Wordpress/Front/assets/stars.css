@@ -5,6 +5,7 @@
 #reviews .rating {
 	display: flex;
 	width: 100%;
+	max-width: 200px;
 	justify-content: left;
 	overflow: hidden;
 	flex-direction: row-reverse;

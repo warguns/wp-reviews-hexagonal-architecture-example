@@ -57,7 +57,7 @@
 	font-weight: bold;
 }
 
-#reviews .average {
+#reviews .average, #reviews .total {
 	padding: 25px 25px;
 	background-color: #ffffff;
 	border-radius: 25px;
