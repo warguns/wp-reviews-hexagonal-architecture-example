@@ -1,6 +1,6 @@
 === Hexagonal Reviews ===
 Contributors: warguns86
-Tags: rewviews, hexagonal, ddd
+Tags: reviews, hexagonal, ddd
 Requires at least: 5.6
 Tested up to: 5.6
 Requires PHP: 7.2
@@ -12,7 +12,7 @@ The plugin permits you to append reviews on the posts using a shortcode, and man
 
 == Description ==
 
-Manage your post reviews with that plugin, rich snippeds are included (json-ld). It's also a plugin as a example to demonstrate hexagonal capabilities inside a wordpress plugin.
+Manage your post reviews with that plugin, rich snippets are included (json-ld). It's also a plugin as a example to demonstrate hexagonal capabilities inside a wordpress plugin.
 
 == Installation ==
 
@@ -40,3 +40,7 @@ If it's usable for you then yes, there's no problem
 
 = 0.1 =
 * First Commit
+
+== Upgrade Notice ==
+
+No upgrades yet

@@ -11,8 +11,8 @@
  * Plugin URI:        https://github.com/warguns/wp-reviews-hexagonal-architecture-example
  * Description:       The Wp Reviews you always desired
  * Version:           1.2.6
- * Author:            Cristian Bargans
- * Author URI:        https://cristianbargans.es
+ * Author:            Warguns
+ * Author URI:        https://github.com/warguns
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       hexagonal-reviews
