@@ -7,6 +7,8 @@ used as a wordpress plugin boilerplate.
 The purpose of this project is to demonstrate the hexagonal architecture is able to be implemented in most of the places and
 facilitates testing, debugging and modification in a more visible way, like a wordpress plugin can provide, without overenginering inside it.
 
+You can see the plugin on: [WordPress Plugins directory](https://wordpress.org/plugins/hexagonal-reviews/)
+
 ## It lacks of:
 
 * A Dependency Injector (dependencies are applied manually by a class implementing the PHP FIG PSR-11 Container interface, nowadays most frameworks has it's own dependency autowire) 
