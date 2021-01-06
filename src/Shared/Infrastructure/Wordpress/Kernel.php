@@ -93,7 +93,6 @@ final class Kernel {
 		$this->loader->add_action( 'admin_menu', $list_reviews_by_post_controller, 'run' );
 		$edit_review_controller = new EditReviewController();
 		$this->loader->add_action( 'admin_menu', $edit_review_controller, 'run' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $edit_review_controller, 'load_styles' );
 		$save_review_controller = new SaveReviewController();
 		$this->loader->add_action( 'admin_menu', $save_review_controller, 'run' );
 	}
