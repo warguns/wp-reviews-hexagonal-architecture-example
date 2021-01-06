@@ -47,13 +47,15 @@ final class OnReviewDeletedRecalculateAverage {
 	public function __invoke( ReviewDeleted $event ) {
 		$average = $this->average_repository->find( ProductId::from_int( $event->get_product_id() ) );
 
-		$this->average_repository->update(
-			new Average(
-				ProductId::from_int( $event->get_product_id() ),
-				$average->get_review_count() - 1,
-				$average->get_total_review() - $event->get_stars()
-			)
-		);
+		if ( $average ) {
+			$this->average_repository->update(
+				new Average(
+					ProductId::from_int( $event->get_product_id() ),
+					$average->get_review_count() - 1,
+					$average->get_total_review() - $event->get_stars()
+				)
+			);
+		}
 
 		return $event;
 	}

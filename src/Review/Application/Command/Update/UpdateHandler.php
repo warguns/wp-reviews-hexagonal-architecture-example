@@ -92,7 +92,7 @@ final class UpdateHandler {
 			);
 		}
 
-		if ( $old_review->get_status()->equals( $review->get_status() ) ) {
+		if ( $old_review->get_status()->is_published() && $old_review->get_status()->equals( $review->get_status() ) ) {
 			$this->event_dispatcher->dispatch(
 				new ReviewUpdated(
 					UUid::uuid4(),

@@ -47,13 +47,15 @@ final class OnReviewUpdatedRecalculateAverage {
 	public function __invoke( ReviewUpdated $event ) {
 		$average = $this->average_repository->find( ProductId::from_int( $event->get_product_id() ) );
 
-		$this->average_repository->update(
-			new Average(
-				ProductId::from_int( $event->get_product_id() ),
-				$average->get_review_count(),
-				$average->get_total_review() + $event->get_stars() - $event->get_old_stars()
-			)
-		);
+		if ( $average ) {
+			$this->average_repository->update(
+				new Average(
+					ProductId::from_int( $event->get_product_id() ),
+					$average->get_review_count(),
+					$average->get_total_review() + $event->get_stars() - $event->get_old_stars()
+				)
+			);
+		}
 
 		return $event;
 	}
