@@ -8,7 +8,7 @@ class FrontendCest
     {
 
         $I->amOnPage('/?p=1');
-        $I->canSee('Valorar producto');
+        $I->canSee('Valorar el producto');
         $I->fillField('author', 'Test');
         $I->click('label[for="rating-5"]');
         $I->fillField('email', 'test@test.com');
@@ -16,6 +16,7 @@ class FrontendCest
         $I->fillField('content', 'This is a test content');
         $I->checkOption('validate');
         $I->click('submit-opinion');
-        $I->canSee('Muchas gracias!');
+	    $I->scrollTo('body', 0, 500);
+        $I->canSee('Gracias');
     }
 }
