@@ -90,6 +90,7 @@ class GetReviewsBlockController {
 				'post_id' => 0,
 				'limit'   => ReviewRepository::LIMIT,
 				'offset'  => 0,
+				'type'    => 'Product',
 			),
 			$attr
 		);
@@ -127,9 +128,11 @@ class GetReviewsBlockController {
 			)
 		);
 
+		$review_type = (string) sanitize_text_field( wp_unslash( $params['type'] ) );
+
 		$post = WP_Post::get_instance( (int) sanitize_text_field( wp_unslash( $params['post_id'] ) ) );
 
-		return $this->render( $review_collection, $review_stats, $post, $submitted );
+		return $this->render( $review_collection, $review_stats, $post, $submitted, $review_type );
 	}
 
 	/**
@@ -139,10 +142,11 @@ class GetReviewsBlockController {
 	 * @param ReviewStats      $review_stats review stats.
 	 * @param WP_Post          $post post.
 	 * @param bool             $submitted check if is the form submitted.
+	 * @param string           $review_type review type.
 	 *
 	 * @return false|string
 	 */
-	private function render( ReviewCollection $review_collection, ReviewStats $review_stats, WP_Post $post, bool $submitted ) {
+	private function render( ReviewCollection $review_collection, ReviewStats $review_stats, WP_Post $post, bool $submitted, string $review_type ) {
 		ob_start();
 		include 'templates/GetReviewsBlock.php';
 

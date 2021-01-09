@@ -2,7 +2,7 @@
 /**
  * The plugin bootstrap file.
  *
- * @link              https://cristianbargans.es
+ * @link              https://github.com/warguns/wp-reviews-hexagonal-architecture-example
  * @since             1.0.0
  * @package HexagonalReviews
  *
@@ -10,7 +10,7 @@
  * Plugin Name:       Hexagonal Reviews
  * Plugin URI:        https://github.com/warguns/wp-reviews-hexagonal-architecture-example
  * Description:       The Wp Reviews you always desired
- * Version:           1.2.6
+ * Version:           1.2.7
  * Author:            Warguns
  * Author URI:        https://github.com/warguns
  * License:           GPL-2.0+

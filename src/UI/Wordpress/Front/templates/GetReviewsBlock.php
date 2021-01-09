@@ -27,12 +27,21 @@ use HexagonalReviews\Shared\Infrastructure\Period\Period;
  * Post
  *
  * @var WP_Post $post post.
- * @var bool    $submitted check if is the form submitted.
+ * @var bool    $submitted   check if is the form submitted.
+ * @var string  $review_type review type (product or business).
  */
 ?>
 <div id="reviews" class="alignwide">
 	<div class="total">
 		<?php esc_html_e( 'Average:', 'hexagonal-reviews' ); ?>
+		<div class="grid-stars">
+			<div class="rating">
+				<?php for ( $i = 5; $i > 0; $i -- ) { ?>
+					<input type="radio" name="ratingAverage" id="rating-average-<?php echo esc_html( $i ); ?>" value="<?php echo esc_html( $i ); ?>" required="required" disabled="disabled" <?php echo ( (int) round( $review_stats->get_average() ) === $i ) ? esc_html( 'checked="checked"' ) : null; ?>>
+					<label for="rating-average-<?php echo esc_html( $i ); ?>"></label>
+				<?php } ?>
+			</div>
+		</div>
 		<?php echo esc_html( number_format( $review_stats->get_average(), 2 ) ); ?> <?php esc_html_e( 'of', 'hexagonal-reviews' ); ?> <?php echo esc_html( $review_stats->get_review_count() ); ?> <?php esc_html_e( 'Reviews', 'hexagonal-reviews' ); ?>
 	</div>
 	<form class="alignwide average" action="?p=<?php echo esc_html( $post->ID ); ?>" method="post" class="review-form">
@@ -100,8 +109,8 @@ use HexagonalReviews\Shared\Infrastructure\Period\Period;
 			<div class="grid-stars">
 				<div class="rating">
 					<?php for ( $i = 5; $i > 0; $i -- ) { ?>
-						<input type="radio" name="rating<?php echo esc_html( $review->get_uuid() ); ?>" id="rating-<?php echo esc_html( $i ); ?>" value="<?php echo esc_html( $i ); ?>" required="required" disabled="disabled" <?php echo ( (int) $review->get_stars()->get_stars() === $i ) ? esc_html( 'checked="checked"' ) : null; ?>>
-						<label for="rating-<?php echo esc_html( $i ); ?>"></label>
+						<input type="radio" name="rating<?php echo esc_html( $review->get_uuid() ); ?>" id="rating-<?php echo esc_html( $review->get_uuid() . '-' . $i ); ?>" value="<?php echo esc_html( $i ); ?>" required="required" disabled="disabled" <?php echo ( (int) $review->get_stars()->get_stars() === $i ) ? esc_html( 'checked="checked"' ) : null; ?>>
+						<label for="rating-<?php echo esc_html( $review->get_uuid() . '-' . $i ); ?>"></label>
 					<?php } ?>
 				</div>
 			</div>
@@ -111,7 +120,7 @@ use HexagonalReviews\Shared\Infrastructure\Period\Period;
 	<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",
-			"@type": "Product",
+			"@type": "<?php echo esc_html( $review_type ); ?>",
 			"name": "<?php echo esc_html( $post->post_title ); ?>",
 			"description": "<?php echo esc_html( $post->post_content ); ?>",
 			"image": "<?php echo esc_html( get_the_post_thumbnail_url( $post->ID ) ); ?>",

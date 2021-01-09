@@ -5,22 +5,18 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="547c3639-e3b4-40f3-9066-4107bf5fce20" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/etc/containers/lint/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Period/Period.php" afterDir="false" />
+    <list default="true" id="547c3639-e3b4-40f3-9066-4107bf5fce20" name="Default Changelist" comment="remove load_styles hook">
+      <change afterPath="$PROJECT_DIR$/assets/screenshot-3.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hexagonal-reviews.php" beforeDir="false" afterPath="$PROJECT_DIR$/hexagonal-reviews.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/languages/hexagonal-reviews-en_GB.mo" beforeDir="false" afterPath="$PROJECT_DIR$/languages/hexagonal-reviews-en_GB.mo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/languages/hexagonal-reviews-en_GB.po" beforeDir="false" afterPath="$PROJECT_DIR$/languages/hexagonal-reviews-en_GB.po" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/languages/hexagonal-reviews-es_ES.mo" beforeDir="false" afterPath="$PROJECT_DIR$/languages/hexagonal-reviews-es_ES.mo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/languages/hexagonal-reviews-es_ES.po" beforeDir="false" afterPath="$PROJECT_DIR$/languages/hexagonal-reviews-es_ES.po" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/DependencyInjection/Exception/DependencyNotFound.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/DependencyInjection/Exception/DependencyNotFound.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Admin/EditReviewController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Admin/EditReviewController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Period/Period.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Period/Period.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Front/GetReviewsBlockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Front/GetReviewsBlockController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Front/assets/stars.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Front/assets/stars.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Front/assets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Front/assets/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Front/templates/GetReviewsBlock.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Front/templates/GetReviewsBlock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/_output/FrontendCest.given.an.user.when.I.try.to.navigate.to.some.post.i.should.able.to.add.reviews.fail.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/FrontendCest.given.an.user.when.I.try.to.navigate.to.some.post.i.should.able.to.add.reviews.fail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/_output/FrontendCest.given.an.user.when.I.try.to.navigate.to.some.post.i.should.able.to.add.reviews.fail.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/FrontendCest.given.an.user.when.I.try.to.navigate.to.some.post.i.should.able.to.add.reviews.fail.png" afterDir="false" />
     </list>
     <list id="be2420c8-fab6-48ce-bd45-d514e2c83117" name="create hexagonal plugin" comment="" />
     <list id="35920c78-b837-465f-9721-b35c8a1f9230" name="Revert: " comment="" />
@@ -53,9 +49,20 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="JoomlaConfiguration">
     <joomlaConfigPath />
     <joomlaPath />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="wordpress">
     <include_path>
@@ -168,6 +175,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -209,6 +217,9 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="547c3639-e3b4-40f3-9066-4107bf5fce20" name="Default Changelist" comment="" />
@@ -226,7 +237,16 @@
       <workItem from="1609261549334" duration="1838000" />
       <workItem from="1609263780502" duration="3969000" />
       <workItem from="1609271857429" duration="4841000" />
-      <workItem from="1609350182965" duration="3844000" />
+      <workItem from="1609350182965" duration="4467000" />
+      <workItem from="1609527214366" duration="1528000" />
+      <workItem from="1609534177803" duration="2000" />
+      <workItem from="1609539663819" duration="179000" />
+      <workItem from="1609579762244" duration="1077000" />
+      <workItem from="1609878678984" duration="477000" />
+      <workItem from="1609960372397" duration="1944000" />
+      <workItem from="1609963373830" duration="6078000" />
+      <workItem from="1610116615591" duration="309000" />
+      <workItem from="1610185669051" duration="6336000" />
     </task>
     <task id="LOCAL-00001" summary="add unit tests">
       <created>1608289122073</created>
@@ -298,7 +318,56 @@
       <option name="project" value="LOCAL" />
       <updated>1609109287252</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Apply requested changes by wordpress team and adding the jslinter">
+      <created>1609356593275</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1609356593275</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Apply Reaadme changes and fix some test mistakes">
+      <created>1609539766685</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1609539766685</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Update readme with new description and tags">
+      <created>1609580083784</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1609580083784</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Add Wordpress plugin directory link">
+      <created>1609580318282</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1609580318282</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Fix acceptance and composer PSR for events">
+      <created>1609965245379</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1609965245379</updated>
+    </task>
+    <task id="LOCAL-00016" summary="remove load_styles hook">
+      <created>1609966685952</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1609966685952</updated>
+    </task>
+    <task id="LOCAL-00017" summary="check if the averages are published before trigger the update">
+      <created>1609969257949</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1609969257949</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,10 +394,33 @@
     <MESSAGE value="create Readme file" />
     <MESSAGE value="add images for plugin" />
     <MESSAGE value="Rename to Hexagonal Reviews" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename to Hexagonal Reviews" />
+    <MESSAGE value="Apply requested changes by wordpress team and adding the jslinter" />
+    <MESSAGE value="Apply Reaadme changes and fix some test mistakes" />
+    <MESSAGE value="Update readme with new description and tags" />
+    <MESSAGE value="Add Wordpress plugin directory link" />
+    <MESSAGE value="Fix acceptance and composer PSR for events" />
+    <MESSAGE value="remove load_styles hook" />
+    <MESSAGE value="check if the averages are published before trigger the update" />
+    <option name="LAST_COMMIT_MESSAGE" value="check if the averages are published before trigger the update" />
   </component>
   <component name="WordPressConfiguration" enabled="true">
     <wordpressPath>$PROJECT_DIR$/../fast_rest</wordpressPath>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/tests/acceptance/FrontendCest.php</url>
+          <line>21</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/Average/Domain/Repository/AverageRepository.php</url>
+          <line>47</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
