@@ -122,7 +122,7 @@ use HexagonalReviews\Shared\Infrastructure\Period\Period;
 			"@context": "https://schema.org",
 			"@type": "<?php echo esc_html( $review_type ); ?>",
 			"name": "<?php echo esc_html( $post->post_title ); ?>",
-			"description": "<?php echo esc_html( $post->post_content ); ?>",
+			"description": "<?php echo esc_html( wp_strip_all_tags( preg_replace( '/\[hexagonal-reviews.*\]/', '', $post->post_content ) ) ); ?>",
 			"image": "<?php echo esc_html( get_the_post_thumbnail_url( $post->ID ) ); ?>",
 			"aggregateRating": {
 				"@type": "AggregateRating",
