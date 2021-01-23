@@ -7,229 +7,9 @@
 <link rel="alternate" type="application/rss+xml" title="test » Feed de los comentarios" href="http://wordpress/?feed=comments-rss2">
 <link rel="alternate" type="application/rss+xml" title="test » Comentario ¡Hola, mundo! del feed" href="http://wordpress/?feed=rss2&amp;p=1">
 		<script>
-			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"wpemoji":"http:\/\/wordpress\/wp-includes\/js\/wp-emoji.js?ver=5.6","twemoji":"http:\/\/wordpress\/wp-includes\/js\/twemoji.js?ver=5.6"}};
-			/**
- * @output wp-includes/js/wp-emoji-loader.js
- */
-
-( function( window, document, settings ) {
-	var src, ready, ii, tests;
-
-	// Create a canvas element for testing native browser support of emoji.
-	var canvas = document.createElement( 'canvas' );
-	var context = canvas.getContext && canvas.getContext( '2d' );
-
-	/**
-	 * Checks if two sets of Emoji characters render the same visually.
-	 *
-	 * @since 4.9.0
-	 *
-	 * @private
-	 *
-	 * @param {number[]} set1 Set of Emoji character codes.
-	 * @param {number[]} set2 Set of Emoji character codes.
-	 *
-	 * @return {boolean} True if the two sets render the same.
-	 */
-	function emojiSetsRenderIdentically( set1, set2 ) {
-		var stringFromCharCode = String.fromCharCode;
-
-		// Cleanup from previous test.
-		context.clearRect( 0, 0, canvas.width, canvas.height );
-		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
-		var rendered1 = canvas.toDataURL();
-
-		// Cleanup from previous test.
-		context.clearRect( 0, 0, canvas.width, canvas.height );
-		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
-		var rendered2 = canvas.toDataURL();
-
-		return rendered1 === rendered2;
-	}
-
-	/**
-	 * Detects if the browser supports rendering emoji or flag emoji.
-	 *
-	 * Flag emoji are a single glyph made of two characters, so some browsers
-	 * (notably, Firefox OS X) don't support them.
-	 *
-	 * @since 4.2.0
-	 *
-	 * @private
-	 *
-	 * @param {string} type Whether to test for support of "flag" or "emoji".
-	 *
-	 * @return {boolean} True if the browser can render emoji, false if it cannot.
-	 */
-	function browserSupportsEmoji( type ) {
-		var isIdentical;
-
-		if ( ! context || ! context.fillText ) {
-			return false;
-		}
-
-		/*
-		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
-		 * it doesn't work when the font is bolder than 500 weight. So, we
-		 * check for bold rendering support to avoid invisible emoji in Chrome.
-		 */
-		context.textBaseline = 'top';
-		context.font = '600 32px Arial';
-
-		switch ( type ) {
-			case 'flag':
-				/*
-				 * Test for Transgender flag compatibility. This flag is shortlisted for the Emoji 13 spec,
-				 * but has landed in Twemoji early, so we can add support for it, too.
-				 *
-				 * To test for support, we try to render it, and compare the rendering to how it would look if
-				 * the browser doesn't render it correctly (white flag emoji + transgender symbol).
-				 */
-				isIdentical = emojiSetsRenderIdentically(
-					[ 0x1F3F3, 0xFE0F, 0x200D, 0x26A7, 0xFE0F ],
-					[ 0x1F3F3, 0xFE0F, 0x200B, 0x26A7, 0xFE0F ]
-				);
-
-				if ( isIdentical ) {
-					return false;
-				}
-
-				/*
-				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
-				 * so gives us an easy test for full support.
-				 *
-				 * To test for support, we try to render it, and compare the rendering to how it would look if
-				 * the browser doesn't render it correctly ([U] + [N]).
-				 */
-				isIdentical = emojiSetsRenderIdentically(
-					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
-					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
-				);
-
-				if ( isIdentical ) {
-					return false;
-				}
-
-				/*
-				 * Test for English flag compatibility. England is a country in the United Kingdom, it
-				 * does not have a two letter locale code but rather an five letter sub-division code.
-				 *
-				 * To test for support, we try to render it, and compare the rendering to how it would look if
-				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
-				 */
-				isIdentical = emojiSetsRenderIdentically(
-					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
-					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
-				);
-
-				return ! isIdentical;
-			case 'emoji':
-				/*
-				 * So easy, even a baby could do it!
-				 *
-				 *  To test for Emoji 13 support, try to render a new emoji: Man Feeding Baby.
-				 *
-				 * The Man Feeding Baby emoji is a ZWJ sequence combining 👨 Man, a Zero Width Joiner and 🍼 Baby Bottle.
-				 *
-				 * 0xD83D, 0xDC68 == Man emoji.
-				 * 0x200D == Zero-Width Joiner (ZWJ) that links the two code points for the new emoji or
-				 * 0x200B == Zero-Width Space (ZWS) that is rendered for clients not supporting the new emoji.
-				 * 0xD83C, 0xDF7C == Baby Bottle.
-				 *
-				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
-				 * sequence come from older emoji standards.
-				 */
-				isIdentical = emojiSetsRenderIdentically(
-					[0xD83D, 0xDC68, 0x200D, 0xD83C, 0xDF7C],
-					[0xD83D, 0xDC68, 0x200B, 0xD83C, 0xDF7C]
-				);
-
-				return ! isIdentical;
-		}
-
-		return false;
-	}
-
-	/**
-	 * Adds a script to the head of the document.
-	 *
-	 * @ignore
-	 *
-	 * @since 4.2.0
-	 *
-	 * @param {Object} src The url where the script is located.
-	 * @return {void}
-	 */
-	function addScript( src ) {
-		var script = document.createElement( 'script' );
-
-		script.src = src;
-		script.defer = script.type = 'text/javascript';
-		document.getElementsByTagName( 'head' )[0].appendChild( script );
-	}
-
-	tests = Array( 'flag', 'emoji' );
-
-	settings.supports = {
-		everything: true,
-		everythingExceptFlag: true
-	};
-
-	/*
-	 * Tests the browser support for flag emojis and other emojis, and adjusts the
-	 * support settings accordingly.
-	 */
-	for( ii = 0; ii < tests.length; ii++ ) {
-		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
-
-		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
-
-		if ( 'flag' !== tests[ ii ] ) {
-			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
-		}
-	}
-
-	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
-
-	// Sets DOMReady to false and assigns a ready function to settings.
-	settings.DOMReady = false;
-	settings.readyCallback = function() {
-		settings.DOMReady = true;
-	};
-
-	// When the browser can not render everything we need to load a polyfill.
-	if ( ! settings.supports.everything ) {
-		ready = function() {
-			settings.readyCallback();
-		};
-
-		/*
-		 * Cross-browser version of adding a dom ready event.
-		 */
-		if ( document.addEventListener ) {
-			document.addEventListener( 'DOMContentLoaded', ready, false );
-			window.addEventListener( 'load', ready, false );
-		} else {
-			window.attachEvent( 'onload', ready );
-			document.attachEvent( 'onreadystatechange', function() {
-				if ( 'complete' === document.readyState ) {
-					settings.readyCallback();
-				}
-			} );
-		}
-
-		src = settings.source || {};
-
-		if ( src.concatemoji ) {
-			addScript( src.concatemoji );
-		} else if ( src.wpemoji && src.twemoji ) {
-			addScript( src.twemoji );
-			addScript( src.wpemoji );
-		}
-	}
-
-} )( window, document, window._wpemojiSettings );
-		</script><script src="http://wordpress/wp-includes/js/twemoji.js?ver=5.6" type="text/javascript" defer=""></script><script src="http://wordpress/wp-includes/js/wp-emoji.js?ver=5.6" type="text/javascript" defer=""></script>
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/wordpress\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.6"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="http://wordpress/wp-includes/js/wp-emoji-release.min.js?ver=5.6" type="text/javascript" defer=""></script>
 		<style>
 img.wp-smiley,
 img.emoji {
@@ -244,8 +24,10 @@ img.emoji {
 	padding: 0 !important;
 }
 </style>
-	<link rel="stylesheet" id="wp-block-library-css" href="http://wordpress/wp-includes/css/dist/block-library/style.css?ver=5.6" media="all">
-<link rel="stylesheet" id="wp-block-library-theme-css" href="http://wordpress/wp-includes/css/dist/block-library/theme.css?ver=5.6" media="all">
+	<link rel="stylesheet" id="wp-block-library-css" href="http://wordpress/wp-includes/css/dist/block-library/style.min.css?ver=5.6" media="all">
+<link rel="stylesheet" id="wp-block-library-theme-css" href="http://wordpress/wp-includes/css/dist/block-library/theme.min.css?ver=5.6" media="all">
+<link rel="stylesheet" id="hexagonal-reviews-stars-css" href="http://wordpress/wp-content/plugins/hexagonal-reviews/src/UI/Wordpress/Front/assets/stars.css?ver=20201230" media="all">
+<link rel="stylesheet" id="hexagonal-reviews-style-css" href="http://wordpress/wp-content/plugins/hexagonal-reviews/src/UI/Wordpress/Front/assets/style.css?ver=20210119" media="all">
 <link rel="stylesheet" id="twenty-twenty-one-style-css" href="http://wordpress/wp-content/themes/twentytwentyone/style.css?ver=1.0" media="all">
 <link rel="stylesheet" id="twenty-twenty-one-print-style-css" href="http://wordpress/wp-content/themes/twentytwentyone/assets/css/print.css?ver=1.0" media="print">
 <link rel="https://api.w.org/" href="http://wordpress/index.php?rest_route=/"><link rel="alternate" type="application/json" href="http://wordpress/index.php?rest_route=/wp/v2/posts/1"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://wordpress/xmlrpc.php?rsd">
@@ -292,7 +74,154 @@ img.emoji {
 <p>Bienvenido a WordPress. Esta es tu primera entrada. Edítala o bórrala, ¡luego empieza a escribir!</p>
 
 
-<p>[hexagonal-reviews post_id=1]</p>
+<div id="reviews" class="alignwide">
+			<div class="total">
+			Promedio:			<div class="grid-stars">
+				<div class="rating">
+											<input type="radio" name="ratingAverage" id="rating-average-5" value="5" required="required" disabled="disabled">
+						<label for="rating-average-5"></label>
+											<input type="radio" name="ratingAverage" id="rating-average-4" value="4" required="required" disabled="disabled" checked="&quot;checked&quot;">
+						<label for="rating-average-4"></label>
+											<input type="radio" name="ratingAverage" id="rating-average-3" value="3" required="required" disabled="disabled">
+						<label for="rating-average-3"></label>
+											<input type="radio" name="ratingAverage" id="rating-average-2" value="2" required="required" disabled="disabled">
+						<label for="rating-average-2"></label>
+											<input type="radio" name="ratingAverage" id="rating-average-1" value="1" required="required" disabled="disabled">
+						<label for="rating-average-1"></label>
+									</div>
+			</div>
+			3.50 de 2 Valoraciones		</div>
+				<form class="alignwide average" action="?p=1" method="post">
+			<h4>Valorar el producto</h4>
+			<span>Comparte tu opinión con otros clientes</span>
+							<p class="form-group">
+					<label for="author">Nombre <span class="required">*</span></label>
+					<input type="text" class="form-control" id="author" name="author" aria-describedby="authorHelp" placeholder="Nombre" value="" required="required">
+				</p>
+				<p class="form-group">
+					<label for="stars">Valoración <span class="required">*</span></label>
+				</p><div class="rating">
+											<input type="radio" name="rating" id="rating-5" value="5" required="required">
+						<label for="rating-5"></label>
+											<input type="radio" name="rating" id="rating-4" value="4" required="required">
+						<label for="rating-4"></label>
+											<input type="radio" name="rating" id="rating-3" value="3" required="required">
+						<label for="rating-3"></label>
+											<input type="radio" name="rating" id="rating-2" value="2" required="required">
+						<label for="rating-2"></label>
+											<input type="radio" name="rating" id="rating-1" value="1" required="required">
+						<label for="rating-1"></label>
+									</div>
+				<p></p>
+				<p class="form-group">
+					<label for="email">Correo electrónico <span class="required">*</span></label>
+					<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Introduce tu correo electrónico" value="" required="required">
+				</p>
+				<p class="form-group">
+					<label for="title">Título <span class="required">*</span></label>
+					<input type="text" class="form-control" id="title" name="title" aria-describedby="textHelp" placeholder="¿Qué ha sido lo más importante?" value="" required="required">
+				</p>
+
+				<p class="form-group">
+					<label for="content">Contenido</label>
+					<textarea id="content" name="content" required="required" placeholder="¿Qué te ha gustado y qué no? Expresa tu opinión."></textarea>
+				</p>
+
+				<p class="form-group">
+					<input type="checkbox" class="checkbox" id="validate" name="validate" required="required" value="1"><label for="validate" class="checkbox">He leído los términos y condiciones y la política de privacidad</label>
+				</p>
+				<p class="form-submit">
+					<input name="submit-opinion" type="submit" id="submit" class="submit" value="Publicar mi opinión">
+					<input type="hidden" id="addreview" name="addreview" value="d6a1c9d40e"><input type="hidden" name="_wp_http_referer" value="/?p=1">					<input type="hidden" name="uuid" value="">
+					<input type="hidden" name="post_id" value="1">
+				</p>
+					</form>
+					<div class="grid-container alignwide">
+				<div class="grid-image"><img src="https://www.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452?s=150&amp;d=mp&amp;r=g"></div>
+				<div class="grid-title">c</div>
+				<div class="grid-author"><span class="author">cx</span> <span id="time-bd8428b2-2bf2-4a5a-97d4-6ea40a071860" class="time">hace 1 mes.</span>
+				</div>
+				<div class="grid-content">c</div>
+				<div class="grid-stars">
+					<div class="rating">
+													<input type="radio" name="ratingbd8428b2-2bf2-4a5a-97d4-6ea40a071860" id="rating-bd8428b2-2bf2-4a5a-97d4-6ea40a071860-5" value="5" required="required" disabled="disabled">
+							<label for="rating-bd8428b2-2bf2-4a5a-97d4-6ea40a071860-5"></label>
+													<input type="radio" name="ratingbd8428b2-2bf2-4a5a-97d4-6ea40a071860" id="rating-bd8428b2-2bf2-4a5a-97d4-6ea40a071860-4" value="4" required="required" disabled="disabled">
+							<label for="rating-bd8428b2-2bf2-4a5a-97d4-6ea40a071860-4"></label>
+													<input type="radio" name="ratingbd8428b2-2bf2-4a5a-97d4-6ea40a071860" id="rating-bd8428b2-2bf2-4a5a-97d4-6ea40a071860-3" value="3" required="required" disabled="disabled" checked="&quot;checked&quot;">
+							<label for="rating-bd8428b2-2bf2-4a5a-97d4-6ea40a071860-3"></label>
+													<input type="radio" name="ratingbd8428b2-2bf2-4a5a-97d4-6ea40a071860" id="rating-bd8428b2-2bf2-4a5a-97d4-6ea40a071860-2" value="2" required="required" disabled="disabled">
+							<label for="rating-bd8428b2-2bf2-4a5a-97d4-6ea40a071860-2"></label>
+													<input type="radio" name="ratingbd8428b2-2bf2-4a5a-97d4-6ea40a071860" id="rating-bd8428b2-2bf2-4a5a-97d4-6ea40a071860-1" value="1" required="required" disabled="disabled">
+							<label for="rating-bd8428b2-2bf2-4a5a-97d4-6ea40a071860-1"></label>
+											</div>
+				</div>
+			</div>
+
+					<div class="grid-container alignwide">
+				<div class="grid-image"><img src="https://www.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452?s=150&amp;d=mp&amp;r=g"></div>
+				<div class="grid-title">w</div>
+				<div class="grid-author"><span class="author">crisis</span> <span id="time-41f8f2ad-d6e8-4267-a74f-4877d54fabc3" class="time">hace 1 mes.</span>
+				</div>
+				<div class="grid-content">w</div>
+				<div class="grid-stars">
+					<div class="rating">
+													<input type="radio" name="rating41f8f2ad-d6e8-4267-a74f-4877d54fabc3" id="rating-41f8f2ad-d6e8-4267-a74f-4877d54fabc3-5" value="5" required="required" disabled="disabled">
+							<label for="rating-41f8f2ad-d6e8-4267-a74f-4877d54fabc3-5"></label>
+													<input type="radio" name="rating41f8f2ad-d6e8-4267-a74f-4877d54fabc3" id="rating-41f8f2ad-d6e8-4267-a74f-4877d54fabc3-4" value="4" required="required" disabled="disabled" checked="&quot;checked&quot;">
+							<label for="rating-41f8f2ad-d6e8-4267-a74f-4877d54fabc3-4"></label>
+													<input type="radio" name="rating41f8f2ad-d6e8-4267-a74f-4877d54fabc3" id="rating-41f8f2ad-d6e8-4267-a74f-4877d54fabc3-3" value="3" required="required" disabled="disabled">
+							<label for="rating-41f8f2ad-d6e8-4267-a74f-4877d54fabc3-3"></label>
+													<input type="radio" name="rating41f8f2ad-d6e8-4267-a74f-4877d54fabc3" id="rating-41f8f2ad-d6e8-4267-a74f-4877d54fabc3-2" value="2" required="required" disabled="disabled">
+							<label for="rating-41f8f2ad-d6e8-4267-a74f-4877d54fabc3-2"></label>
+													<input type="radio" name="rating41f8f2ad-d6e8-4267-a74f-4877d54fabc3" id="rating-41f8f2ad-d6e8-4267-a74f-4877d54fabc3-1" value="1" required="required" disabled="disabled">
+							<label for="rating-41f8f2ad-d6e8-4267-a74f-4877d54fabc3-1"></label>
+											</div>
+				</div>
+			</div>
+
+				<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Product",
+				"name": "¡Hola, mundo!",
+				"description": "Bienvenido a WordPress. Esta es tu primera entrada. Edítala o bórrala, ¡luego empieza a escribir!",
+				"image": "",
+				"aggregateRating": {
+					"@type": "AggregateRating",
+					"ratingValue": "3.50",
+					"reviewCount": "2"
+				},
+				"review": [
+									{
+						"@type": "Review",
+						"author": "cx",
+						"datePublished": "2020-12-16",
+						"reviewBody": "c",
+						"name": "c",
+						"reviewRating": {
+							"@type": "Rating",
+							"bestRating": "5",
+							"ratingValue": "3",
+							"worstRating": "1"
+						}
+					} ,										{
+						"@type": "Review",
+						"author": "crisis",
+						"datePublished": "2020-12-14",
+						"reviewBody": "w",
+						"name": "w",
+						"reviewRating": {
+							"@type": "Rating",
+							"bestRating": "5",
+							"ratingValue": "4",
+							"worstRating": "1"
+						}
+					} 									]
+			}
+		</script>
+	</div>
+
 
 
 
@@ -423,44 +352,11 @@ Los avatares de los comentaristas provienen de <a href="https://gravatar.com">Gr
 		document.body.classList.add( 'is-IE' );
 	}
 	</script>
-	<script src="http://wordpress/wp-includes/js/comment-reply.js?ver=5.6" id="comment-reply-js"></script>
+	<script src="http://wordpress/wp-includes/js/comment-reply.min.js?ver=5.6" id="comment-reply-js"></script>
 <script src="http://wordpress/wp-content/themes/twentytwentyone/assets/js/polyfills.js?ver=1.0" id="twenty-twenty-one-ie11-polyfills-js"></script>
 <script src="http://wordpress/wp-content/themes/twentytwentyone/assets/js/responsive-embeds.js?ver=1.0" id="twenty-twenty-one-responsive-embeds-script-js"></script>
-<script src="http://wordpress/wp-includes/js/wp-embed.js?ver=5.6" id="wp-embed-js"></script>
-<script>/**
- * File skip-link-focus-fix.js.
- *
- * Helps with accessibility for keyboard only users.
- *
- * This is the source file for what is minified in the twenty_twenty_one_skip_link_focus_fix() PHP function.
- *
- * Learn more: https://git.io/vWdr2
- */
-( function() {
-	var isIe = /(trident|msie)/i.test( navigator.userAgent );
-
-	if ( isIe && document.getElementById && window.addEventListener ) {
-		window.addEventListener( 'hashchange', function() {
-			var id = location.hash.substring( 1 ),
-				element;
-
-			if ( ! ( /^[A-z0-9_-]+$/.test( id ) ) ) {
-				return;
-			}
-
-			element = document.getElementById( id );
-
-			if ( element ) {
-				if ( ! ( /^(?:a|select|input|button|textarea)$/i.test( element.tagName ) ) ) {
-					element.tabIndex = -1;
-				}
-
-				element.focus();
-			}
-		}, false );
-	}
-}() );
-</script>	<script>
+<script src="http://wordpress/wp-includes/js/wp-embed.min.js?ver=5.6" id="wp-embed-js"></script>
+	<script>
 	/(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",(function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())}),!1);
 	</script>
 	

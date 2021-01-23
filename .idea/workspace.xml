@@ -6,15 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="547c3639-e3b4-40f3-9066-4107bf5fce20" name="Default Changelist" comment="Apply ShortcutGenerator.php and visibility">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/push.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/Wordpress/Admin/CreateShortcutController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/Wordpress/Admin/templates/ShortcutGenerator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hexagonal-reviews.php" beforeDir="false" afterPath="$PROJECT_DIR$/hexagonal-reviews.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Infrastructure/Wordpress/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Infrastructure/Wordpress/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Front/GetReviewsBlockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Front/GetReviewsBlockController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Wordpress/Front/templates/GetReviewsBlock.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Wordpress/Front/templates/GetReviewsBlock.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/_output/FrontendCest.given.an.user.when.I.try.to.navigate.to.some.post.i.should.able.to.add.reviews.fail.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/FrontendCest.given.an.user.when.I.try.to.navigate.to.some.post.i.should.able.to.add.reviews.fail.html" afterDir="false" />
@@ -254,7 +246,7 @@
       <workItem from="1610277024102" duration="85000" />
       <workItem from="1610895915141" duration="2466000" />
       <workItem from="1611091213962" duration="1679000" />
-      <workItem from="1611410791504" duration="5896000" />
+      <workItem from="1611410791504" duration="8599000" />
     </task>
     <task id="LOCAL-00001" summary="add unit tests">
       <created>1608289122073</created>
@@ -396,7 +388,42 @@
       <option name="project" value="LOCAL" />
       <updated>1611091775352</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Apply ShortcutGenerator.php and visibility and workflow">
+      <created>1611424317817</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1611424317817</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Apply ShortcutGenerator.php and visibility">
+      <created>1611424428628</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1611424428628</updated>
+    </task>
+    <task id="LOCAL-00023" summary=" Improve pipeline">
+      <created>1611424650891</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1611424650891</updated>
+    </task>
+    <task id="LOCAL-00024" summary=" Improve pipeline">
+      <created>1611424861538</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1611424861538</updated>
+    </task>
+    <task id="LOCAL-00025" summary=" Improve pipeline">
+      <created>1611425678602</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1611425678602</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,7 +460,10 @@
     <MESSAGE value="Add json-ld type and improve wp plugin readme.txt" />
     <MESSAGE value="fix recursive problems on json" />
     <MESSAGE value="improve css on average box" />
-    <option name="LAST_COMMIT_MESSAGE" value="improve css on average box" />
+    <MESSAGE value="Apply ShortcutGenerator.php and visibility and workflow" />
+    <MESSAGE value="Apply ShortcutGenerator.php and visibility" />
+    <MESSAGE value=" Improve pipeline" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Improve pipeline" />
   </component>
   <component name="WordPressConfiguration" enabled="true">
     <wordpressPath>$PROJECT_DIR$/../fast_rest</wordpressPath>
