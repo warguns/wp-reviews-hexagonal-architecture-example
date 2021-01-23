@@ -9,18 +9,6 @@ declare( strict_types=1 );
 
 namespace HexagonalReviews\UI\Wordpress\Admin;
 
-use HexagonalReviews\Review\Application\Command\Delete\DeleteCommand;
-use HexagonalReviews\Review\Application\Command\Delete\DeleteHandler;
-use HexagonalReviews\Review\Application\Query\All\ListHandler;
-use HexagonalReviews\Review\Application\Query\All\ListQuery;
-use HexagonalReviews\Review\Domain\Exception\IncorrectStars;
-use HexagonalReviews\Review\Domain\Exception\ReviewNotFound;
-use HexagonalReviews\Review\Domain\Exception\StatusNotFound;
-use HexagonalReviews\Review\Domain\Repository\ReviewRepository;
-use HexagonalReviews\Shared\Infrastructure\DependencyInjection\Container;
-use HexagonalReviews\Shared\Infrastructure\Wordpress\ReviewsAdminTable;
-use WP_Post;
-use WP_Query;
 use function add_menu_page;
 
 /**

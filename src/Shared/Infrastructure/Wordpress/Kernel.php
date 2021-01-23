@@ -39,7 +39,7 @@ final class Kernel {
 	 *
 	 * @var string
 	 */
-	protected $version = '1.2.9';
+	protected $version = '1.2.10';
 
 	/**
 	 * Kernel constructor.

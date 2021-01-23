@@ -74,6 +74,10 @@ If it's usable for you then yes, there's no problem.
 * Shortcut Generator
 * Enable show/hide capabilities of the average, form and reviews.
 
+= 1.2.10 =
+
+* Fix 1.2.9
+
 == Upgrade Notice ==
 
 No upgrades yet
