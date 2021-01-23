@@ -5,12 +5,11 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="547c3639-e3b4-40f3-9066-4107bf5fce20" name="Default Changelist" comment="Apply ShortcutGenerator.php and visibility">
+    <list default="true" id="547c3639-e3b4-40f3-9066-4107bf5fce20" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/BackendCest.given.an.admin.when.I.try.to.modify.reviews.then.I.should.be.able.to.manage.everything.fail.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/_output/FrontendCest.given.an.user.when.I.try.to.navigate.to.some.post.i.should.able.to.add.reviews.fail.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/FrontendCest.given.an.user.when.I.try.to.navigate.to.some.post.i.should.able.to.add.reviews.fail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/_output/FrontendCest.given.an.user.when.I.try.to.navigate.to.some.post.i.should.able.to.add.reviews.fail.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_output/FrontendCest.given.an.user.when.I.try.to.navigate.to.some.post.i.should.able.to.add.reviews.fail.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/acceptance/BackendCest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/acceptance/BackendCest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/acceptance/FrontendCest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/acceptance/FrontendCest.php" afterDir="false" />
     </list>
     <list id="be2420c8-fab6-48ce-bd45-d514e2c83117" name="create hexagonal plugin" comment="" />
     <list id="35920c78-b837-465f-9721-b35c8a1f9230" name="Revert: " comment="" />
@@ -246,7 +245,7 @@
       <workItem from="1610277024102" duration="85000" />
       <workItem from="1610895915141" duration="2466000" />
       <workItem from="1611091213962" duration="1679000" />
-      <workItem from="1611410791504" duration="8599000" />
+      <workItem from="1611410791504" duration="10104000" />
     </task>
     <task id="LOCAL-00001" summary="add unit tests">
       <created>1608289122073</created>
@@ -423,7 +422,21 @@
       <option name="project" value="LOCAL" />
       <updated>1611425678602</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary=" Improve pipeline">
+      <created>1611427296641</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1611427296641</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Fix translations">
+      <created>1611428346631</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1611428346631</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -463,7 +476,8 @@
     <MESSAGE value="Apply ShortcutGenerator.php and visibility and workflow" />
     <MESSAGE value="Apply ShortcutGenerator.php and visibility" />
     <MESSAGE value=" Improve pipeline" />
-    <option name="LAST_COMMIT_MESSAGE" value=" Improve pipeline" />
+    <MESSAGE value="Fix translations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix translations" />
   </component>
   <component name="WordPressConfiguration" enabled="true">
     <wordpressPath>$PROJECT_DIR$/../fast_rest</wordpressPath>

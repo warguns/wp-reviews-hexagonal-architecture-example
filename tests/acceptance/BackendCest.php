@@ -6,7 +6,7 @@ class BackendCest
     public function given_an_admin_when_I_try_to_modify_reviews_then_I_should_be_able_to_manage_everything(AcceptanceTester $I)
     {
         $I->amOnPage('/?p=1');
-        $I->canSee('Valorar el producto');
+        $I->canSee('Valorar producto');
         $I->fillField('author', 'Test');
         $I->click('label[for="rating-5"]');
         $I->fillField('email', 'test@test.com');
@@ -21,7 +21,7 @@ class BackendCest
         $I->loginAsAdmin();
         $I->amOnPage('/wp-admin/admin.php?page=reviews&orderby=created_at&order=desc');
         $I->click(\Codeception\Util\Locator::firstElement('/html/body/div/div[2]/div[2]/div[1]/div[2]/form/table/tbody/tr[1]/td[1]/a'));
-        $I->canSee('Editar la valoración');
+        $I->canSee('Editar Review');
         $I->fillField('author', 'Test2');
         $I->selectOption('status', 'published');
         $I->click('submit');

@@ -8,7 +8,7 @@ class FrontendCest
     {
 
         $I->amOnPage('/?p=1');
-        $I->canSee('Valorar el producto');
+        $I->canSee('Valorar producto');
         $I->fillField('author', 'Test');
         $I->click('label[for="rating-5"]');
         $I->fillField('email', 'test@test.com');
