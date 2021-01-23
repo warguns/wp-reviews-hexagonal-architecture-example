@@ -1,0 +1,14 @@
+name: docker-compose-actions-workflow
+on: push
+jobs:
+  test:
+    name: Test the plugin
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Unit Tests
+        run: make unit
+      - name: Docker compose Up
+        run: make up
+      - name: Acceptance Tests
+        run: make acceptance

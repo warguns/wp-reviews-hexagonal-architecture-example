@@ -20,6 +20,8 @@ Manage and let your users review your Products or your Business using that plugi
 * ☑️ Add your reviews using a shortcode.
 * ⭐️ Star selectors on the Form as well as admin area.
 * ✉️ You can decide which wordpress post is reviewed.
+* [/] Shortcut generator.
+* 🪟 Show and hide different components: the Average, the Form or the Review list using the shortcut
 
 ⌨️ Code Features:
 
@@ -45,7 +47,6 @@ You can find that plugin on the wordpress plugin directory or in case of downloa
 
 If it's usable for you then yes, there's no problem.
 
-
 == Screenshots ==
 
 1. Form on the Post.
@@ -65,6 +66,13 @@ If it's usable for you then yes, there's no problem.
 * Add type attribute for decide between product and business on json-ld
 * Add stars on average.
 
+= 1.2.8 =
+* Fix css
+* Fix error with shortcuts inside the description
+
+= 1.2.9 =
+* Shortcut Generator
+* Enable show/hide capabilities of the average, form and reviews.
 
 == Upgrade Notice ==
 

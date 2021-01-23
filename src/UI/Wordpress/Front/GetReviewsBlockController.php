@@ -87,10 +87,13 @@ class GetReviewsBlockController {
 
 		$params = shortcode_atts(
 			array(
-				'post_id' => 0,
-				'limit'   => ReviewRepository::LIMIT,
-				'offset'  => 0,
-				'type'    => 'Product',
+				'post_id'         => 0,
+				'limit'           => ReviewRepository::LIMIT,
+				'offset'          => 0,
+				'type'            => 'Product',
+				'form_visible'    => true,
+				'avg_visible'     => true,
+				'reviews_visible' => true,
 			),
 			$attr
 		);
@@ -128,11 +131,14 @@ class GetReviewsBlockController {
 			)
 		);
 
-		$review_type = (string) sanitize_text_field( wp_unslash( $params['type'] ) );
+		$review_type     = (string) sanitize_text_field( wp_unslash( $params['type'] ) );
+		$form_visible    = (bool) sanitize_text_field( wp_unslash( $params['form_visible'] ) );
+		$avg_visible     = (bool) sanitize_text_field( wp_unslash( $params['avg_visible'] ) );
+		$reviews_visible = (bool) sanitize_text_field( wp_unslash( $params['reviews_visible'] ) );
 
 		$post = WP_Post::get_instance( (int) sanitize_text_field( wp_unslash( $params['post_id'] ) ) );
 
-		return $this->render( $review_collection, $review_stats, $post, $submitted, $review_type );
+		return $this->render( $review_collection, $review_stats, $post, $submitted, $review_type, $form_visible, $avg_visible, $reviews_visible );
 	}
 
 	/**
@@ -143,10 +149,13 @@ class GetReviewsBlockController {
 	 * @param WP_Post          $post post.
 	 * @param bool             $submitted check if is the form submitted.
 	 * @param string           $review_type review type.
+	 * @param bool             $form_visible form visibility.
+	 * @param bool             $avg_visible average visibility.
+	 * @param bool             $reviews_visible reviews visibility.
 	 *
 	 * @return false|string
 	 */
-	private function render( ReviewCollection $review_collection, ReviewStats $review_stats, WP_Post $post, bool $submitted, string $review_type ) {
+	private function render( ReviewCollection $review_collection, ReviewStats $review_stats, WP_Post $post, bool $submitted, string $review_type, bool $form_visible, bool $avg_visible, bool $reviews_visible ) {
 		ob_start();
 		include 'templates/GetReviewsBlock.php';
 

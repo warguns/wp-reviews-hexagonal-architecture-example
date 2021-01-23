@@ -9,6 +9,7 @@ declare( strict_types=1 );
 
 namespace HexagonalReviews\Shared\Infrastructure\Wordpress;
 
+use HexagonalReviews\UI\Wordpress\Admin\CreateShortcutController;
 use HexagonalReviews\UI\Wordpress\Admin\EditReviewController;
 use HexagonalReviews\UI\Wordpress\Admin\ListReviewsByPostController;
 use HexagonalReviews\UI\Wordpress\Admin\ListReviewsController;
@@ -38,7 +39,7 @@ final class Kernel {
 	 *
 	 * @var string
 	 */
-	protected $version = '1.0.0';
+	protected $version = '1.2.9';
 
 	/**
 	 * Kernel constructor.
@@ -95,6 +96,8 @@ final class Kernel {
 		$this->loader->add_action( 'admin_menu', $edit_review_controller, 'run' );
 		$save_review_controller = new SaveReviewController();
 		$this->loader->add_action( 'admin_menu', $save_review_controller, 'run' );
+		$create_shortcut_controller = new CreateShortcutController();
+		$this->loader->add_action( 'admin_menu', $create_shortcut_controller, 'run' );
 	}
 
 	/**
