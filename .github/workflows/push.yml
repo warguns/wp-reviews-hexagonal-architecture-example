@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Docker compose Up
-        run: make up
+        run: make start
       - name: Unit Tests
         run: make unit
       - name: Acceptance Tests
