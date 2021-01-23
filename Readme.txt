@@ -47,6 +47,10 @@ You can find that plugin on the wordpress plugin directory or in case of downloa
 
 If it's usable for you then yes, there's no problem.
 
+= Where can I find the plugin's public css? =
+
+Please go to: src/UI/Wordpress/Front/assets to edit public visible css.
+
 == Screenshots ==
 
 1. Form on the Post.

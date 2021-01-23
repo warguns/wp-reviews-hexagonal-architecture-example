@@ -1,6 +1,7 @@
 <?php
 /**
- * The plugin bootstrap file.
+ * This is the plugin bootstrap file.
+ * Tip: Go to src/UI/Wordpress/Front/assets to edit public css.
  *
  * @link              https://github.com/warguns/wp-reviews-hexagonal-architecture-example
  * @since             1.0.0
