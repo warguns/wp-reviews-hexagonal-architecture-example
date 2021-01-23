@@ -16,7 +16,7 @@ rebuild: start ## same as start
 
 .PHONY: vendors
 vendors: ## install vendors
-		docker run --rm --interactive --tty --volume ${PWD}:/app composer install
+		docker run --rm --interactive --volume ${PWD}:/app composer install
 
 .PHONY: build
 build: ## build environment and initialize composer and project dependencies
