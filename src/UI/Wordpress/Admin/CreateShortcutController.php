@@ -21,7 +21,7 @@ class CreateShortcutController {
 	 * Run
 	 */
 	public function run() {
-		add_menu_page( 'Reviews Shortcut Generator', 'Reviews Shortcut Generator', 'manage_options', 'reviews-shortcut-generator', array( $this, 'load' ), 'dashicons-chart-pie', 999 );
+		add_submenu_page( 'reviews', 'Reviews Shortcut Generator', 'Reviews Shortcut Generator', 'manage_options', 'reviews-shortcut-generator', array( $this, 'load' ), 999 );
 	}
 
 	/**

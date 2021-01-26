@@ -49,6 +49,20 @@
 				</select>
 			</div>
 			<div class="form-group">
+				<label for="type"><?php esc_html_e( 'Rich Snippet type:', 'hexagonal-reviews' ); ?></label>
+				<select id="type" name="type">
+					<option value="Product">
+						<?php echo esc_html( ucfirst( __( 'Product', 'hexagonal-reviews' ) ) ); ?>
+					</option>
+					<option value="LocalBusiness">
+						<?php echo esc_html( ucfirst( __( 'LocalBusiness', 'hexagonal-reviews' ) ) ); ?>
+					</option>
+					<option value="none">
+						<?php echo esc_html( ucfirst( __( 'none', 'hexagonal-reviews' ) ) ); ?>
+					</option>
+				</select>
+			</div>
+			<div class="form-group">
 				<label for="shortcut"><?php esc_html_e( 'WordPress Shortcut', 'hexagonal-reviews' ); ?></label>
 				<textarea name="shortcut" id="shortcut">[hexgonal-reviews post_id=1]</textarea>
 			</div>
@@ -59,8 +73,9 @@
 			let form_visible = document.getElementById("form_visible").value;
 			let avg_visible = document.getElementById("avg_visible").value;
 			let reviews_visible = document.getElementById("reviews_visible").value;
+			let type = document.getElementById("type").value;
 
-			document.getElementById("shortcut").value = `[hexagonal-reviews post_id=${post_id} form_visible=${form_visible} avg_visible=${avg_visible} reviews_visible=${reviews_visible}]`;
+			document.getElementById("shortcut").value = `[hexagonal-reviews post_id=${post_id} form_visible=${form_visible} avg_visible=${avg_visible} reviews_visible=${reviews_visible} type=${type}]`;
 			document.getElementById("shortcut").select();
 		}
 
@@ -68,5 +83,6 @@
 		document.getElementById("form_visible").addEventListener("change", changeForm);
 		document.getElementById("avg_visible").addEventListener("change", changeForm);
 		document.getElementById("reviews_visible").addEventListener("change", changeForm);
+		document.getElementById("type").addEventListener("change", changeForm);
 	</script>
 </div><!-- .wrap -->

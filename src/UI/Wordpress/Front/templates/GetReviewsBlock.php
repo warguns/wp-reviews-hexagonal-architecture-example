@@ -124,7 +124,10 @@ use HexagonalReviews\Shared\Infrastructure\Period\Period;
 				</div>
 			</div>
 
-		<?php } //foreach ?>
+			<?php
+		} //foreach
+		if ( 'none' !== $review_type ) {
+			?>
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
@@ -161,5 +164,8 @@ use HexagonalReviews\Shared\Infrastructure\Period\Period;
 				]
 			}
 		</script>
-	<?php } // reviews visible ?>
+			<?php
+		} // reviews_type
+	} //reviews_visible
+	?>
 </div>

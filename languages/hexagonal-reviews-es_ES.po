@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: hexagonal-reviews\n"
-"POT-Creation-Date: 2021-01-23 19:55+0100\n"
-"PO-Revision-Date: 2021-01-23 19:57+0100\n"
+"POT-Creation-Date: 2021-01-26 20:59+0100\n"
+"PO-Revision-Date: 2021-01-26 21:00+0100\n"
 "Last-Translator: \n"
 "Language-Team: cristian bargans\n"
 "Language: es\n"
@@ -209,7 +209,6 @@ msgid "Create New"
 msgstr "Crear Nueva Review"
 
 #: UI/Wordpress/Admin/templates/ListReviews.php:23
-#: UI/Wordpress/Admin/templates/ListReviewsByPost.php:11
 msgid "Option only for PRO Users"
 msgstr "Opcion única para usuarios poseedores de la versión PRO"
 
@@ -251,6 +250,22 @@ msgid "Reviews:"
 msgstr "Reviews:"
 
 #: UI/Wordpress/Admin/templates/ShortcutGenerator.php:52
+msgid "Rich Snippet type:"
+msgstr "Tipo de Rich Snippet:"
+
+#: UI/Wordpress/Admin/templates/ShortcutGenerator.php:55
+msgid "Product"
+msgstr "Product"
+
+#: UI/Wordpress/Admin/templates/ShortcutGenerator.php:58
+msgid "LocalBusiness"
+msgstr "LocalBusiness"
+
+#: UI/Wordpress/Admin/templates/ShortcutGenerator.php:61
+msgid "none"
+msgstr "Ninguno"
+
+#: UI/Wordpress/Admin/templates/ShortcutGenerator.php:66
 msgid "WordPress Shortcut"
 msgstr "Shortcut de Wordpress"
 

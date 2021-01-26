@@ -21,7 +21,8 @@ Manage and let your users review your Products or your Business using that plugi
 * ⭐️ Star selectors on the Form as well as admin area.
 * ✉️ You can decide which wordpress post is reviewed.
 * [/] Shortcut generator.
-* 🪟 Show and hide different components: the Average, the Form or the Review list using the shortcut
+* 🪟 Show and hide different components: the Average, the Form or the Review list using the shortcut.
+* 🏰 Choose between Product, LocalBusiness, or disable json-ld to compatibilize with other platforms.
 
 ⌨️ Code Features:
 
@@ -81,6 +82,12 @@ Please go to: src/UI/Wordpress/Front/assets to edit public visible css.
 = 1.2.10 =
 
 * Fix 1.2.9
+
+= 1.2.11 =
+
+* Enable show/hide capabilities of the rich capabilities.
+* Improvements on the shortcut generator to select the rich snippet behavior.
+* Removal of the List by Post empty page (Integration with the List Reviews coming soon!)
 
 == Upgrade Notice ==
 

@@ -11,7 +11,6 @@ namespace HexagonalReviews\Shared\Infrastructure\Wordpress;
 
 use HexagonalReviews\UI\Wordpress\Admin\CreateShortcutController;
 use HexagonalReviews\UI\Wordpress\Admin\EditReviewController;
-use HexagonalReviews\UI\Wordpress\Admin\ListReviewsByPostController;
 use HexagonalReviews\UI\Wordpress\Admin\ListReviewsController;
 use HexagonalReviews\UI\Wordpress\Admin\SaveReviewController;
 use HexagonalReviews\UI\Wordpress\Front\GetReviewsBlockController;
@@ -90,8 +89,6 @@ final class Kernel {
 	private function define_admin_hooks(): void {
 		$list_reviews_controller = new ListReviewsController();
 		$this->loader->add_action( 'admin_menu', $list_reviews_controller, 'run' );
-		$list_reviews_by_post_controller = new ListReviewsByPostController();
-		$this->loader->add_action( 'admin_menu', $list_reviews_by_post_controller, 'run' );
 		$edit_review_controller = new EditReviewController();
 		$this->loader->add_action( 'admin_menu', $edit_review_controller, 'run' );
 		$save_review_controller = new SaveReviewController();
