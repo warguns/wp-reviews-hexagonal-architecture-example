@@ -12,7 +12,7 @@ class ListReviewsResponseTest extends \Codeception\Test\Unit
 {
     private const TOTALS = 3;
     
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
     }
