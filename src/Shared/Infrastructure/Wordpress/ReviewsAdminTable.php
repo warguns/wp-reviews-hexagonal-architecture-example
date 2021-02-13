@@ -149,7 +149,7 @@ final class ReviewsAdminTable extends WP_List_Table {
 				}
 				break;
 			case 'post_name':
-				return $this->post_names[ $item['post_id'] ];
+				return ( isset( $this->post_names[ $item['post_id'] ] ) ) ? $this->post_names[ $item['post_id'] ] : '';
 			default:
 				break;
 		}
