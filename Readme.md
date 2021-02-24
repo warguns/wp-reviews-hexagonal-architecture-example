@@ -44,6 +44,10 @@ In order to prepare the plugin to publish, we remove the testing folder and depe
 
 Run: ```make plugin``` to generate a build folder with the reduced build inside.
 
+### (Experimental) Build with PHP 7.0, 7.4 or 8.0 compatibility
+
+Run: ```make plugin80``` to generate and use rector to build the code php 8.0 compatibile. you can also downgrade to
+PHP 7.0 using ```make plugin70``` or upgrade to PHP 7.4 using ```make plugin74```
 
 ### Coding Standards
 
