@@ -18,7 +18,7 @@ services:
    wordpress:
      depends_on:
        - db
-     image: wordpress:5.6.1-php7.4-fpm-alpine
+     image: wordpress:latest
      restart: always
      ports:
        - "1313:80"
@@ -32,7 +32,9 @@ services:
        - .:/var/www/html/wp-content/plugins/hexagonal-reviews
 
    chrome:
-     image: selenium/standalone-chrome-debug:3.141.59-20201119
+     depends_on:
+       - wordpress
+     image: selenium/standalone-chrome-debug:3.141.59-20210128
      volumes:
        - /dev/shm:/dev/shm
      ports:
