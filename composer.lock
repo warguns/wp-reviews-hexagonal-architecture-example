@@ -6772,7 +6772,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/spyc.git",
-                "reference": "6aa0b4da69ce9e9a2c8402dab8d43cf32c581cc7"
+                "reference": "6aa0b4da69ce9e9a2c840 2dab8d43cf32c581cc7"
             },
             "dist": {
                 "type": "zip",

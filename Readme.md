@@ -13,7 +13,7 @@ You can see the plugin on: [WordPress Plugins directory](https://wordpress.org/p
 
 * A Dependency Injector (dependencies are applied manually by a class implementing the PHP FIG PSR-11 Container interface, nowadays most frameworks has it's own dependency autowire) 
 * An Event dispatcher (there's a class simulating it in a synced way implementing PHP FIG PSR-14)
-* Database Migration manager to manage plugin database updates
+* Database Migration manager to manage plugin database updates (Added a very simple migration tool)
 
 ## But has features like:
 

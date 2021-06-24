@@ -84,6 +84,7 @@ final class Container implements ContainerInterface {
 			OnReviewUpdatedRecalculateAverage::class => $on_review_updated_recalculate_average,
 			OnReviewDeletedRecalculateAverage::class => $on_review_deleted_recalculate_average,
 			GetAverageHandler::class                 => $get_average_handler,
+			EventDispatcher::class                   => $event_dispatcher,
 		);
 	}
 

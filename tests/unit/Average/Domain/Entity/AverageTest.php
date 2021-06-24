@@ -12,19 +12,19 @@ class AverageTest extends Unit
 {
     private const PRODUCT_ID = 1;
     private const REVIEWCOUNT = 1;
-    private const TOTALREVIEW = 4.9;
+    private const POSITIVES = 4.9;
 
     public function testItCanBeCreated()
     {
         $average = new Average(
             ProductId::from_int(self::PRODUCT_ID),
             self::REVIEWCOUNT,
-            self::TOTALREVIEW
+            self::POSITIVES
         );
         self::assertEquals([
             'post_id' => self::PRODUCT_ID,
             'review_count' => self::REVIEWCOUNT,
-            'total_review' => self::TOTALREVIEW,
+            'positives' => self::POSITIVES,
         ], $average->to_array());
     }
 }

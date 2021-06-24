@@ -38,7 +38,7 @@ final class Kernel {
 	 *
 	 * @var string
 	 */
-	protected $version = '1.2.10';
+	public const VERSION = '1.2.12';
 
 	/**
 	 * Kernel constructor.
@@ -111,14 +111,5 @@ final class Kernel {
 	 */
 	public function get_loader(): ReviewLoader {
 		return $this->loader;
-	}
-
-	/**
-	 * Gets the version.
-	 *
-	 * @return string
-	 */
-	public function get_version(): string {
-		return $this->version;
 	}
 }

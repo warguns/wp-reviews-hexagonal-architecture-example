@@ -11,6 +11,7 @@ namespace HexagonalReviews\Average\Application\Event;
 
 use HexagonalReviews\Average\Domain\Entity\Average;
 use HexagonalReviews\Average\Domain\Repository\AverageRepository;
+use HexagonalReviews\Average\Domain\Service\AverageCalculator;
 use HexagonalReviews\Review\Domain\Event\ReviewUpdated;
 use HexagonalReviews\Shared\Domain\ValueObject\ProductId;
 
@@ -52,7 +53,7 @@ final class OnReviewUpdatedRecalculateAverage {
 				new Average(
 					ProductId::from_int( $event->get_product_id() ),
 					$average->get_review_count(),
-					$average->get_total_review() + $event->get_stars() - $event->get_old_stars()
+					$average->get_positives() + AverageCalculator::check_if_its_positive_review( $event->get_stars() ) - AverageCalculator::check_if_its_positive_review( $event->get_old_stars() )
 				)
 			);
 		}

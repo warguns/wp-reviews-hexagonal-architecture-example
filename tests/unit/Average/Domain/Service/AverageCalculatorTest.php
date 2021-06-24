@@ -22,10 +22,10 @@ class AverageCalculatorTest extends Unit
     public function testItShouldCalculateAverage()
     {
         $average = new AverageCalculator();
-        self::assertEquals(new ReviewStats(2, 5), $average->calculate(Average::from_result([
+        self::assertEquals(new ReviewStats(2, 1.7118597644480964), $average->calculate(Average::from_result([
             'post_id' => 1,
             'review_count' => 2,
-            'total_review' => 10,
+            'positives' => 2,
         ])));
     }
 }

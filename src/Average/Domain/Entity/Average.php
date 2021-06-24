@@ -33,23 +33,23 @@ final class Average {
 	private $review_count;
 
 	/**
-	 * Total Review.
+	 * Positives
 	 *
 	 * @var float
 	 */
-	private $total_review;
+	private $positives;
 
 	/**
 	 * Average constructor.
 	 *
 	 * @param ProductId $product_id product id.
 	 * @param int       $review_count review count.
-	 * @param float     $total_review total review.
+	 * @param float     $positives total positives.
 	 */
-	public function __construct( ProductId $product_id, int $review_count, float $total_review ) {
+	public function __construct( ProductId $product_id, int $review_count, float $positives ) {
 		$this->product_id   = $product_id;
 		$this->review_count = $review_count;
-		$this->total_review = $total_review;
+		$this->positives    = $positives;
 	}
 
 	/**
@@ -63,7 +63,7 @@ final class Average {
 		return new static(
 			ProductId::from_int( (int) $result['post_id'] ),
 			(int) $result['review_count'],
-			(float) $result['total_review']
+			(float) $result['positives']
 		);
 	}
 
@@ -76,7 +76,7 @@ final class Average {
 		return array(
 			'post_id'      => $this->get_product_id()->get_id(),
 			'review_count' => $this->get_review_count(),
-			'total_review' => $this->get_total_review(),
+			'positives'    => $this->get_positives(),
 		);
 	}
 
@@ -103,7 +103,7 @@ final class Average {
 	 *
 	 * @return float
 	 */
-	public function get_total_review(): float {
-		return $this->total_review;
+	public function get_positives(): float {
+		return $this->positives;
 	}
 }
