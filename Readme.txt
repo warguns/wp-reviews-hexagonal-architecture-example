@@ -89,6 +89,11 @@ Please go to: src/UI/Wordpress/Front/assets to edit public visible css.
 * Improvements on the shortcut generator to select the rich snippet behavior.
 * Removal of the List by Post empty page (Integration with the List Reviews coming soon!)
 
+= 1.2.12 =
+
+* Added a little database migration tool.
+* Improved average using the Binomial proportion confidence interval.
+
 == Upgrade Notice ==
 
 No upgrades yet
