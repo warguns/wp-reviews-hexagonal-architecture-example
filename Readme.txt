@@ -2,7 +2,7 @@
 Contributors: warguns86
 Tags: reviews, review, hexagonal, clean
 Requires at least: 5.6
-Tested up to: 5.7
+Tested up to: 5.8
 Requires PHP: 7.2
 Stable tag: 4.3
 License: GPLv2 or later
