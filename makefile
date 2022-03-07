@@ -29,7 +29,7 @@ erase: ## stop and delete containers, clean volumes.
 
 .PHONY: composer-update
 composer-update: ## Update project dependencies
-		$(compose) run --rm wordpress sh -lc 'xoff;COMPOSER_MEMORY_LIMIT=-1 composer update'
+		$(compose) run --rm wordpress sh -lc 'COMPOSER_MEMORY_LIMIT=-1 /var/www/html composer update'
 
 .PHONY: up
 up: ## spin up environment
@@ -68,6 +68,13 @@ buildplugin: ## makes the build
 		cp -R ./readme.txt build/hexagonal-reviews
 		cp -R ./assets build/hexagonal-reviews/assets
 
+.PHONY: plugin81
+plugin81: buildplugin ## compiles to php 8.1 and generates plugin
+		cp rector81.php build
+		-docker run --rm -v ${PWD}/build:/project rector/rector:latest process hexagonal-reviews/src --config rector81.php
+		docker run --rm --interactive --tty --volume ${PWD}/build/hexagonal-reviews:/app composer install --no-dev
+		rm build/rector81.php
+
 .PHONY: plugin80
 plugin80: buildplugin ## compiles to php 8.0 and generates plugin
 		cp rector80.php build
@@ -100,6 +107,10 @@ shell: ## gets inside wordpress container
 .PHONY: logs
 logs: ## look for 's' service logs, make s=php logs
 		$(compose) logs -f $(s)
+
+.PHONY: dump
+dump: ## look for 's' service logs, make s=php logs
+		$(compose) exec -T db sh -lc "mysqldump -uroot -psomewordpress wordpress" > ${PWD}/tests/_data/dump.sql
 
 .PHONY: help
 help: ## Display this help message
