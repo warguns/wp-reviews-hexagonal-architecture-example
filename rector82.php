@@ -11,5 +11,5 @@ return static function (RectorConfig $rectorConfig): void {
 	$rectorConfig->paths([
 		__DIR__ . '/hexagonal-reviews/src',
 	]);
-	$rectorConfig->sets([SetList::PHP_80]);
+	$rectorConfig->sets([SetList::PHP_82]);
 };

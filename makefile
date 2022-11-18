@@ -68,26 +68,25 @@ buildplugin: ## makes the build
 		cp -R ./readme.txt build/hexagonal-reviews
 		cp -R ./assets build/hexagonal-reviews/assets
 
+.PHONY: plugin82
+plugin81: buildplugin ## compiles to php 8.2 and generates plugin
+		docker run --rm --interactive --tty --volume ${PWD}:/app php /app/vendor/bin/rector process /app/build/hexagonal-reviews/src --config /app/rector82.php
+		docker run --rm --interactive --tty --volume ${PWD}/build/hexagonal-reviews:/app composer install --no-dev
+
 .PHONY: plugin81
 plugin81: buildplugin ## compiles to php 8.1 and generates plugin
-		cp rector81.php build
-		-docker run --rm -v ${PWD}/build:/project rector/rector:latest process hexagonal-reviews/src --config rector81.php
+		docker run --rm --interactive --tty --volume ${PWD}:/app php /app/vendor/bin/rector process /app/build/hexagonal-reviews/src --config /app/rector81.php
 		docker run --rm --interactive --tty --volume ${PWD}/build/hexagonal-reviews:/app composer install --no-dev
-		rm build/rector81.php
 
 .PHONY: plugin80
 plugin80: buildplugin ## compiles to php 8.0 and generates plugin
-		cp rector80.php build
-		-docker run --rm -v ${PWD}/build:/project rector/rector:latest process hexagonal-reviews/src --config rector80.php
+		docker run --rm --interactive --tty --volume ${PWD}:/app php /app/vendor/bin/rector process /app/build/hexagonal-reviews/src --config /app/rector80.php
 		docker run --rm --interactive --tty --volume ${PWD}/build/hexagonal-reviews:/app composer install --no-dev
-		rm build/rector80.php
 
 .PHONY: plugin74
 plugin74: buildplugin ## compiles to php 7.4 and generates plugin
-		cp rector74.php build
-		-docker run --rm -v ${PWD}/build:/project rector/rector:latest process hexagonal-reviews/src --config rector74.php
+		docker run --rm --interactive --tty --volume ${PWD}:/app php /app/vendor/bin/rector process /app/build/hexagonal-reviews/src --config /app/rector74.php
 		docker run --rm --interactive --tty --volume ${PWD}/build/hexagonal-reviews:/app composer install --no-dev
-		rm build/rector74.php
 
 .PHONY: plugin
 plugin: buildplugin ## makes production build inside build folder in PHP 7.2
@@ -95,10 +94,8 @@ plugin: buildplugin ## makes production build inside build folder in PHP 7.2
 
 .PHONY: plugin70
 plugin70: buildplugin ## compiles to php 7.0 and generates plugin
-		cp rector70.php build
-		-docker run --rm -v ${PWD}/build:/project rector/rector:latest process hexagonal-reviews/src --config rector70.php
+		docker run --rm --interactive --tty --volume ${PWD}:/app php /app/vendor/bin/rector process /app/build/hexagonal-reviews/src --config /app/rector70.php
 		docker run --rm --interactive --tty --volume ${PWD}/build/hexagonal-reviews:/app composer install --no-dev
-		rm build/rector70.php
 
 .PHONY: shell
 shell: ## gets inside wordpress container
