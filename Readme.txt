@@ -1,9 +1,9 @@
 === Hexagonal Reviews ===
 Contributors: warguns86
 Tags: reviews, review, hexagonal, clean
-Requires at least: 5.6
-Tested up to: 5.8
-Requires PHP: 7.2
+Requires at least: 7.4
+Tested up to: 6.1
+Requires PHP: 7.4
 Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -93,6 +93,10 @@ Please go to: src/UI/Wordpress/Front/assets to edit public visible css.
 
 * Added a little database migration tool.
 * Improved average using the Binomial proportion confidence interval.
+
+= 1.2.13 =
+
+* Increase Compatibility with wordpress 6.1
 
 == Upgrade Notice ==
 
